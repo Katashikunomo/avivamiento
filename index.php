@@ -1,0 +1,249 @@
+<?php 
+require_once('./includes/database_home.php'); 
+
+$imagen_banner_array = get_image_page();
+$imagen_banner = $imagen_banner_array['dt_nombre'];
+$numero = random_int(1, 31102);
+$versiculo_array = get_versiculo($numero); 
+$versiculo_text = $versiculo_array['text'];
+$versiculo_book = $versiculo_array['name'];
+$versiculo_chapter = $versiculo_array['chapter'];
+$versiculo_verse = $versiculo_array['verse'];
+?> 
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Avivamiento Internacional</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="shortcut icon" href="images/logo.svg" type="image/x-icon">
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/styles.css" >
+    <!-- Scrol BTN -->
+    <script src="js/scrol-btn.js"></script>
+<!-- Icons fontawesome -->
+<!-- <script src="https://kit.fontawesome.com/bc365c36ca.js" crossorigin="anonymous"></script> -->
+</head>
+
+<body>
+
+
+    <header class="container-fluid w-100 ">
+            
+                    <a class="logo" href="#"><img src="images/logo.svg" alt=""></a>
+                    <ul class=" nav   fondo_menu justify-content-end"  >
+                            <li class="nav-item  borde_blanco  d-none d-sm-inline-flex">
+                                <a href="#tab5Id" class="nav-link activo">Inicio</a>
+                            </li>
+                            <li class="nav-item  borde_blanco  d-lg-none d-md-inline-flex" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                                <a href="#tab5Id" class="nav-link ">Menu</a>
+                            </li>
+                            <li class="nav-item  borde_blanco d-none d-lg-inline-flex">
+                                <a href="#tab5Id" class="nav-link " >Conocenos</a>
+                            </li>
+                            <li class="nav-item  borde_blanco d-none d-lg-inline-flex">
+                                <a href="#tab5Id" class="nav-link " >Sedes</a>
+                            </li>
+                            <li class="nav-item  borde_blanco d-none d-lg-inline-flex">
+                                <a href="#tab5Id" class="nav-link " >Educación</a>
+                            </li>
+                            <li class="nav-item  borde_blanco d-none d-lg-inline-flex">
+                                <a href="#tab5Id" class="nav-link " >Eventos</a>
+                            </li>
+                            <li class="nav-item  borde_blanco d-none d-lg-inline-flex">
+                                <a href="#tab5Id" class="nav-link " >Contacto</a>
+                            </li>
+                    </ul>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header ">
+        <h5 id="offcanvasRightLabel ">Avivamiento Internacional</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body fondo_menu">
+        <ul class="nav fonmdo_menu inline_block w-50 centrar">
+                            <li class="nav-item  borde_blanco  ">
+                                <a href="#tab5Id" class="nav-link activo">Inicio</a>
+                            </li>
+                            <li class="nav-item  borde_blanco ">
+                                <a href="#tab5Id" class="nav-link " >Conocenos</a>
+                            </li>
+                            <li class="nav-item  ">
+                                <a href="#tab5Id" class="nav-link " >Sedes</a>
+                            </li>
+                            <li class="nav-item  ">
+                                <a href="#tab5Id" class="nav-link " >Educación</a>
+                            </li>
+                            <li class="nav-item  ">
+                                <a href="#tab5Id" class="nav-link " >Eventos</a>
+                            </li>
+                            <li class="nav-item  ">
+                                <a href="#tab5Id" class="nav-link " >Contacto</a>
+                            </li>
+        </ul>
+      </div>
+    </div>
+</div>
+    </header>
+    <div class="contenedor">
+    </div>
+    <div class="contenedor2">
+    </div>
+    
+<main class="container w-100 ">
+  </br></br></br>
+  <div class="row container fondo centrar">
+    <!--Card que contiene la Imagen y Frase-->
+    <div class=" row centrar ">
+      <!-- Imagen-->
+      <div class=" col-sm-12 col-md-8 ">
+        <div class="card border">
+          <div class="">
+            <h3 class="card-title text-white"></h3>
+            <img src="./admin/img/avivamiento/banner/<?= $imagen_banner ?>" alt="" srcset="" width="100%" style="border-radius:10px;">
+          </div>
+        </div>
+      </div>
+      <!-- Fin Imagen-->
+      <!-- Frase-->
+      <div class="col-sm-12 col-md-4 centro">
+        <div class=" text-center">
+          <div class="card-body">
+            <h3 class="card-title"><?=$versiculo_text;?></h3>
+            <!-- <h3 class="card-title">En el principio creó Dios los cielos y la tierra.</h3> -->
+            <p class="card-text"><?=$versiculo_book;?> <?=$versiculo_chapter;?>:<?=$versiculo_verse;?> </p>
+          </div>  
+          <br><br><br>  
+          <div class="card-body">
+            <a name="" id="" class="boton fondo_cards text-white " href="#calendario" role="button"> <img src="images/calendar.svg" alt="" srcset="" width="10%"><i>-</i> Calendario</a>
+            <br><br><br>
+          </div>
+        </div>
+      </div>
+      <!--Fin Frase-->
+    </div>
+  </div>
+
+  <!--Quienes somos, Proposito, Visión-->
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs fondo_cards-activos" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Quienes Somos</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Proposito</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="messages-tab" data-bs-toggle="tab" data-bs-target="#messages" type="button" role="tab" aria-controls="messages" aria-selected="false">Visión</button>
+    </li>
+  </ul>
+  <!-- Contenido de tabs -->
+  <div class="tab-content ">
+    <div class="tab-pane fondo_cards-activos-contenedor active" id="home" role="tabpanel" aria-labelledby="home-tab">
+       <div class="container-fluid text-white ">
+         <div class="row">
+           <div class="col-md-6 centrar">
+              <p class="centrar">
+              Somos una Iglesia de Avivamiento y Pasión por Cristo, que se mueve en lo Sobrenatural, siguiendo la doctrina de la palabra de Dios, somos valientes y esforzados en Cristo, guiandonos en el espiritu por Dios predicando el evangelio y dar buenas nuevas a los pobres, sanar a los quebrantados de corazón, pregonar libertad a los cautivos y vista a los ciegos a poner libertad a los oprimidos y predicar el alma agradable del Señor.
+              </p>       
+           </div>
+           <div class="col-md-6">
+              <img src="https://scontent.fmex11-3.fna.fbcdn.net/v/t39.30808-6/358100650_662488025906302_3409244123071063900_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeFTDFOBMoDHMCobkVdy2dYXUEe2_CMdfd9QR7b8Ix193684iWmyzl7q8swJDDiPUXJb-C6BG8CXCo0C-MAp3s4g&_nc_ohc=9Ayjj11xhSIAX8O906Y&_nc_ht=scontent.fmex11-3.fna&oh=00_AfDSybeogKvJR1DLn1G9swaDD5f7mrkrZiK1z84JbEjTUw&oe=64B4BAA8" alt="" width="100%">
+           </div>
+         </div>
+      
+
+       </div> 
+    </div>
+    <div class="tab-pane fondo_cards-activos-contenedor" id="profile" role="tabpanel" aria-labelledby="profile-tab"> 
+    <div class="container-fluid text-white ">
+         Proposito
+       </div> 
+    </div>
+    <div class="tab-pane fondo_cards-activos-contenedor" id="messages" role="tabpanel" aria-labelledby="messages-tab">
+    <div class="container-fluid text-white ">
+         Visión
+       </div> 
+      </div>
+  </div>
+  <!--Quienes somos, Proposito, Visión-->
+  
+
+  <!-- Calendario -->
+  <br></br></br><br>
+  <a id="calendario" name="calendario"></a>
+  <div class="container fondo_calendario">
+    <h4 class="calendario_h4">Calendario</h4>
+  </div>
+  
+  <div class="row container  w-100 centrar">
+    <div class="row   centrar__calendario">
+      <div class="  col-sm-12 col-md-4  ">
+        <div class="card ">
+          <div class="fondo_calendario_cards">
+            <h3 class="fondo_calendario">Sanidades y Milagros</h3>
+            <img src="https://scontent.fmex11-1.fna.fbcdn.net/v/t39.30808-6/349307385_1067713927948477_2546638713731163798_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeGDQqCi3mCcA1MLz0BMC1FXiXDh7IpZwcmJcOHsilnBybXEvBwaGxGAY6tGVSxbhUHt9pYe0W3ZyyVb1jAQL__R&_nc_ohc=QAeakecOjB8AX_ErNja&_nc_ht=scontent.fmex11-1.fna&oh=00_AfCsW2fYHaVBz0d2X30uS_Gg70SU5bD--d5h4RRZo1kIXQ&oe=64B38FDD" alt="" width="100%">
+            <a name="" id="" class="btn fondo_calendario_a" href="#" role="button">Recibir notificación acerca de este evento</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="  col-sm-12 col-md-4 ">
+        <div class="card  fondo_calendario_cards">
+          <div class="fondo_calendario_cards">
+          <h3 class="fondo_calendario">Congreso de Avivamiento Internacional</h3>
+            <img src="https://scontent.fmex11-1.fna.fbcdn.net/v/t39.30808-6/349307385_1067713927948477_2546638713731163798_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeGDQqCi3mCcA1MLz0BMC1FXiXDh7IpZwcmJcOHsilnBybXEvBwaGxGAY6tGVSxbhUHt9pYe0W3ZyyVb1jAQL__R&_nc_ohc=QAeakecOjB8AX_ErNja&_nc_ht=scontent.fmex11-1.fna&oh=00_AfCsW2fYHaVBz0d2X30uS_Gg70SU5bD--d5h4RRZo1kIXQ&oe=64B38FDD" alt="" width="100%">
+            <a name="" id="" class="btn fondo_calendario_a" href="#" role="button">Recibir notificación acerca de este evento</a>
+          </div>
+        </div>
+      </div>
+      <div class="  col-sm-12 col-md-4  ">
+        <div class="card ">
+          <div class="fondo_calendario_cards">
+            <h3 class="fondo_calendario">Sanidades y Milagros</h3>
+            <img src="https://scontent.fmex11-1.fna.fbcdn.net/v/t39.30808-6/349307385_1067713927948477_2546638713731163798_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeGDQqCi3mCcA1MLz0BMC1FXiXDh7IpZwcmJcOHsilnBybXEvBwaGxGAY6tGVSxbhUHt9pYe0W3ZyyVb1jAQL__R&_nc_ohc=QAeakecOjB8AX_ErNja&_nc_ht=scontent.fmex11-1.fna&oh=00_AfCsW2fYHaVBz0d2X30uS_Gg70SU5bD--d5h4RRZo1kIXQ&oe=64B38FDD" alt="" width="100%">
+            <a name="" id="" class="btn fondo_calendario_a" href="#" role="button">Recibir notificación acerca de este evento</a>
+          </div>
+        </div>
+      </div>
+      
+
+    </div>
+  </div>  
+</main>
+
+<footer class="fondo_footer centrar">
+            <!-- place footer here -->
+            <div class="  ">
+
+            </div>
+</footer>
+
+<button id="scrollButton" class="scroll-button" onclick="scrollToTop()"><img src="images/rrow.svg" alt="" srcset=""></button>
+  
+    <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+<!-- Scrol BTN -->
+
+<script src="js/scrol-btn.js"></script>
+<!-- Icons fontawesome -->
+<!-- <script src="https://kit.fontawesome.com/bc365c36ca.js" crossorigin="anonymous"></script> -->
+
+</body>
+
+</html>
+
+<!-- <?php  //require_once('views/footer.php'); ?> -->

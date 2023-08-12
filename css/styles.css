@@ -1,0 +1,297 @@
+
+/************************/
+/* 0-Generales          */
+/* 1-root               */
+/* 2-Estilos Navbar     */
+/* 3-Estilos Main       */
+/* 4-Estilos Footer     */
+/*                      */
+/************************/
+
+/* --> 0-Generales */
+html,*{
+    transition:ease-in-out 0.9s;   
+    scroll-behavior: smooth  !important;
+    
+}
+header,main{
+    margin: auto;
+}
+a{
+    text-decoration: none !important;
+    scroll-behavior: smooth;
+}
+.centrar{
+    margin: auto;
+}
+
+/* --> Estilo para fondo general de HTML */
+.contenedor{
+    /* Forma izquierda */
+position: fixed ;
+width: 100%;
+max-width: 280px;
+height: 310px;
+left: -184px;
+z-index: -103;
+opacity: 0.9;
+top: -58px;
+transform: rotate(135deg);
+background: linear-gradient(180deg, rgba(11, 33, 130, 0.711) 0%, rgba(7, 49, 157, 0) 100%);
+border-radius:  120px 192px 155px 10px;
+filter: blur(3px);
+
+}
+.contenedor2{
+    /* Forma derecha */
+position:fixed ;
+width: 100%;
+max-width: 280px;
+height: 310px;
+right: -100px;
+z-index: -103;
+opacity: 0.8;
+top: -58px;
+transform: rotate(135deg);
+background: linear-gradient(180deg, rgba(11, 33, 130, 0.325) 0%, rgba(7, 50, 157, 0.633) 100%);
+border-radius:  120px 192px 155px 10px;
+filter: blur(3px);
+
+}
+/* <-- End Estilo para fondo general de HTML */
+
+/* ----------------------------------------- */
+
+/* --> 1-root */
+:root{
+    --colorPrincipal: #051E5E ;   
+    --colorSecundario: #384883 ;   
+    --colorGris: rgb(77, 77, 77) ;   
+    --colorBlanco: #fff ;   
+    --colorRojo: #FF0000 ;   
+}
+
+/* --> Estilos de Header elementos de navbar */
+.fondo_menu{
+    background: var(--colorPrincipal);
+    border-radius: 0px 0px 20px 80px;
+    height: 82px;
+    padding: 10px  85px ;
+    border-bottom: 5px solid var(--colorBlanco);
+    box-shadow: 0px 1px 4px 1px var(--colorGris) !important;
+}
+
+.nav-link{
+    color: var(--colorBlanco) !important;
+    margin-top: -10px !important;
+    margin-right: 15px !important;    
+    width: 80px !important;
+    height: 80px !important;
+    font-size: 14px !important;
+    margin: 0px auto !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    border-radius: 100%;
+    transition:ease-in-out 0.5s !important;
+}
+.nav-link:hover{
+    border-radius: 100%;
+    border: 5px solid var(--colorBlanco) !important;
+    transition:ease-in 0.9s;
+}
+
+.borde_blanco{
+    margin-top: -10px;
+    margin-right: 15px !important;
+    text-align: center !important; 
+}
+
+.activo{
+    border-radius: 100% !important;
+    background: var(--colorPrincipal) !important ;
+    color: var(--colorBlanco) !important;
+    border: 7px solid var(--colorBlanco) !important;
+    padding: 10px;
+    margin: auto;
+}
+/* <-- End Estilos de Header elementos de navbar */
+
+/* --> Estilos de logo */
+.logo{
+    border-radius: 0px 0px 100px 100px;
+    color: var(--colorBlanco) ;
+    position: absolute;
+    background: var(--colorPrincipal) !important ;
+    padding: 30px;
+    padding-bottom: 20px;
+    height: 90px;
+    box-shadow: 0px 1px 4px 1px var(--colorGris), 0px 1px 4px 1px var(--colorPrincipal)  !important;
+}
+/* <-- End Estilos de logo */
+
+/* --> 3-Estilos Main */
+
+.centro{
+    display: flex;
+    align-items: center;
+    border-bottom: 15PX solid var(--colorPrincipal) !important;
+}
+
+/* Diseño para las cards */
+
+.fondo_cards{
+    background: var(--colorPrincipal);
+    box-shadow: 0px 1px 4px 1px rgb(77, 77, 77) !important;
+}
+
+.boton{
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 22px;
+    border-radius: 22px;
+    margin-bottom: 50px;
+}
+
+.fondo_cards-activos{
+    background: var(--colorPrincipal);
+    /* box-shadow: 0px 1px 4px 1px rgb(77, 77, 77) !important; */
+    width: 300px;
+    margin: 0px auto;
+    margin-top: 150px;
+    border-radius:  20px;
+    padding: 0px 20px;
+    border-bottom: 10px solid var(--colorPrincipal);
+}
+
+.fondo_cards-activos-contenedor{
+    background: var(--colorPrincipal);
+    box-shadow: 0px 1px 4px 1px rgb(77, 77, 77) !important;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    border-radius: 10px;
+    color: var(--colorBlanco);
+    padding: 20px;
+    margin-top: -15px;
+}
+
+.active{
+    color: var(--colorPrincipal) !important;
+}
+
+/* Deseño de calendario Home */
+.fondo_calendario{
+    background: var(--colorPrincipal);
+    /* box-shadow: 0px 1px 4px 1px rgb(77, 77, 77) !important; */
+    box-shadow: -1px 2px 5px 1px var(--colorPrincipal);
+    width: 100%;
+    max-width: 577px;
+    /* margin-bottom: 10px; */
+    border-radius: 50px 10px 50px 10px;
+    padding: 10px;
+    color: var(--colorBlanco);
+    text-align: center;
+    font-size: 22px;
+    /* margin-top: 50px ; */
+}
+.fondo_calendario_a{
+    background: var(--colorPrincipal);
+    padding: 10px;
+    color: var(--colorBlanco);
+    width: 100%;
+    max-width: 577px;
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 50px;
+    transition: all ease-in 0.9s;
+    
+}
+
+.fondo_calendario_a:hover{
+    transition: all ease-out 0.9s;
+}
+
+.calendario_h4{
+    width: 100%;
+    max-width: 200px;
+    border-bottom: 7px solid var(--colorRojo) ;
+    margin: auto;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.fondo_calendario_cards{
+    /* background: transparent !important; */
+    /* padding: 1PX; */
+    padding: 1PX;
+    margin-top: 40PX;    
+    /* box-shadow: -1px 2px 50px 10px var(--colorPrincipal); */
+    transition: all ease-in 0.8s;
+    border-radius: 10px;
+}
+.fondo_calendario_cards:hover{
+    width: 100%;
+    /* position:absolute; */
+    z-index: 900;
+    margin: -1% auto;
+    cursor: pointer;
+    transition: all ease-in-out 0.8s;
+    border-radius: 10px;
+    box-shadow: -1px 2px 50px 10px var(--colorPrincipal);
+    
+}
+
+
+.centrar__calendario{
+    width: 100%;
+    max-width: 1200px;
+    padding: 10px;
+    margin: 10px auto;
+}
+
+.card{
+    /* background: var(--colorSecundario); */
+    border: none;
+    box-shadow: -1px 5px 10px 1px var(--colorBlanco) ,-1px 5px 10px 1px var(--colorBlanco);
+}
+/* -------------------- */
+
+/* --> 4-Estilos Footer */
+.fondo_footer{
+    background: var(--colorPrincipal);
+    border-radius: 20px 20px 0px 0px;
+    height: 18vh;
+    width: 99%;
+    padding: 10px  85px ;
+    border-top: 5px solid var(--colorBlanco);
+    box-shadow: 0px 1px 4px 1px var(--colorGris) !important;
+    margin-top: 80px;
+}
+
+/* <-- End 4-Estilos Footer */
+
+
+/* Estilo de boton scroll */
+#scrollButton {
+    display: none;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 70px;
+    height: 70px;
+    background: linear-gradient( -40deg, var(--colorPrincipal) 20% , var(--colorSecundario) 45%, var(--colorBlanco)  ) ;
+    color: var(--colorBlanco);
+    border: none;
+    border-radius: 100%;
+    cursor: pointer;
+    box-shadow: 1px 1px 15px 4px var(--colorGris), 0px 0px 1px 1px var(--colorBlanco);
+  }
+  
+#scrollButton.show {
+    display: block;
+    z-index: 900;
+  }
+  
