@@ -1,8 +1,17 @@
 <?php 
 require_once('./includes/database_home.php'); 
-
+mysqli_set_charset($mysqli, 'utf8');
 $imagen_banner_array = get_image_page();
 $imagen_banner = $imagen_banner_array['dt_nombre'];
+$var_reg=2;
+if (isset($_GET['dato'])) {
+  $var_reg = $_GET['dato'];
+}
+// print_r($var_reg);
+$imagen_quienes_somos_array = get_image_page_quienesomos($var_reg);
+$texto_quienes_somos_array = get_image_page_proposito_text($var_reg);
+$imagen_quienes_somos = $imagen_quienes_somos_array['dt_nombre'];
+$texto_quienes_somos = $texto_quienes_somos_array['dt_texto'];
 $numero = random_int(1, 31102);
 $versiculo_array = get_versiculo($numero); 
 $versiculo_text = $versiculo_array['text'];
@@ -122,7 +131,8 @@ $versiculo_verse = $versiculo_array['verse'];
           </div>  
           <br><br><br>  
           <div class="card-body">
-            <a name="" id="" class="boton fondo_cards text-white " href="#calendario" role="button"> <img src="images/calendar.svg" alt="" srcset="" width="10%"><i>-</i> Calendario</a>
+          <div class="bg-primary text-white p-3 rotate-15 d-inline-block my-4" style="transform: rotate(-1deg); position: absolute; border-radius:0px 90px 0px 90px; margin-left:15px; margin-top:50px !important; padding:6px !important;  "><a href="#calendario" style="color:#fff;">5 proximas fechas</a></div>
+            <a name="" id="" class="boton fondo_cards text-white " style="padding-bottom:30px !important; padding-right:35px !important;" href="#calendario" role="button"> <img src="images/calendar.svg" alt="" srcset="" width="10%"><i>-</i> Calendario</a>
             <br><br><br>
           </div>
         </div>
@@ -133,47 +143,94 @@ $versiculo_verse = $versiculo_array['verse'];
 
   <!--Quienes somos, Proposito, Visión-->
   <!-- Nav tabs -->
+  <a name="ancla" id="ancla"></a>
   <ul class="nav nav-tabs fondo_cards-activos" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
-      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Quienes Somos</button>
+      <!-- <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Quienes Somos</button> -->
+      <a class="nav-link <?php if($var_reg==2){echo 'active';}?>"   href="index.php?dato=2#ancla">Quienes Somos</a>
     </li>
     <li class="nav-item" role="presentation">
-      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Proposito</button>
+      <!-- <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Proposito</button> -->
+      <a class="nav-link <?php if($var_reg==3){echo 'active';}?>"   href="index.php?dato=3#ancla">Proposito</a>
     </li>
     <li class="nav-item" role="presentation">
-      <button class="nav-link" id="messages-tab" data-bs-toggle="tab" data-bs-target="#messages" type="button" role="tab" aria-controls="messages" aria-selected="false">Visión</button>
+      <!-- <button class="nav-link" id="messages-tab" data-bs-toggle="tab" data-bs-target="#messages" type="button" role="tab" aria-controls="messages" aria-selected="false">Visión</button> -->
+      <a class="nav-link <?php if($var_reg==4){echo 'active';}?>"   href="index.php?dato=4#ancla">Visión</a>
     </li>
   </ul>
   <!-- Contenido de tabs -->
+  <!--Quienes somos, Proposito, Visión-->
+  <?php
+  if ($var_reg == 2) {
+    # code...
+  
+  ?>
+  <a name="ancla" id="ancla"></a>
   <div class="tab-content ">
     <div class="tab-pane fondo_cards-activos-contenedor active" id="home" role="tabpanel" aria-labelledby="home-tab">
        <div class="container-fluid text-white ">
          <div class="row">
            <div class="col-md-6 centrar">
               <p class="centrar">
-              Somos una Iglesia de Avivamiento y Pasión por Cristo, que se mueve en lo Sobrenatural, siguiendo la doctrina de la palabra de Dios, somos valientes y esforzados en Cristo, guiandonos en el espiritu por Dios predicando el evangelio y dar buenas nuevas a los pobres, sanar a los quebrantados de corazón, pregonar libertad a los cautivos y vista a los ciegos a poner libertad a los oprimidos y predicar el alma agradable del Señor.
+              <?= $texto_quienes_somos;?>
               </p>       
            </div>
            <div class="col-md-6">
-              <img src="https://scontent.fmex11-3.fna.fbcdn.net/v/t39.30808-6/358100650_662488025906302_3409244123071063900_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeFTDFOBMoDHMCobkVdy2dYXUEe2_CMdfd9QR7b8Ix193684iWmyzl7q8swJDDiPUXJb-C6BG8CXCo0C-MAp3s4g&_nc_ohc=9Ayjj11xhSIAX8O906Y&_nc_ht=scontent.fmex11-3.fna&oh=00_AfDSybeogKvJR1DLn1G9swaDD5f7mrkrZiK1z84JbEjTUw&oe=64B4BAA8" alt="" width="100%">
+           <img src="./admin/img/avivamiento/banner/<?=$imagen_quienes_somos; ?>" alt="" srcset="" width="100%" style="border-radius:10px;">
            </div>
          </div>
-      
-
        </div> 
     </div>
-    <div class="tab-pane fondo_cards-activos-contenedor" id="profile" role="tabpanel" aria-labelledby="profile-tab"> 
-    <div class="container-fluid text-white ">
-         Proposito
-       </div> 
-    </div>
-    <div class="tab-pane fondo_cards-activos-contenedor" id="messages" role="tabpanel" aria-labelledby="messages-tab">
-    <div class="container-fluid text-white ">
-         Visión
-       </div> 
-      </div>
   </div>
-  <!--Quienes somos, Proposito, Visión-->
+  <?php
+  
+  }elseif ($var_reg == 3) {
+
+  ?>
+  
+  <div class="tab-content ">
+    <div class="tab-pane fondo_cards-activos-contenedor active" id="home" role="tabpanel" aria-labelledby="home-tab">
+       <div class="container-fluid text-white ">
+         <div class="row">
+           <div class="col-md-6 centrar">
+              <p class="centrar">
+              Proposito
+              </p>       
+           </div>
+           <div class="col-md-6">
+           <img src="./admin/img/avivamiento/banner/<?=$imagen_quienes_somos; ?>" alt="" srcset="" width="100%" style="border-radius:10px;">
+           </div>
+         </div>
+       </div> 
+    </div>
+  </div>
+  <?php
+    
+  }elseif ($var_reg == 4 ) {
+  ?>
+  
+  
+  <div class="tab-content ">
+    <div class="tab-pane fondo_cards-activos-contenedor active" id="home" role="tabpanel" aria-labelledby="home-tab">
+       <div class="container-fluid text-white ">
+         <div class="row">
+           <div class="col-md-6 centrar">
+              <p class="centrar">
+              Proposito
+              </p>       
+           </div>
+           <div class="col-md-6">
+           <img src="./admin/img/avivamiento/banner/<?=$imagen_quienes_somos; ?>" alt="" srcset="" width="100%" style="border-radius:10px;">
+           </div>
+         </div>
+       </div> 
+    </div>
+  </div>
+  <?php
+    
+  }
+  ?>
+  
   
 
   <!-- Calendario -->
@@ -226,7 +283,7 @@ $versiculo_verse = $versiculo_array['verse'];
             </div>
 </footer>
 
-<button id="scrollButton" class="scroll-button" onclick="scrollToTop()"><img src="images/rrow.svg" alt="" srcset=""></button>
+<button id="scrollButton" class="scroll-button" onclick="scrollToTop()" style="width:50px; height:50px;"><img src="images/rrow.svg" alt="" srcset=""></button>
   
     <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

@@ -7,12 +7,15 @@ if ($_SESSION['dt_email'] == false) {
 require_once("includes/database.php");
 
 $id_user = $_SESSION['id_users'];
-$nombre = $_SESSION['dt_nombre'];
-$correo = $_SESSION['dt_email'];
+$user = get_user($id_user);
+$nombre = $user['dt_nombre'];
+$correo = $user['dt_email'];
+
 $imagen = imagen_user($id_user);
 $imagen_banner_array = get_image_page();
 $imagen_banner = $imagen_banner_array['nombre_imagen'];
 $imagen_banner_usr = $imagen_banner_array['nombre_encargado'];
+$imagen_usr = $imagen_banner_array['imagen'];
 
 
 ?>
@@ -318,7 +321,7 @@ $imagen_banner_usr = $imagen_banner_array['nombre_encargado'];
                                                         ?>
                                                         <img class="img-fluid img-thumbnail" src="img/avivamiento/banner/<?=$imagen_banner?>" alt="" style="width:auto;">
                                                         <p class="form-text text-muted">
-                                                            <!-- Imagen agregada por : <?php echo $imagen_banner_usr;?> -->
+                                                            Imagen agregada por : <?php echo $imagen_banner_usr;?> <img class="img-profile rounded-circle" src="img/avivamiento/<?= $imagen_usr;?>" style=" width:50px; height:50px; border-radius:330px !important;">
                                                         </p>
                                                         <?php
                                                     }else{

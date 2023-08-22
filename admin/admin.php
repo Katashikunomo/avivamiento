@@ -5,9 +5,12 @@ if ($_SESSION['dt_email'] == false) {
     header("location: index.php");
 }
 require_once("includes/database.php");
-$nombre = $_SESSION['dt_nombre'];
+// $nombre = $_SESSION['dt_nombre'];
 $id_user = $_SESSION['id_users'];
 $imagen = imagen_user($id_user);
+$user = get_user($id_user);
+$nombre = $user['dt_nombre'];
+$correo = $user['dt_email'];
 ?>
 <!DOCTYPE html>
 <html lang="en">

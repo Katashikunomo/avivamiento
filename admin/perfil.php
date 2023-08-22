@@ -7,8 +7,10 @@ if ($_SESSION['dt_email'] == false) {
 require_once("includes/database.php");
 
 $id_user = $_SESSION['id_users'];
-$nombre = $_SESSION['dt_nombre'];
-$correo = $_SESSION['dt_email'];
+$user = get_user($id_user);
+$nombre = $user['dt_nombre'];
+$correo = $user['dt_email'];
+
 
 $imagen = imagen_user($id_user);
 
@@ -326,7 +328,7 @@ $imagen = imagen_user($id_user);
                                                 </div>
                                                 <?php } ?>
                                                 <div style="text:center; margin:auto;">
-                                                    <button type="sumit" class="btn btn-primary" style="color:#fff; width:100%;" >Cambiar Imagen</button>
+                                                    <button type="submit" class="btn btn-primary" style="color:#fff; width:100%;" >Cambiar Imagen</button>
                                                 </div>
                                             </form>
                                           
@@ -338,38 +340,57 @@ $imagen = imagen_user($id_user);
                                         <h6 class="m-0 font-weight-bold text-primary">Inmformación de la cuenta</h6>
                                     </div>
                                     <div class="card-body">
-                                        <form action="" method="post" >
-                                            
+                                        <form action="model/actualiza_perfil.php" method="POST" >
                                             <div class="mb-3">
                                               <!-- <label for="" class="form-label">id</label> -->
-                                              <input type="email" class="form-control" name="nombre" id="nombre" aria-describedby="emailHelpId" value="<?=$id_user;?>" hidden>
+                                              <input type="number" class="form-control" name="id" id="id" aria-describedby="emailHelpId" value="<?=$id_user;?>" hidden>
                                             </div>
                                             <div class="mb-3">
                                               <label for="" class="form-label">Nombre</label>
-                                              <input type="email" class="form-control" name="nombre" id="nombre" aria-describedby="emailHelpId" value="<?=$nombre;?>" required>
+                                              <input type="text" class="form-control" name="dtnombre" id="dtnombre" aria-describedby="emailHelpId" value="<?=$nombre;?>" required>
                                             </div>
                                             <div class="mb-3">
                                               <label for="" class="form-label">Email</label>
-                                              <input type="email" class="form-control" name="" id="" aria-describedby="emailHelpId" value="<?=$correo;?>" required>
+                                              <input type="email" class="form-control" name="dtemail" id="dtemail" aria-describedby="emailHelpId" value="<?=$correo;?>" required>
                                             </div>
-                                            <!-- <div class="mb-3">
-                                              <label for="passw" class="form-label">password</label>
-                                              <input type="email" class="form-control" name="passw" id="passw" aria-describedby="emailHelpId" placeholder="password actual">
-                                            </div> -->
-                                                <?php
+                                            <?php
                                                 // Si los datos no existen mostrara el siguiente mensaje
-                                                if (isset($_GET['error'])) 
+                                                if (isset($_GET['exitoso'])) 
                                                 {
                                                 ?>
-                                                <!-- <div class="alert alert-danger" role="alert">
-                                                el password es incorrecto
-                                                </div> -->
+                                                <div class="alert alert-primary" role="alert" id="alertmessage">
+                                                    <strong>Datos Actualizados Correctamente</strong> ♥
+                                                </div>
+                                                
+                                                <script>
+                                                    $('#alertmessage').fadeIn();     
+                                                    setTimeout(function() {
+                                                        $("#alertmessage").fadeOut();           
+                                                    },2000);
+                                                </script>
+                                                
                                                 <?php } ?>
-                                            <!-- <div class="mb-3">
+                                            <button type="submit" class="btn btn-primary" style="color:#fff; width:100%;" >Actualizar Iformación</button>
+                                        </form>
+                                        <form action="" method="post">
+                                        <div class="mb-3">
+                                              <label for="passw" class="form-label">password</label>
+                                              <input type="password" class="form-control" name="dtpassw" id="dtpassw" aria-describedby="emailHelpId" placeholder="password actual">
+                                            </div>
+                                                <?php
+                                                // Si los datos no existen mostrara el siguiente mensaje
+                                                if (isset($_GET['errorpassw'])) 
+                                                {
+                                                ?>
+                                                <div class="alert alert-danger" role="alert">
+                                                el password es incorrecto
+                                                </div>
+                                                <?php } ?>
+                                            <div class="mb-3">
                                               <label for="" class="form-label">Nuevo password</label>
-                                              <input type="email" class="form-control" name="" id="" aria-describedby="emailHelpId" placeholder="password actual">
-                                            </div> -->
-                                            
+                                              <input type="password" class="form-control" name="newpass" id="newpass" aria-describedby="emailHelpId" placeholder="password actual">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary" style="color:#fff; width:100%;" >Cambiar contraseña</button>
                                         </form>
                                     </div>
                         </div>
@@ -421,6 +442,25 @@ $imagen = imagen_user($id_user);
         </div>
     </div>
 
+    <!-- UPDATE MODAL -->
+    <!-- <div class="modal fade" id="updatetModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Estas seguro de cerrar Sesión?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Selecciona "Salir" si deseas salir.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-primary" href="logout.php">Salir</a>
+                </div>
+            </div>
+        </div>
+    </div> -->
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

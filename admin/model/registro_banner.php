@@ -38,7 +38,7 @@
                     }
                 }
                 if ($bandera) {
-                    $query = "UPDATE cat_images_page SET dt_nombre ='$imagen', dt_date = NOW() WHERE id_imagen_glob =1 ";
+                    $query = "UPDATE cat_images_page SET dt_nombre ='$imagen', dt_date = NOW() WHERE id_imagen_glob =1 AND id_user = '$id'";
                     $mysqli->query($query);
                     // Se redirecciona al usuario al perfil
                     header("Location:../banner.php");
