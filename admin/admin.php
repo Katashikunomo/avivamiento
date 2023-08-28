@@ -302,7 +302,7 @@ $correo = $user['dt_email'];
                                     <!-- Imagen Principal -->
                             <div class="card shadow mb-4">
                                         <div class="card-header py-3">
-                                            <h6 class="m-0 font-weight-bold text-primary">Imagen Principal|</h6>
+                                            <h6 class="m-0 font-weight-bold text-primary">Imagen Principal</h6>
                                         </div>
                                         <div class="card-body">
                                         <h5>
@@ -311,7 +311,7 @@ $correo = $user['dt_email'];
                                         <a name="" id="" class="btn btn-primary" href="banner.php" role="button">Modificar</a>  
                                         </div>
                             </div>
-                            <!-- Agenda -->
+                            <!-- Quienes Somos -->
                             <div class="card shadow mb-4">
                                         <div class="card-header py-3">
                                             <h6 class="m-0 font-weight-bold text-primary">Quienes Somos, Proposito y Visión</h6>
@@ -328,12 +328,13 @@ $correo = $user['dt_email'];
                            <!-- Eventos -->
                            <div class="card shadow mb-4">
                                         <div class="card-header py-3">
-                                            <h6 class="m-0 font-weight-bold text-primary">Basic Card Example</h6>
+                                            <h6 class="m-0 font-weight-bold text-primary">Agenda y eventos</h6>
                                         </div>
                                         <div class="card-body">
-                                            The styling for this basic card example is created by using default Bootstrap
-                                            utility classes. By using utility classes, the style of the card component can be
-                                            easily modified with no need for any custom CSS!
+                                            <h5>
+                                                Agrega fehcas importantes para el calendario
+                                            </h5>    
+                                            <a name="" id="" class="btn btn-primary" href="agenda.php" role="button">Modificar</a>  
                                         </div>
                             </div>
                             <!-- Sedes -->

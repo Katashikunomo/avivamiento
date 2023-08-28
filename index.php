@@ -19,6 +19,38 @@ $versiculo_book = $versiculo_array['name'];
 $versiculo_chapter = $versiculo_array['chapter'];
 $versiculo_verse = $versiculo_array['verse'];
 ?> 
+<?php
+// Conexión a la base de datos (reemplaza con tus propios detalles)
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "avivamiento";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Error de conexión: " . $conn->connect_error);
+}
+
+// Consultar cantidad de eventos
+$sql = "SELECT COUNT(fecha) as 'numerototal' FROM tb_fechas";
+$result_fechas = $conn->query($sql);
+$array_fechas_total = $result_fechas->fetch_assoc();
+$array_fechas = $array_fechas_total['numerototal'];
+// Consultar las fechas seleccionadas desde la base de datos
+$sql = "SELECT fecha FROM tb_fechas";
+$result = $conn->query($sql);
+
+$selectedDates = array();
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $selectedDates[] = $row["fecha"];
+    }
+}
+
+$conn->close();
+?>
 
 <!doctype html>
 <html lang="en">
@@ -37,6 +69,13 @@ $versiculo_verse = $versiculo_array['verse'];
     <link rel="stylesheet" href="css/styles.css" >
     <!-- Scrol BTN -->
     <script src="js/scrol-btn.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <style>
+        .selected-date {
+            background-color: #FF0000 !important;
+            color: #ffffff;
+        }
+    </style>
 <!-- Icons fontawesome -->
 <!-- <script src="https://kit.fontawesome.com/bc365c36ca.js" crossorigin="anonymous"></script> -->
 </head>
@@ -131,7 +170,7 @@ $versiculo_verse = $versiculo_array['verse'];
           </div>  
           <br><br><br>  
           <div class="card-body">
-          <div class="bg-primary text-white p-3 rotate-15 d-inline-block my-4" style="transform: rotate(-1deg); position: absolute; border-radius:0px 90px 0px 90px; margin-left:15px; margin-top:50px !important; padding:6px !important;  "><a href="#calendario" style="color:#fff;">5 proximas fechas</a></div>
+          <div class="bg-primary text-white p-3 rotate-15 d-inline-block my-4" style="transform: rotate(-1deg); position: absolute; border-radius:0px 90px 0px 90px; margin-left:15px; margin-top:50px !important; padding:6px !important;  "><a href="#calendario" style="color:#fff;"><?php echo $array_fechas;?> proximas fechas</a></div>
             <a name="" id="" class="boton fondo_cards text-white " style="padding-bottom:30px !important; padding-right:35px !important;" href="#calendario" role="button"> <img src="images/calendar.svg" alt="" srcset="" width="10%"><i>-</i> Calendario</a>
             <br><br><br>
           </div>
@@ -238,6 +277,35 @@ $versiculo_verse = $versiculo_array['verse'];
   <a id="calendario" name="calendario"></a>
   <div class="container fondo_calendario">
     <h4 class="calendario_h4">Calendario</h4>
+    <div class="container mt-5">
+        <h2>Calendario con Fechas Seleccionadas</h2>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex justify-content-between mb-3">
+                    <button class="btn btn-primary" id="prev-month">Mes Anterior</button>
+                    <h3 id="current-month">Mes Actual</h3>
+                    <button class="btn btn-primary" id="next-month">Mes Siguiente</button>
+                </div>
+                <table class="table table-bordered text-light">
+                    <thead>
+                        <tr>
+                            <th>D</th>
+                            <th>L</th>
+                            <th>M</th>
+                            <th>M</th>
+                            <th>J</th>
+                            <th>V</th>
+                            <th>S</th>
+                        </tr>
+                    </thead>
+                    <tbody id="calendar-table">
+                        <!-- Aquí se generará el calendario en forma de tabla con fechas -->
+                        <!-- El contenido del calendario se generará dinámicamente con JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
   </div>
   
   <div class="row container  w-100 centrar">
@@ -299,8 +367,58 @@ $versiculo_verse = $versiculo_array['verse'];
 <!-- Icons fontawesome -->
 <!-- <script src="https://kit.fontawesome.com/bc365c36ca.js" crossorigin="anonymous"></script> -->
 
+<!-- Agenda -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+        $(document).ready(function() {
+            var selectedDates = <?php echo json_encode($selectedDates); ?>;
+            var currentDate = new Date();
+
+            updateCalendar(currentDate);
+
+            $("#prev-month").click(function() {
+                currentDate.setMonth(currentDate.getMonth() - 1);
+                updateCalendar(currentDate);
+            });
+
+            $("#next-month").click(function() {
+                currentDate.setMonth(currentDate.getMonth() + 1);
+                updateCalendar(currentDate);
+            });
+
+            function updateCalendar(date) {
+                $("#current-month").text(date.toLocaleString("default", { month: "long", year: "numeric" }));
+                $("#calendar-table").empty();
+                var firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
+                var lastDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+
+                var currentDay = new Date(firstDayOfMonth);
+                var row = $("<tr>");
+
+                while (currentDay <= lastDayOfMonth) {
+                    if (currentDay.getDay() === 0) {
+                        $("#calendar-table").append(row);
+                        row = $("<tr>");
+                    }
+
+                    var cellDate = currentDay.toISOString().slice(0, 10);
+                    var cellClass = selectedDates.includes(cellDate) ? "selected-date" : "";
+
+                    var cell = $("<td>")
+                        .addClass(cellClass)
+                        .text(currentDay.getDate());
+
+                    row.append(cell);
+                    currentDay.setDate(currentDay.getDate() + 1);
+                }
+
+                $("#calendar-table").append(row);
+            }
+        });
+    </script>
+
 </body>
 
 </html>
-
-<!-- <?php  //require_once('views/footer.php'); ?> -->
