@@ -8,7 +8,7 @@ if ($_POST) {
     // ---------------------------------------------
 
     global $mysqli;
-    $query = "SELECT * FROM tb_proposito where id_encargado = '$iduser' AND tp_imagen = 2"; // valida si se encuentra el usuario o no
+    $query = "SELECT * FROM tb_proposito where id_encargado = '$iduser' AND tp_imagen = '$tp_image'"; // valida si se encuentra el usuario o no
     $res = $mysqli->query($query);
     foreach ($res as $value) {
         $falso = $value['id_encargado'];
@@ -20,7 +20,7 @@ if ($_POST) {
         }
     }
     if ($bandera) {
-        $query = "UPDATE tb_proposito SET dt_texto ='$dttexto', dt_create = NOW() WHERE tp_imagen =2 and id_encargado = '$iduser' ";
+        $query = "UPDATE tb_proposito SET dt_texto ='$dttexto', dt_create = NOW() WHERE tp_imagen ='$tp_image' and id_encargado = '$iduser' ";
         $mysqli->query($query);
         // Se redirecciona al usuario al perfil
         header("Location:../proposito.php");

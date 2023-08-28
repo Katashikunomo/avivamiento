@@ -27,7 +27,7 @@ if ($_POST) {
             // Si el fichero es valido se realiza el insert en la base de datos con el nombre de la imagen
             global $mysqli;
             // $bandera = true;
-            $query = "SELECT * FROM cat_images_page where id_user = '$id' AND id_imagen_glob = 2";
+            $query = "SELECT * FROM cat_images_page where id_user = '$id' AND id_imagen_glob = '$id_image'";
             $res = $mysqli->query($query);
             foreach ($res as $value) {
                 $falso = $value['id_user'];
@@ -39,7 +39,7 @@ if ($_POST) {
                 }
             }
             if ($bandera) {
-                $query = "UPDATE cat_images_page SET dt_nombre ='$imagen', dt_date = NOW() WHERE id_imagen_glob =2 and id_user = '$id' ";
+                $query = "UPDATE cat_images_page SET dt_nombre ='$imagen', dt_date = NOW() WHERE tp_image ='$tpimage' and id_user = '$id' ";
                 $mysqli->query($query);
                 // Se redirecciona al usuario al perfil
                 header("Location:../proposito.php");

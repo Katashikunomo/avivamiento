@@ -194,7 +194,7 @@ $versiculo_verse = $versiculo_array['verse'];
          <div class="row">
            <div class="col-md-6 centrar">
               <p class="centrar">
-              Proposito
+              <?= $texto_quienes_somos;?>
               </p>       
            </div>
            <div class="col-md-6">
@@ -216,7 +216,7 @@ $versiculo_verse = $versiculo_array['verse'];
          <div class="row">
            <div class="col-md-6 centrar">
               <p class="centrar">
-              Proposito
+              <?= $texto_quienes_somos;?>
               </p>       
            </div>
            <div class="col-md-6">
