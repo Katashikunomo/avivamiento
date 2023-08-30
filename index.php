@@ -33,20 +33,23 @@ if ($conn->connect_error) {
 }
 
 // Consultar cantidad de eventos
-$sql = "SELECT COUNT(fecha) as 'numerototal' FROM tb_fechas";
+$sql = "SELECT COUNT(fecha) as 'numerototal' FROM tb_fechas WHERE tp_status = 1";
 $result_fechas = $conn->query($sql);
 $array_fechas_total = $result_fechas->fetch_assoc();
 $array_fechas = $array_fechas_total['numerototal'];
 // Consultar las fechas seleccionadas desde la base de datos
-$sql = "SELECT fecha FROM tb_fechas";
+$sql = "SELECT * FROM tb_fechas";
 $result = $conn->query($sql);
+// $estatus_ok = fetch_assoc()->$result; 
 
 $selectedDates = array();
 
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        $selectedDates[] = $row["fecha"];
-    }
+          if ($row['tp_status'] == 1) {
+          $selectedDates[] = $row["fecha"];
+        }    
+      }
 }
 
 $conn->close();
@@ -307,20 +310,105 @@ $conn->close();
         </div>
     </div>
   </div>
+
+
+  <div class="container justify-content-center">
+                        <div class="row text-center" >
+                            <!-- Card que sirve para los eventos en un ciclo dependiendo de los eventos registrados -->
+                            <?php 
+                            // require("../controller/conexion.php");
+                            $result = eventos_fecha();
+                            // $result = $result_fech->fetch_assoc();
+
+                            foreach ($result as $value) {
+                            ?>
+                            <div class="card shadow  col-md-5 m-4 hovercards-agenda--admin">
+                                            <div class="card-header py-3 ">
+                                                <h3 class="fondo_calendario"><?php echo $value['mensaje'];?></h3>
+                                            </div>
+                                            <div class="card-body fondo_calendario_cards">
+                                                <div class="container-fluid m-auto">
+                                                        <div class="mb-3 w-100 m-auto" style="border-radius: 2px;">
+                                                            <!-- Vista de Imagen -->
+                                                                <div  class="container-fluid m-auto" style="border-radius: 30px;  max-width: 900px; margin:auto;  heigth: 700px; ">
+                                                                <img class="img-fluid img-thumbnail" src="admin/img/avivamiento/calendario/<?=$value['nom_imagen'];?>" alt="" style="width:auto;">
+                                                                </div>
+                                                                <div  class="container-fluid m-auto bg-primary text-light" style="border-radius: 30px;  max-width: 900px; margin:auto;  heigth: 700px; ">
+                                                                    Fehca <?php echo $value['fecha'];?>
+                                                                </div>
+                                                                <div class="container">
+                                                                <div class="form-check">
+                                                                  
+                                                                  <?php if ($value['tp_status'] == 1) {?>  
+                                                                    <input class="form-check-input" type="radio" name="" id="" checked >
+                                                                    <label class="form-check-label" for="">
+                                                                        Activo
+                                                                     </label>
+                                                                     <?php }else{?>
+                                                                        <input class="form-check-input" type="radio" name="" id="" disabled>
+                                                                        <label class="form-check-label" for="">
+                                                                        Inactivo
+                                                                        </label>
+                                                                        <form action="" method="POST">
+                                                                        <input type="number" class="form-control" name="id" id="id" aria-describedby="emailHelpId" value="<?=$value['id'];?>" hidden>
+                                                                            <div class="mb-3">
+                                                                                <!-- <label for="" class="form-label">Activar</label> -->
+                                                                                <!-- <select class="form-select form-select-lg" name="activar" id="activar">
+                                                                                    <option selected disabled>Selecciona</option>
+                                                                                    <option value="1">Activar</option>
+                                                                                </select> -->
+                                                                                <!-- <button type="submit" class="btn btn-primary btn-sm">activar</button> -->
+                                                                            </div>
+                                                                        </form>
+                                                                     <?php }?>
+                                                                            
+                                                                </div>
+                                                                </div>
+                                                                
+                                                            <!-- Eliminar evento -->
+                                                            <div class="container mt-4">
+                                                                <form action="model/eliminar_evento.php" method="POST" enctype="multipart/form-data">
+                                                                    <!-- Cambiarlo por un modal -->
+                                                                    <a name="" id="" class="btn fondo_calendario_a" href="#" role="button">Recibir notificación acerca de este evento</a>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                </div>
+                                            </div>
+                            </div>
+                            <?php
+                            }                            
+                            ?>
+                        </div>
+                    
+                    </div>
+
   
-  <div class="row container  w-100 centrar">
-    <div class="row   centrar__calendario">
-      <div class="  col-sm-12 col-md-4  ">
-        <div class="card ">
+  <!-- <div class="container-fluid  w-100 centrar"> -->
+    <div class="row">
+  <?php 
+                            // require("../controller/conexion.php");
+                            $result = eventos_fecha();
+                            // $result = $result_fech->fetch_assoc();
+
+                            foreach ($result as $value) {
+                            ?>
+    <!-- <div class="row  centrar__calendario">
+      <div class=" col-sm-12 col-md-4  ">
+      
+        <div class="card">
           <div class="fondo_calendario_cards">
             <h3 class="fondo_calendario">Sanidades y Milagros</h3>
             <img src="https://scontent.fmex11-1.fna.fbcdn.net/v/t39.30808-6/349307385_1067713927948477_2546638713731163798_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeGDQqCi3mCcA1MLz0BMC1FXiXDh7IpZwcmJcOHsilnBybXEvBwaGxGAY6tGVSxbhUHt9pYe0W3ZyyVb1jAQL__R&_nc_ohc=QAeakecOjB8AX_ErNja&_nc_ht=scontent.fmex11-1.fna&oh=00_AfCsW2fYHaVBz0d2X30uS_Gg70SU5bD--d5h4RRZo1kIXQ&oe=64B38FDD" alt="" width="100%">
             <a name="" id="" class="btn fondo_calendario_a" href="#" role="button">Recibir notificación acerca de este evento</a>
           </div>
         </div>
-      </div>
-      
-      <div class="  col-sm-12 col-md-4 ">
+      </div> -->
+      <?php
+                            }                            
+                            ?>
+                            <!-- </div> -->
+      <!-- <div class="  col-sm-12 col-md-4 ">
         <div class="card  fondo_calendario_cards">
           <div class="fondo_calendario_cards">
           <h3 class="fondo_calendario">Congreso de Avivamiento Internacional</h3>
@@ -337,7 +425,7 @@ $conn->close();
             <a name="" id="" class="btn fondo_calendario_a" href="#" role="button">Recibir notificación acerca de este evento</a>
           </div>
         </div>
-      </div>
+      </div> -->
       
 
     </div>

@@ -13,6 +13,30 @@ $nombre = $user['dt_nombre'];
 $correo = $user['dt_email'];
 $imagen = imagen_user($id_user);
 
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "avivamiento";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Error de conexión: " . $conn->connect_error);
+}
+
+// Consultar las fechas seleccionadas desde la base de datos
+$sql = "SELECT fecha FROM tb_fechas";
+$result = $conn->query($sql);
+
+$selectedDates = array();
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $selectedDates[] = $row["fecha"];
+    }
+}
+
+$conn->close();
 
 
 ?>
@@ -42,6 +66,21 @@ $imagen = imagen_user($id_user);
     <!-- Agenda -->
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <style>
+        .selected-date {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
+        #calendar-table td {
+            cursor: pointer;
+        }
+
+        #calendar-table td.disabled {
+            pointer-events: none;
+            color: #ccc;
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -307,121 +346,155 @@ $imagen = imagen_user($id_user);
 
                     <h1>Agenda y Eventos</h1>
                     
-                    <div class="container border">
-                        <div class="row" >
+                    <div class="container justify-content-center">
+                        <div class="row text-center" >
                             <!-- Card que sirve para los eventos en un ciclo dependiendo de los eventos registrados -->
+                            <?php 
+                            // require("../controller/conexion.php");
+                            $result = eventos_fecha();
+                            // $result = $result_fech->fetch_assoc();
 
-
-                            <div class="card shadow mb-3 col-md-4 m-2 hovercards-agenda--admin">
+                            foreach ($result as $value) {
+                            ?>
+                            <div class="card shadow  col-md-5 m-4 hovercards-agenda--admin">
                                             <div class="card-header py-3 ">
-                                                <h6 class="m-0 font-weight-bold text-primary">Imagenm de Quienes Somos</h6>
+                                                <h6 class="m-0 font-weight-bold text-primary"><?php echo $value['mensaje'];?></h6>
                                             </div>
                                             <div class="card-body">
-                                            <div class="container-fluid m-auto">
-                                                <div class="mb-3 w-100 m-auto" style="border-radius: 2px;">
-                                                    <!-- Vista de Imagen -->
-                                                    <div  class="container-fluid m-auto" style="border-radius: 30px;  max-width: 900px; margin:auto;  heigth: 700px; ">
-                                                        <!-- <img class="img-fluid img-thumbnail" src="img/avivamiento/portada_login.jpg" alt="" style="width:auto; border-radius: 300px;"> -->
-                                                        <?php
-                                                        $imagen_banner_array = get_image_page_proposito(2);
-                                                        $imagen_banner = $imagen_banner_array['nombre_imagen'];
-                                                        $imagen_banner_usr = $imagen_banner_array['nombre_encargado'];
-                                                        $imagen_usr = $imagen_banner_array['imagen'];
-                                                        $texto = $imagen_banner_array['dt_texto'];
-                                                            if ($imagen_banner != null) {
-                                                                ?>
-                                                                <img class="img-fluid img-thumbnail" src="img/avivamiento/banner/<?=$imagen_banner?>" alt="" style="width:auto;">
-                                                                <p class="form-text text-muted">
-                                                                    Imagen agregada por : <?php echo $imagen_banner_usr;?> <img class="img-profile rounded-circle" src="img/avivamiento/<?= $imagen_usr;?>" style=" width:50px; height:50px; border-radius:330px !important;">
-                                                                </p>
-                                                                <?php
-                                                            }else{
-                                                                ?>
-                                                                    <div class="alert alert-primary" role="alert">
-                                                                        <strong>Agrega una imagen</strong> 
+                                                <div class="container-fluid m-auto">
+                                                        <div class="mb-3 w-100 m-auto" style="border-radius: 2px;">
+                                                            <!-- Vista de Imagen -->
+                                                                <div  class="container-fluid m-auto" style="border-radius: 30px;  max-width: 900px; margin:auto;  heigth: 700px; ">
+                                                                <img class="img-fluid img-thumbnail" src="img/avivamiento/calendario/<?=$value['nom_imagen'];?>" alt="" style="width:auto;">
+                                                                </div>
+                                                                <div  class="container-fluid m-auto bg-primary text-light" style="border-radius: 30px;  max-width: 900px; margin:auto;  heigth: 700px; ">
+                                                                    Fehca <?php echo $value['fecha'];?>
+                                                                </div>
+                                                                <div class="form-check">
+                                                                  
+                                                                  <?php if ($value['tp_status'] == 1) {?>  
+                                                                    <input class="form-check-input" type="radio" name="" id="" checked >
+                                                                    <label class="form-check-label" for="">
+                                                                        Activo
+                                                                     </label>
+                                                                     <?php }else{?>
+                                                                        <input class="form-check-input" type="radio" name="" id="" disabled>
+                                                                        <label class="form-check-label" for="">
+                                                                        Inactivo
+                                                                        </label>
+                                                                        <form action="model/activar_evento.php" method="POST">
+                                                                        <input type="number" class="form-control" name="id" id="id" aria-describedby="emailHelpId" value="<?=$value['id'];?>" hidden>
+                                                                            <div class="mb-3">
+                                                                                <label for="" class="form-label">Activar</label>
+                                                                                <select class="form-select form-select-lg" name="activar" id="activar">
+                                                                                    <option selected disabled>Selecciona</option>
+                                                                                    <option value="1">Activar</option>
+                                                                                </select>
+                                                                                <button type="submit" class="btn btn-primary btn-sm">activar</button>
+                                                                            </div>
+                                                                        </form>
+                                                                     <?php }?>
+                                                                            
+                                                                </div>
+                                                            <!-- Eliminar evento -->
+                                                            <div class="container mt-4">
+                                                                <form action="model/eliminar_evento.php" method="POST" enctype="multipart/form-data">
+                                                                    <input type="number" class="form-control" name="id" id="id" aria-describedby="emailHelpId" value="<?=$value['id'];?>" hidden>
+                                                                    <div style="text:center; margin:auto;">
+                                                                        <button type="sumit" class="btn btn-danger" style="color:#fff; width:100%;" >Eliminar Evento</button>
                                                                     </div>
-                                                                    
-    
-                                                                <?php
-                                                            }
-                                                        ?>
-                                                    </div>
-    
-                                                    <!-- Modificacionm de imagen -->
-                                                    <form action="model/registro_proposito.php" method="POST" enctype="multipart/form-data">
-                                                    <input type="number" class="form-control" name="id" id="id" aria-describedby="emailHelpId" value="<?=$id_user;?>" hidden>
-                                                    <input type="number" class="form-control" name="tpimage" id="tpimage" aria-describedby="emailHelpId" value="2" hidden>
-                                                    <input type="number" class="form-control" name="idimage_glob" id="idimage_glob" aria-describedby="emailHelpId" value="2" hidden>
-                                                    <input type="file" id="new_img" name="new_img" class="img-fluid img-thumbnail rounded  m-auto" required>
-                                                    <?php
-                                                        // Si el archivo no es imagen mostrara el siguiente mensaje
-                                                        if (isset($_GET['error'])) 
-                                                        {
-                                                        ?>
-                                                        <div class="alert alert-danger" role="alert">
-                                                        Ingresa una imagen
+                                                                </form>
+                                                            </div>
                                                         </div>
-                                                        <?php } ?>
-                                                        <div style="text:center; margin:auto;">
-                                                            <button type="sumit" class="btn btn-primary" style="color:#fff; width:100%;" >Cambiar Imagen</button>
-                                                        </div>
-                                                    </form>
-                                                
                                                 </div>
                                             </div>
-                                            </div>
                             </div>
-                            
+                            <?php
+                            }                            
+                            ?>
                         </div>
                     
                     </div>
 
                     <br>
                     <!-- Imagen y mensaje de Quienes Somos -->
-                    <h3 class="bg-primary text-white text-center">Quienes Somos</h3>
+                    <h3 class="bg-primary text-white text-center">Calendario</h3>
                     <div class="row justify-content-around m-auto ">
-                        <div class="card shadow mb-4 col-md-5 ">
+                      
+                        <div class="card shadow mb-4 col-md-8 ">
                                     <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Imagenm de Quienes Somos</h6>
+                                        <h6 class="m-0 font-weight-bold text-primary text-center">Información del calendario</h6>
                                     </div>
-                                    <div class="card-body">
                                     <div class="container-fluid m-auto">
                                         <div class="mb-3 w-100 m-auto" style="border-radius: 2px;">
                                             <!-- Vista de Imagen -->
                                             <div  class="container-fluid m-auto" style="border-radius: 30px;  max-width: 900px; margin:auto;  heigth: 700px; ">
                                                 <!-- <img class="img-fluid img-thumbnail" src="img/avivamiento/portada_login.jpg" alt="" style="width:auto; border-radius: 300px;"> -->
-                                                <?php
-                                                $imagen_banner_array = get_image_page_proposito(2);
-                                                $imagen_banner = $imagen_banner_array['nombre_imagen'];
-                                                $imagen_banner_usr = $imagen_banner_array['nombre_encargado'];
-                                                $imagen_usr = $imagen_banner_array['imagen'];
-                                                $texto = $imagen_banner_array['dt_texto'];
-                                                    if ($imagen_banner != null) {
-                                                        ?>
-                                                        <img class="img-fluid img-thumbnail" src="img/avivamiento/banner/<?=$imagen_banner?>" alt="" style="width:auto;">
-                                                        <p class="form-text text-muted">
-                                                            Imagen agregada por : <?php echo $imagen_banner_usr;?> <img class="img-profile rounded-circle" src="img/avivamiento/<?= $imagen_usr;?>" style=" width:50px; height:50px; border-radius:330px !important;">
-                                                        </p>
-                                                        <?php
-                                                    }else{
-                                                        ?>
-                                                            <div class="alert alert-primary" role="alert">
-                                                                <strong>Agrega una imagen</strong> 
-                                                            </div>
-                                                            
-
-                                                        <?php
-                                                    }
-                                                ?>
+                                                
                                             </div>
 
                                             <!-- Modificacionm de imagen -->
-                                            <form action="model/registro_proposito.php" method="POST" enctype="multipart/form-data">
-                                            <input type="number" class="form-control" name="id" id="id" aria-describedby="emailHelpId" value="<?=$id_user;?>" hidden>
-                                            <input type="number" class="form-control" name="tpimage" id="tpimage" aria-describedby="emailHelpId" value="2" hidden>
-                                            <input type="number" class="form-control" name="idimage_glob" id="idimage_glob" aria-describedby="emailHelpId" value="2" hidden>
-                                            <input type="file" id="new_img" name="new_img" class="img-fluid img-thumbnail rounded  m-auto" required>
-                                            <?php
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <form action="model/registro_evento.php" method="post" enctype="multipart/form-data">
+                                            <div class="mb-3">
+                                              <!-- <label for="" class="form-label">id</label> -->
+                                              <input type="number" class="form-control" name="id" id="id" aria-describedby="emailHelpId" value="<?=$id_user;?>" hidden>
+                                              <!-- <input type="number" class="form-control" name="tp_image" id="tp_image" aria-describedby="emailHelpId" value="2" hidden> -->
+                                            </div>
+                                            <div class="container-fluid border-bottom">
+                                                <h2 class="m-0 font-weight-bold text-primary" >Titulo del Evento</h2>
+                                                <div class="mb-3">
+                                              <label for="" class="form-label"></label>
+                                              <textarea class="form-control" name="dtexto" id="dtexto" rows="2"></textarea>
+                                            </div>
+
+                                            <div class="container mt-5">
+                                                <h2>Calendario con Fechas Seleccionadas</h2>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="d-flex justify-content-between mb-3">
+                                                            <button class="btn btn-primary" id="prev-month">Mes Anterior</button>
+                                                            <h3 id="current-month">Mes Actual</h3>
+                                                            <button class="btn btn-primary" id="next-month">Mes Siguiente</button>
+                                                        </div>
+                                                        <table class="table table-bordered" id="calendar-table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>D</th>
+                                                                    <th>L</th>
+                                                                    <th>M</th>
+                                                                    <th>M</th>
+                                                                    <th>J</th>
+                                                                    <th>V</th>
+                                                                    <th>S</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <!-- Las celdas del calendario se generan dinámicamente en el script JavaScript -->
+                                                            </tbody>
+                                                        </table>
+                                                        <form method="post" action="procesar_fecha.php">
+                                                            <input type="text" id="selected-date-input" name="selected_date" value="" hidden>
+                                                            <!-- <button type="submit" class="btn btn-primary mt-3">Enviar Fecha Seleccionada</button> -->
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                                <div class="mb-3">
+                                                    <label for="" class="form-label">Activar</label>
+                                                        <select class="form-select form-select-lg" name="activar" id="activar">
+                                                            <option selected disabled>Selecciona</option>
+                                                            <option value="1">Activo</option>
+                                                            <option value="0">Inactivo</option>
+                                                        </select>
+                                                                                    <!-- <button type="submit" class="btn btn-primary btn-sm">activar</button> -->
+                                                </div>
+                                                <input type="number" class="form-control" name="id_encargado" id="id_encargado" aria-describedby="emailHelpId" value="<?=$id_user;?>" hidden>
+                                                <input type="file" id="new_img" name="new_img" class="img-fluid img-thumbnail rounded  m-auto" required>
+                                                <?php
                                                 // Si el archivo no es imagen mostrara el siguiente mensaje
                                                 if (isset($_GET['error'])) 
                                                 {
@@ -431,300 +504,15 @@ $imagen = imagen_user($id_user);
                                                 </div>
                                                 <?php } ?>
                                                 <div style="text:center; margin:auto;">
-                                                    <button type="sumit" class="btn btn-primary" style="color:#fff; width:100%;" >Cambiar Imagen</button>
+                                                    <button type="sumit" class="btn btn-primary" style="color:#fff; width:100%;" >Agregar evento</button>
                                                 </div>
-                                            </form>
-                                          
-                                        </div>
-                                    </div>
-                                    </div>
-                        </div>
-                        <div class="card shadow mb-4 col-md-5 ">
-                                    <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Agrega un mensaje que indique quienes somos</h6>
-                                    </div>
-                                    <div class="card-body">
-                                        <form action="model/registro_proposito_text.php" method="post" >
-                                            <?php
-                                            $array_text = get_image_page_proposito_text(2);
-                                            $texto = $array_text['dt_texto']; 
-                                            $imagen_banner_usr = $array_text['dt_nombre']; 
-                                            $imagen_usr = $array_text['imagen']; 
-                                            ?>
-                                            <div class="mb-3">
-                                              <!-- <label for="" class="form-label">id</label> -->
-                                              <input type="number" class="form-control" name="id" id="id" aria-describedby="emailHelpId" value="<?=$id_user;?>" hidden>
-                                              <input type="number" class="form-control" name="tp_image" id="tp_image" aria-describedby="emailHelpId" value="2" hidden>
-                                            </div>
-                                            <div class="container-fluid border-bottom">
-                                                <h2 class="m-0 font-weight-bold text-primary" >Mensaje Actual</h2>
-                                                <p class="border p-2">
-                                                <?=
-                                                 $texto;
-                                                ?>
-                                                </p>
-                                                <p class="form-text text-muted">
-                                                    Agregado por: <?php echo $imagen_banner_usr;?> <img class="img-profile rounded-circle  border" src="img/avivamiento/<?= $imagen_usr;?>" style=" width:50px; height:50px; border-radius:330px !important;">
-                                                    
-                                                </p>
-                                                <div class="container mt-5">
-                                                <div class="container mt-5">
-        <h2>Calendario y Fecha en Tabla</h2>
-        <div class="row">
-            <div class="col-md-auto">
-                <h4>Selecciona una Fecha</h4>
-                <input type="text" id="datepicker">
-            </div>
-            <div class="col-md-auto">
-                <h4 id="month-name">Mes Actual</h4>
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>D</th>
-                            <th>L</th>
-                            <th>M</th>
-                            <th>M</th>
-                            <th>J</th>
-                            <th>V</th>
-                            <th>S</th>
-                        </tr>
-                    </thead>
-                    <tbody id="calendar-table">
-                        <!-- Aquí se generará el calendario en forma de tabla -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-                                            </div>
-                                            <div class="mb-3">
-                                              <label for="" class="form-label"></label>
-                                              <textarea class="form-control" name="dtexto" id="dtexto" rows="3"></textarea>
-                                            </div>
-                                                <?php
-                                                // Si los datos no existen mostrara el siguiente mensaje
-                                                if (isset($_GET['error'])) 
-                                                {
-                                                ?>
-                                                <?php } ?>
-                                            <button type="submit" class="btn btn-primary">Guardar Mensaje</button>
+                                                <!-- <button type="submit" class="btn btn-primary">Guardar Mensaje</button> -->
                                             
                                         </form>
                                     </div>
                         </div>
                     </div>
-                    <!-- Imagen y mensaje de Proposito -->
-                    <h3 class="bg-primary text-white text-center">Proposito</h3>
-                    <div class="row justify-content-around m-auto ">
-                        <div class="card shadow mb-4 col-md-5 ">
-                                    <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Imagenm de Proposito</h6>
-                                    </div>
-                                    <div class="card-body">
-                                    <div class="container-fluid m-auto">
-                                        <div class="mb-3 w-100 m-auto" style="border-radius: 2px;">
-                                            <!-- Vista de Imagen -->
-                                            <div  class="container-fluid m-auto" style="border-radius: 30px;  max-width: 900px; margin:auto;  heigth: 700px; ">
-                                                <!-- <img class="img-fluid img-thumbnail" src="img/avivamiento/portada_login.jpg" alt="" style="width:auto; border-radius: 300px;"> -->
-                                                <?php
-                                                $imagen_banner_array = get_image_page_proposito(3);
-                                                $imagen_banner = $imagen_banner_array['nombre_imagen'];
-                                                $imagen_banner_usr = $imagen_banner_array['nombre_encargado'];
-                                                $imagen_usr = $imagen_banner_array['imagen'];
-                                                    if ($imagen_banner != null) {
-                                                        ?>
-                                                        <img class="img-fluid img-thumbnail" src="img/avivamiento/banner/<?=$imagen_banner?>" alt="" style="width:auto;">
-                                                        <p class="form-text text-muted">
-                                                            Imagen agregada por : <?php echo $imagen_banner_usr;?> <img class="img-profile rounded-circle" src="img/avivamiento/<?= $imagen_usr;?>" style=" width:50px; height:50px; border-radius:330px !important;">
-                                                        </p>
-                                                        <?php
-                                                    }else{
-                                                        ?>
-                                                            <div class="alert alert-primary" role="alert">
-                                                                <strong>Agrega una imagen</strong> 
-                                                            </div>
-                                                            
 
-                                                        <?php
-                                                    }
-                                                ?>
-                                            </div>
-
-                                            <!-- Modificacionm de imagen -->
-                                            <form action="model/registro_proposito.php" method="POST" enctype="multipart/form-data">
-                                            <input type="number" class="form-control" name="id" id="id" aria-describedby="emailHelpId" value="<?=$id_user;?>" hidden>
-                                            <input type="number" class="form-control" name="tpimage" id="tpimage" aria-describedby="emailHelpId" value="3" hidden>
-                                            <input type="number" class="form-control" name="idimage_glob" id="idimage_glob" aria-describedby="emailHelpId" value="3" hidden>
-                                            <input type="file" id="new_img" name="new_img" class="img-fluid img-thumbnail rounded  m-auto" required>
-                                            <?php
-                                                // Si el archivo no es imagen mostrara el siguiente mensaje
-                                                if (isset($_GET['error'])) 
-                                                {
-                                                ?>
-                                                <div class="alert alert-danger" role="alert">
-                                                Ingresa una imagen
-                                                </div>
-                                                <?php } ?>
-                                                <div style="text:center; margin:auto;">
-                                                    <button type="sumit" class="btn btn-primary" style="color:#fff; width:100%;" >Cambiar Imagen</button>
-                                                </div>
-                                            </form>
-                                          
-                                        </div>
-                                    </div>
-                                    </div>
-                        </div>
-                        <div class="card shadow mb-4 col-md-5 ">
-                                    <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Agrega un mensaje que indique quienes somos</h6>
-                                    </div>
-                                    <div class="card-body">
-                                        <form action="model/registro_proposito_text.php" method="post" >
-                                            <?php
-                                            $array_text = get_image_page_proposito_text(3);
-                                            $texto = $array_text['dt_texto']; 
-                                            $imagen_banner_usr = $array_text['dt_nombre']; 
-                                            $imagen_usr = $array_text['imagen']; 
-                                            ?>
-                                            <div class="mb-3">
-                                              <!-- <label for="" class="form-label">id</label> -->
-                                              <input type="number" class="form-control" name="id" id="id" aria-describedby="emailHelpId" value="<?=$id_user;?>" hidden>
-                                              <input type="number" class="form-control" name="tp_image" id="tp_image" aria-describedby="emailHelpId" value="3" hidden>
-                                            </div>
-                                            <div class="container-fluid border-bottom">
-                                                <h2 class="m-0 font-weight-bold text-primary" >Mensaje Actual</h2>
-                                                <p class="border p-2">
-                                                <?=
-                                                 $texto;
-                                                ?>
-                                                </p>
-                                                <p class="form-text text-muted">
-                                                    Agregado por: <?php echo $imagen_banner_usr;?> <img class="img-profile rounded-circle  border" src="img/avivamiento/<?= $imagen_usr;?>" style=" width:50px; height:50px; border-radius:330px !important;">
-                                                    
-                                                </p>
-                                            </div>
-                                            <div class="mb-3">
-                                              <label for="" class="form-label"></label>
-                                              <textarea class="form-control" name="dtexto" id="dtexto" rows="3"></textarea>
-                                            </div>
-                                                <?php
-                                                // Si los datos no existen mostrara el siguiente mensaje
-                                                if (isset($_GET['error'])) 
-                                                {
-                                                ?>
-                                                <?php } ?>
-                                            <button type="submit" class="btn btn-primary">Guardar Mensaje</button>
-                                            
-                                        </form>
-                                    </div>
-                        </div>
-                    </div>
-                    <!-- Imagen y mensaje de Proposito -->
-                    <h3 class="bg-primary text-white text-center">Visión</h3>
-                    <div class="row justify-content-around m-auto ">
-                        <div class="card shadow mb-4 col-md-5 ">
-                                    <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Imagen de Visión</h6>
-                                    </div>
-                                    <div class="card-body">
-                                    <div class="container-fluid m-auto">
-                                        <div class="mb-3 w-100 m-auto" style="border-radius: 2px;">
-                                            <!-- Vista de Imagen -->
-                                            <div  class="container-fluid m-auto" style="border-radius: 30px;  max-width: 900px; margin:auto;  heigth: 700px; ">
-                                                <!-- <img class="img-fluid img-thumbnail" src="img/avivamiento/portada_login.jpg" alt="" style="width:auto; border-radius: 300px;"> -->
-                                                <?php
-                                                $imagen_banner_array = get_image_page_proposito(4);
-                                                $imagen_banner = $imagen_banner_array['nombre_imagen'];
-                                                $imagen_banner_usr = $imagen_banner_array['nombre_encargado'];
-                                                $imagen_usr = $imagen_banner_array['imagen'];
-                                                    if ($imagen_banner != null) {
-                                                        ?>
-                                                        <img class="img-fluid img-thumbnail" src="img/avivamiento/banner/<?=$imagen_banner?>" alt="" style="width:auto;">
-                                                        <p class="form-text text-muted">
-                                                            Imagen agregada por : <?php echo $imagen_banner_usr;?> <img class="img-profile rounded-circle" src="img/avivamiento/<?= $imagen_usr;?>" style=" width:50px; height:50px; border-radius:330px !important;">
-                                                        </p>
-                                                        <?php
-                                                    }else{
-                                                        ?>
-                                                            <div class="alert alert-primary" role="alert">
-                                                                <strong>Agrega una imagen</strong> 
-                                                            </div>
-                                                            
-
-                                                        <?php
-                                                    }
-                                                ?>
-                                            </div>
-
-                                            <!-- Modificacionm de imagen -->
-                                            <form action="model/registro_proposito.php" method="POST" enctype="multipart/form-data">
-                                            <input type="number" class="form-control" name="id" id="id" aria-describedby="emailHelpId" value="<?=$id_user;?>" hidden>
-                                            <input type="number" class="form-control" name="tpimage" id="tpimage" aria-describedby="emailHelpId" value="4" hidden>
-                                            <input type="number" class="form-control" name="idimage_glob" id="idimage_glob" aria-describedby="emailHelpId" value="4" hidden>
-                                            <input type="file" id="new_img" name="new_img" class="img-fluid img-thumbnail rounded  m-auto" required>
-                                            <?php
-                                                // Si el archivo no es imagen mostrara el siguiente mensaje
-                                                if (isset($_GET['error'])) 
-                                                {
-                                                ?>
-                                                <div class="alert alert-danger" role="alert">
-                                                Ingresa una imagen
-                                                </div>
-                                                <?php } ?>
-                                                <div style="text:center; margin:auto;">
-                                                    <button type="sumit" class="btn btn-primary" style="color:#fff; width:100%;" >Cambiar Imagen</button>
-                                                </div>
-                                            </form>
-                                          
-                                        </div>
-                                    </div>
-                                    </div>
-                        </div>
-                        <div class="card shadow mb-4 col-md-5 ">
-                                    <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Agrega un mensaje de la Visión</h6>
-                                    </div>
-                                    <div class="card-body">
-                                        <form action="model/registro_proposito_text.php" method="post" >
-                                            <?php
-                                            $array_text = get_image_page_proposito_text(4);
-                                            $texto = $array_text['dt_texto']; 
-                                            $imagen_banner_usr = $array_text['dt_nombre']; 
-                                            $imagen_usr = $array_text['imagen']; 
-                                            ?>
-                                            <div class="mb-3">
-                                              <!-- <label for="" class="form-label">id</label> -->
-                                              <input type="number" class="form-control" name="id" id="id" aria-describedby="emailHelpId" value="<?=$id_user;?>" hidden>
-                                              <input type="number" class="form-control" name="tp_image" id="tp_image" aria-describedby="emailHelpId" value="4" hidden>
-                                            </div>
-                                            <div class="container-fluid border-bottom">
-                                                <h2 class="m-0 font-weight-bold text-primary" >Mensaje Actual</h2>
-                                                <p class="border p-2">
-                                                <?=
-                                                 $texto;
-                                                ?>
-                                                </p>
-                                                <p class="form-text text-muted">
-                                                    Agregado por: <?php echo $imagen_banner_usr;?> <img class="img-profile rounded-circle  border" src="img/avivamiento/<?= $imagen_usr;?>" style=" width:50px; height:50px; border-radius:330px !important;">
-                                                    
-                                                </p>
-                                            </div>
-                                            <div class="mb-3">
-                                              <label for="" class="form-label"></label>
-                                              <textarea class="form-control" name="dtexto" id="dtexto" rows="3"></textarea>
-                                            </div>
-                                                <?php
-                                                // Si los datos no existen mostrara el siguiente mensaje
-                                                if (isset($_GET['error'])) 
-                                                {
-                                                ?>
-                                                <?php } ?>
-                                            <button type="submit" class="btn btn-primary">Guardar Mensaje</button>
-                                            
-                                        </form>
-                                    </div>
-                        </div>
-                    </div>
                     
                   
                 </div>
@@ -792,48 +580,63 @@ $imagen = imagen_user($id_user);
     <script src="js/demo/chart-pie-demo.js"></script>
     <!-- Agenda  -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script>
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    
     <script>
         $(document).ready(function() {
-            // Establecer el idioma en español para Moment.js
-            moment.locale('es');
+            var selectedDates = <?php echo json_encode($selectedDates); ?>;
+            var currentDate = new Date();
 
-            $('#datepicker').datepicker({
-                minDate: 1,
-                dateFormat: 'yy-mm-dd',
-                onSelect: function(selectedDate) {
-                    $('#calendar-table').empty(); // Limpiar tabla
-                    generateCalendarTable(selectedDate);
-                }
+            updateCalendar(currentDate);
+
+            $("#prev-month").click(function() {
+                currentDate.setMonth(currentDate.getMonth() - 1);
+                updateCalendar(currentDate);
             });
 
-            function generateCalendarTable(selectedDate) {
-                var firstDay = moment(selectedDate).startOf('month');
-                var lastDay = moment(selectedDate).endOf('month');
+            $("#next-month").click(function() {
+                currentDate.setMonth(currentDate.getMonth() + 1);
+                updateCalendar(currentDate);
+            });
 
-                var currentDay = firstDay.clone();
-                var calendarTable = $('#calendar-table');
-                var row = $('<tr>');
+            function updateCalendar(date) {
+                $("#current-month").text(date.toLocaleString("default", { month: "long", year: "numeric" }));
+                $("#calendar-table tbody").empty();
+                var firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
+                var lastDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 
-                $('#month-name').text(currentDay.format('MMMM YYYY')); // Establecer nombre del mes
+                var currentDay = new Date(firstDayOfMonth);
+                var row = $("<tr>");
 
-                while (currentDay.isSameOrBefore(lastDay, 'day')) {
-                    if (currentDay.day() === 0) {
-                        calendarTable.append(row);
-                        row = $('<tr>');
+                while (currentDay <= lastDayOfMonth) {
+                    if (currentDay.getDay() === 0) {
+                        $("#calendar-table tbody").append(row);
+                        row = $("<tr>");
                     }
-                    var cell = $('<td>').text(currentDay.date());
-                    if (currentDay.isSame(moment(selectedDate), 'day')) {
-                        cell.addClass('bg-primary text-white');
-                    }
+
+                    var cellDate = currentDay.toISOString().slice(0, 10);
+                    var cellClass = selectedDates.includes(cellDate) ? "selected-date" : "";
+
+                    var cell = $("<td>")
+                        .addClass(cellClass)
+                        .addClass(currentDay < new Date() ? "disabled" : "") // Agregar clase "disabled" si la fecha es anterior al día actual
+                        .text(currentDay.getDate())
+                        .click(function() {
+                            if ($(this).hasClass("disabled")) return;
+                            
+                            var clickedDate = $(this).text();
+                            var clickedMonth = date.getMonth() + 1;
+                            var formattedDate = date.getFullYear() + "-" + (clickedMonth < 10 ? "0" : "") + clickedMonth + "-" + (clickedDate < 10 ? "0" : "") + clickedDate;
+                            $("#selected-date-input").val(formattedDate);
+                            $(".selected-date").removeClass("selected-date");
+                            $(this).addClass("selected-date");
+                        });
+
                     row.append(cell);
-                    currentDay.add(1, 'day');
+                    currentDay.setDate(currentDay.getDate() + 1);
                 }
 
-                calendarTable.append(row);
+                $("#calendar-table tbody").append(row);
             }
         });
     </script>

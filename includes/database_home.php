@@ -68,4 +68,13 @@
     //     $result = $mysqli->query($query);
     //     return $result->fetch_assoc();    
     //     }
+    function eventos_fecha()
+{
+    global $mysqli;
+    $query = "SELECT * FROM tb_fechas where tp_status = 1";
+    // $query = "SELECT * FROM tb_fechas ";
+    $result = $mysqli->query($query);
+    // return $result->fetch_assoc(); 
+    return $result;
+}
 ?>

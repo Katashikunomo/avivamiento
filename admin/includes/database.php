@@ -52,7 +52,14 @@
     $result = $mysqli->query($query);
     return $result->fetch_assoc();    
     }
-
-
+// Base de datos fecha eventos
+function eventos_fecha()
+{
+    global $mysqli;
+    $query = "SELECT * FROM tb_fechas";
+    $result = $mysqli->query($query);
+    // return $result->fetch_assoc(); 
+    return $result;
+}
 
 ?>

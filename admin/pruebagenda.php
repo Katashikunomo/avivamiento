@@ -37,6 +37,15 @@ $conn->close();
             background-color: #007bff;
             color: #ffffff;
         }
+
+        #calendar-table td {
+            cursor: pointer;
+        }
+
+        #calendar-table td.disabled {
+            pointer-events: none;
+            color: #ccc;
+        }
     </style>
 </head>
 <body>
@@ -49,7 +58,7 @@ $conn->close();
                     <h3 id="current-month">Mes Actual</h3>
                     <button class="btn btn-primary" id="next-month">Mes Siguiente</button>
                 </div>
-                <table class="table table-bordered">
+                <table class="table table-bordered" id="calendar-table">
                     <thead>
                         <tr>
                             <th>D</th>
@@ -61,11 +70,14 @@ $conn->close();
                             <th>S</th>
                         </tr>
                     </thead>
-                    <tbody id="calendar-table">
-                        <!-- Aquí se generará el calendario en forma de tabla con fechas -->
-                        <!-- El contenido del calendario se generará dinámicamente con JavaScript -->
+                    <tbody>
+                        <!-- Las celdas del calendario se generan dinámicamente en el script JavaScript -->
                     </tbody>
                 </table>
+                <form method="post" action="procesar_fecha.php">
+                    <input type="text" id="selected-date-input" name="selected_date" value="">
+                    <button type="submit" class="btn btn-primary mt-3">Enviar Fecha Seleccionada</button>
+                </form>
             </div>
         </div>
     </div>
@@ -92,7 +104,7 @@ $conn->close();
 
             function updateCalendar(date) {
                 $("#current-month").text(date.toLocaleString("default", { month: "long", year: "numeric" }));
-                $("#calendar-table").empty();
+                $("#calendar-table tbody").empty();
                 var firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
                 var lastDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 
@@ -101,7 +113,7 @@ $conn->close();
 
                 while (currentDay <= lastDayOfMonth) {
                     if (currentDay.getDay() === 0) {
-                        $("#calendar-table").append(row);
+                        $("#calendar-table tbody").append(row);
                         row = $("<tr>");
                     }
 
@@ -110,13 +122,24 @@ $conn->close();
 
                     var cell = $("<td>")
                         .addClass(cellClass)
-                        .text(currentDay.getDate());
+                        .addClass(currentDay < new Date() ? "disabled" : "") // Agregar clase "disabled" si la fecha es anterior al día actual
+                        .text(currentDay.getDate())
+                        .click(function() {
+                            if ($(this).hasClass("disabled")) return;
+                            
+                            var clickedDate = $(this).text();
+                            var clickedMonth = date.getMonth() + 1;
+                            var formattedDate = date.getFullYear() + "-" + (clickedMonth < 10 ? "0" : "") + clickedMonth + "-" + (clickedDate < 10 ? "0" : "") + clickedDate;
+                            $("#selected-date-input").val(formattedDate);
+                            $(".selected-date").removeClass("selected-date");
+                            $(this).addClass("selected-date");
+                        });
 
                     row.append(cell);
                     currentDay.setDate(currentDay.getDate() + 1);
                 }
 
-                $("#calendar-table").append(row);
+                $("#calendar-table tbody").append(row);
             }
         });
     </script>
