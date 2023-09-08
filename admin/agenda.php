@@ -606,6 +606,7 @@ $conn->close();
                 var lastDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 
                 var currentDay = new Date(firstDayOfMonth);
+                currentDay.setDate(1 - firstDayOfMonth.getDay()); // Ajuste para iniciar en el día correcto de la semana
                 var row = $("<tr>");
 
                 while (currentDay <= lastDayOfMonth) {
@@ -639,7 +640,7 @@ $conn->close();
                 $("#calendar-table tbody").append(row);
             }
         });
-    </script>
+</script>
     <!-- Agenda cierra -->
 </body>
 

@@ -39,7 +39,7 @@
 
     function get_versiculo($numero){
         global $mysqli;
-        $query = "SELECT * FROM `bible_verses` LEFT JOIN bible_books ON (bible_books.idBook = bible_verses.idBook) WHERE idVerse = '$numero'";
+        $query = "SELECT *, REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(text, '{', ''), '}', ''), '\\\', ''),'\\\i',''),'\cf6','') AS texto FROM bible_verses LEFT JOIN bible_books ON (bible_books.idBook = bible_verses.idBook) WHERE idVerse = '$numero'";
         $result = $mysqli->query($query);
         return $result->fetch_assoc();    
     }
@@ -71,7 +71,7 @@
     function eventos_fecha()
 {
     global $mysqli;
-    $query = "SELECT * FROM tb_fechas where tp_status = 1";
+    $query = "SELECT * FROM tb_fechas where tp_status = 1 ORDER BY fecha ASC";
     // $query = "SELECT * FROM tb_fechas ";
     $result = $mysqli->query($query);
     // return $result->fetch_assoc(); 

@@ -11,8 +11,9 @@ if ($conn->connect_error) {
     die("Error de conexión: " . $conn->connect_error);
 }
 
-// Consultar las fechas seleccionadas desde la base de datos
-$sql = "SELECT fecha FROM tb_fechas";
+// Consultar las fechas seleccionadas desde la base de datos para el año en curso
+$year = date("Y"); // Obtener el año actual
+$sql = "SELECT fecha FROM tb_fechas WHERE YEAR(fecha) = $year";
 $result = $conn->query($sql);
 
 $selectedDates = array();
@@ -109,6 +110,7 @@ $conn->close();
                 var lastDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 
                 var currentDay = new Date(firstDayOfMonth);
+                currentDay.setDate(1 - firstDayOfMonth.getDay()); // Ajuste para iniciar en el día correcto de la semana
                 var row = $("<tr>");
 
                 while (currentDay <= lastDayOfMonth) {

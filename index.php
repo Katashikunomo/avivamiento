@@ -14,7 +14,7 @@ $imagen_quienes_somos = $imagen_quienes_somos_array['dt_nombre'];
 $texto_quienes_somos = $texto_quienes_somos_array['dt_texto'];
 $numero = random_int(1, 31102);
 $versiculo_array = get_versiculo($numero); 
-$versiculo_text = $versiculo_array['text'];
+$versiculo_text = $versiculo_array['texto'];
 $versiculo_book = $versiculo_array['name'];
 $versiculo_chapter = $versiculo_array['chapter'];
 $versiculo_verse = $versiculo_array['verse'];
@@ -78,15 +78,106 @@ $conn->close();
             background-color: #FF0000 !important;
             color: #ffffff;
         }
+        
+        .face-color:hover{
+          background: linear-gradient(45deg, #1877f2 0%, #1877f2 30%, #3b5998 70%, #3b5998 100%);
+          background-size: 200% 200%;
+          animation: gradientAnimation 2.2s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+        .insta-color:hover {
+          background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4, #2a77d0);
+          background-size: 200% 200%;
+          animation: gradientAnimation 3s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+        .you-color{
+          transition: all ease-in 1s !important;
+        }
+        .you-color:hover {
+          background: linear-gradient(45deg, #FF0000, #FF0000, #FFFFFF);
+          background-size: 200% 200%;
+          animation: gradientAnimation 3s ease infinite ;
+        }
+
+        @keyframes gradientAnimation {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+        .tw-color:hover {
+          background: linear-gradient(45deg,#fff,#ffffff, #1da1f2, #1da1f2,#1da1f2,#3b5998 90% );
+          background-size: 200% 200%;
+          animation: gradientAnimation 2.5s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+          0% {
+            background-position: 10% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+
+        .sp-color:hover {
+          background: linear-gradient(45deg, #1DB954, #1DB954, #ffffff);
+          background-size: 200% 200%;
+          animation: gradientAnimation 3s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+
     </style>
 <!-- Icons fontawesome -->
-<!-- <script src="https://kit.fontawesome.com/bc365c36ca.js" crossorigin="anonymous"></script> -->
+<script src="https://kit.fontawesome.com/bc365c36ca.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
 
-    <header class="container-fluid w-100 ">
+    <header class="">
             
                     <a class="logo" href="#"><img src="images/logo.svg" alt=""></a>
                     <ul class=" nav   fondo_menu justify-content-end"  >
@@ -96,52 +187,46 @@ $conn->close();
                             <li class="nav-item  borde_blanco  d-lg-none d-md-inline-flex" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                                 <a href="#tab5Id" class="nav-link ">Menu</a>
                             </li>
-                            <li class="nav-item  borde_blanco d-none d-lg-inline-flex">
+                            <!-- <li class="nav-item  borde_blanco d-none d-lg-inline-flex">
                                 <a href="#tab5Id" class="nav-link " >Conocenos</a>
-                            </li>
+                            </li> -->
                             <li class="nav-item  borde_blanco d-none d-lg-inline-flex">
-                                <a href="#tab5Id" class="nav-link " >Sedes</a>
+                                <a class="nav-link " href="sedes.php" >Sedes</a>
                             </li>
                             <li class="nav-item  borde_blanco d-none d-lg-inline-flex">
                                 <a href="#tab5Id" class="nav-link " >Educación</a>
-                            </li>
-                            <li class="nav-item  borde_blanco d-none d-lg-inline-flex">
-                                <a href="#tab5Id" class="nav-link " >Eventos</a>
                             </li>
                             <li class="nav-item  borde_blanco d-none d-lg-inline-flex">
                                 <a href="#tab5Id" class="nav-link " >Contacto</a>
                             </li>
                     </ul>
 
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-      <div class="offcanvas-header ">
-        <h5 id="offcanvasRightLabel ">Avivamiento Internacional</h5>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header ">
+          <h5 id="offcanvasRightLabel ">Avivamiento Internacional</h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body fondo_menu">
+          <ul class="nav fonmdo_menu inline_block w-50 centrar">
+                              <li class="nav-item  borde_blanco  ">
+                                  <a href="#tab5Id" class="nav-link activo">Inicio</a>
+                              </li>
+                              <!-- <li class="nav-item  borde_blanco ">
+                                  <a href="#tab5Id" class="nav-link " >Conocenos</a>
+                              </li> -->
+                              <li class="nav-item  ">
+                                  <a  class="nav-link " href="sedes.php">Sedes</a>
+                              </li>
+                              <li class="nav-item  ">
+                                  <a href="#tab5Id" class="nav-link " >Educación</a>
+                              </li>
+                              <li class="nav-item  ">
+                                  <a href="#tab5Id" class="nav-link " >Contacto</a>
+                              </li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div class="offcanvas-body fondo_menu">
-        <ul class="nav fonmdo_menu inline_block w-50 centrar">
-                            <li class="nav-item  borde_blanco  ">
-                                <a href="#tab5Id" class="nav-link activo">Inicio</a>
-                            </li>
-                            <li class="nav-item  borde_blanco ">
-                                <a href="#tab5Id" class="nav-link " >Conocenos</a>
-                            </li>
-                            <li class="nav-item  ">
-                                <a href="#tab5Id" class="nav-link " >Sedes</a>
-                            </li>
-                            <li class="nav-item  ">
-                                <a href="#tab5Id" class="nav-link " >Educación</a>
-                            </li>
-                            <li class="nav-item  ">
-                                <a href="#tab5Id" class="nav-link " >Eventos</a>
-                            </li>
-                            <li class="nav-item  ">
-                                <a href="#tab5Id" class="nav-link " >Contacto</a>
-                            </li>
-        </ul>
-      </div>
-    </div>
-</div>
     </header>
     <div class="contenedor">
     </div>
@@ -289,7 +374,7 @@ $conn->close();
                     <h3 id="current-month">Mes Actual</h3>
                     <button class="btn btn-primary" id="next-month">Mes Siguiente</button>
                 </div>
-                <table class="table table-bordered text-light">
+                <table class="table table-bordered text-light " id="calendar-table">
                     <thead>
                         <tr>
                             <th>D</th>
@@ -301,9 +386,8 @@ $conn->close();
                             <th>S</th>
                         </tr>
                     </thead>
-                    <tbody id="calendar-table">
-                        <!-- Aquí se generará el calendario en forma de tabla con fechas -->
-                        <!-- El contenido del calendario se generará dinámicamente con JavaScript -->
+                    <tbody>
+                        <!-- Las celdas del calendario se generan dinámicamente en el script JavaScript -->
                     </tbody>
                 </table>
             </div>
@@ -313,7 +397,7 @@ $conn->close();
 
 
   <div class="container justify-content-center">
-                        <div class="row text-center" >
+                        <div class="row text-center justify-content-center" >
                             <!-- Card que sirve para los eventos en un ciclo dependiendo de los eventos registrados -->
                             <?php 
                             // require("../controller/conexion.php");
@@ -322,12 +406,12 @@ $conn->close();
 
                             foreach ($result as $value) {
                             ?>
-                            <div class="card shadow  col-md-5 m-4 hovercards-agenda--admin">
-                                            <div class="card-header py-3 ">
+                            <div class="card shadow col-md-5 col-lg-3 m-2">
+                                            <div class="card-header py-3">
                                                 <h3 class="fondo_calendario"><?php echo $value['mensaje'];?></h3>
                                             </div>
-                                            <div class="card-body fondo_calendario_cards">
-                                                <div class="container-fluid m-auto">
+                                            <div class="card-body">
+                                                <div class="container-fluid m-auto fondo_calendario_cards" style="height:100%;">
                                                         <div class="mb-3 w-100 m-auto" style="border-radius: 2px;">
                                                             <!-- Vista de Imagen -->
                                                                 <div  class="container-fluid m-auto" style="border-radius: 30px;  max-width: 900px; margin:auto;  heigth: 700px; ">
@@ -432,11 +516,73 @@ $conn->close();
   </div>  
 </main>
 
-<footer class="fondo_footer centrar">
+<footer class="fondo_footer centrar" style="width: 100%; border-radius:10px !important;">
             <!-- place footer here -->
-            <div class="  ">
-
+            <div class="container text-center text-light fondo_calendario_card">
+              <h3>Siguenos en Redes sociales</h3>
+              <br>
+              <a class="text-light m-5 " href="https://www.facebook.com/aviinternacional" target="_blank">
+                <i class="fa fa-facebook face-color" style="font-size:35px; margin: 2px; padding:5px; border-radius:3px;"></i>
+              </a>
+              <a class="text-light m-5" href="https://instagram.com/avinternacional_marlontager?igshid=MWZjMTM2ODFkZg==" target="_blank">
+                <i class="fa fa-instagram insta-color" style="font-size:35px; margin: 2px; padding:5px; border-radius:3px;"></i>
+              </a>
+              <a class="text-light m-5 " href="https://www.youtube.com/channel/UCIqlmDB3IXuif3Nf6JoPlZQ" target="_blank">
+                <i class="fa fa-youtube you-color" style="font-size:35px; margin: 2px; padding:5px; border-radius:3px;"></i>
+              </a>
+              <a class="text-light m-5" href="https://twitter.com/avivamientointl?lang=es" target="_blank">
+                <i class="fa fa-twitter tw-color" style="font-size:35px; margin: 2px; padding:5px; border-radius:3px;"></i>
+              </a>
+              <a class="text-light m-5" href="https://open.spotify.com/show/4Oq6L9LjvMzUWgEfkz0kHp" target="_blank">
+                <i class="fa fa-spotify sp-color" style="font-size:35px; margin: 2px; padding:5px; border-radius:3px;"></i>
+              </a>
             </div>
+            
+            <br>
+            <hr class="border-bottom">
+            
+            <div class="container ">
+
+              <div class="row text-light">
+                  <div class="col-md-5">
+                      <h5>Información de Contacto</h5>
+                      <p></p>
+                      <p>Email: <a href="mailto:info@avivamiento.mx">info@avivamiento.mx</a></p>
+                   
+                  </div>
+                  <div class="col-md-3">
+                      <h5>Enlaces Rápidos</h5>
+                      <ul class="list-unstyled">
+                          <li><a href="index.php">Inicio</a></li>
+                          <li><a href="sedes.php">sedes</a></li>
+                          <li><a href="Educación">Educación</a></li>
+                      </ul>
+                  </div>
+                    <div class=" text-primary col-md-4">
+                      <div class="row">
+                              <div class="col-md-12">
+                                  <div class="card ">
+                                      <div class="card-body ">
+                                          <h5 class="card-title">Suscríbete a nuestro boletín</h5>
+                                          <p class="card-text">Recibe las últimas noticias y actualizaciones en tu bandeja de entrada.</p>
+                                          <form>
+                                              <div class="mb-3 container-fluid m-auto fondo_calendario_cards">
+                                                  <label for="email" class="form-label">Correo Electrónico</label>
+                                                  <input type="email" class="form-control" id="email" placeholder="Tu correo electrónico">
+                                              </div>
+                                              <button type="submit" class="btn btn-primary">Suscribirse</button>
+                                          </form>
+                                      </div>
+                                      </div>
+                                  </div>
+                            </div>
+                    </div>              
+               </div>
+            </div>
+            
+            <hr>
+            <p class="text-center text-light">&copy; 2023 Todos los derechos reservados</p>
+
 </footer>
 
 <button id="scrollButton" class="scroll-button" onclick="scrollToTop()" style="width:50px; height:50px;"><img src="images/rrow.svg" alt="" srcset=""></button>
@@ -460,6 +606,53 @@ $conn->close();
     <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
+        // $(document).ready(function() {
+        //     var selectedDates = <?php echo json_encode($selectedDates); ?>;
+        //     var currentDate = new Date();
+
+        //     updateCalendar(currentDate);
+
+        //     $("#prev-month").click(function() {
+        //         currentDate.setMonth(currentDate.getMonth() - 1);
+        //         updateCalendar(currentDate);
+        //     });
+
+        //     $("#next-month").click(function() {
+        //         currentDate.setMonth(currentDate.getMonth() + 1);
+        //         updateCalendar(currentDate);
+        //     });
+
+        //     function updateCalendar(date) {
+        //         $("#current-month").text(date.toLocaleString("default", { month: "long", year: "numeric" }));
+        //         $("#calendar-table").empty();
+        //         var firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
+        //         var lastDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+
+        //         var currentDay = new Date(firstDayOfMonth);
+        //         var row = $("<tr>");
+
+        //         while (currentDay <= lastDayOfMonth) {
+        //             if (currentDay.getDay() === 0) {
+        //                 $("#calendar-table").append(row);
+        //                 row = $("<tr>");
+        //             }
+
+        //             var cellDate = currentDay.toISOString().slice(0, 10);
+        //             var cellClass = selectedDates.includes(cellDate) ? "selected-date" : "";
+
+        //             var cell = $("<td>")
+        //                 .addClass(cellClass)
+        //                 .text(currentDay.getDate());
+
+        //             row.append(cell);
+        //             currentDay.setDate(currentDay.getDate() + 1);
+        //         }
+
+        //         $("#calendar-table").append(row);
+        //     }
+        // });
+</script>
+<script>
         $(document).ready(function() {
             var selectedDates = <?php echo json_encode($selectedDates); ?>;
             var currentDate = new Date();
@@ -478,16 +671,17 @@ $conn->close();
 
             function updateCalendar(date) {
                 $("#current-month").text(date.toLocaleString("default", { month: "long", year: "numeric" }));
-                $("#calendar-table").empty();
+                $("#calendar-table tbody").empty();
                 var firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
                 var lastDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 
                 var currentDay = new Date(firstDayOfMonth);
+                currentDay.setDate(1 - firstDayOfMonth.getDay()); // Ajuste para iniciar en el día correcto de la semana
                 var row = $("<tr>");
 
                 while (currentDay <= lastDayOfMonth) {
                     if (currentDay.getDay() === 0) {
-                        $("#calendar-table").append(row);
+                        $("#calendar-table tbody").append(row);
                         row = $("<tr>");
                     }
 
@@ -496,17 +690,27 @@ $conn->close();
 
                     var cell = $("<td>")
                         .addClass(cellClass)
-                        .text(currentDay.getDate());
+                        .addClass(currentDay < new Date() ? "disabled" : "") // Agregar clase "disabled" si la fecha es anterior al día actual
+                        .text(currentDay.getDate())
+                        .click(function() {
+                            if ($(this).hasClass("disabled")) return;
+                            
+                            var clickedDate = $(this).text();
+                            var clickedMonth = date.getMonth() + 1;
+                            var formattedDate = date.getFullYear() + "-" + (clickedMonth < 10 ? "0" : "") + clickedMonth + "-" + (clickedDate < 10 ? "0" : "") + clickedDate;
+                            $("#selected-date-input").val(formattedDate);
+                            $(".selected-date").removeClass("selected-date");
+                            $(this).addClass("selected-date");
+                        });
 
                     row.append(cell);
                     currentDay.setDate(currentDay.getDate() + 1);
                 }
 
-                $("#calendar-table").append(row);
+                $("#calendar-table tbody").append(row);
             }
         });
-    </script>
-
+</script>
 </body>
 
 </html>
