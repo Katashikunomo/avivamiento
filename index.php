@@ -33,6 +33,7 @@ $array_fechas = getCountDates();
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Avivamiento Internacional es una congregación que busca alinear su propósito con la voluntad de Dios en Cristo Jesús. Su enfoque principal es el avivamiento espiritual, que se refiere a un renacimiento o revitalización profunda de la fe y la relación con Dios en la vida de los creyentes. La congregación busca vivir de acuerdo con los principios y enseñanzas de Jesucristo, y su objetivo es experimentar una renovación espiritual tanto a nivel individual como comunitario.">
   <link rel="shortcut icon" href="images/logo.svg" type="image/x-icon">
   <!-- Bootstrap CSS v5.2.1 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
