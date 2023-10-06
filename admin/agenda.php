@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("includes/database.php");
+require_once("./includes/database.php");
 if ($_SESSION['dt_email'] == false) {
     # code...
     header("location: index.php");
