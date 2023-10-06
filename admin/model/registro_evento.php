@@ -1,18 +1,19 @@
 <?php
+    include("../../controller/conexion.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["selected_date"]) && !empty($_POST["selected_date"])) {
         $selectedDate = $_POST["selected_date"];
         
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "avivamiento";
+        // $servername = "localhost";
+        // $username = "root";
+        // $password = "";
+        // $dbname = "avivamiento";
 
-        $conn = new mysqli($servername, $username, $password, $dbname);
+        // $conn = new mysqli($servername, $username, $password, $dbname);
 
-        if ($conn->connect_error) {
-            die("Error de conexión: " . $conn->connect_error);
-        }
+        // if ($conn->connect_error) {
+        //     die("Error de conexión: " . $conn->connect_error);
+        // }
 
         // $sql = "INSERT INTO tb_fechas (fecha) VALUES ('$selectedDate')";
         // $sql = "SELECT * FROM tb_fechas";
@@ -46,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     // global $mysqli;
                     // $bandera = true;
                         $query = "INSERT INTO tb_fechas(fecha,id_encargado,mensaje,tp_status,nom_imagen) VALUES('$selectedDate','$encargado','$mesg','$estatus','$imagen')";
-                        $res = $conn->query($query);
+                        $res = $mysqli->query($query);
                         header("Location:../agenda.php");
                 } 
                 // Si la extención del archivo no es la deseada se realiza un envio de mensaje de error
@@ -55,10 +56,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location:../agenda.php?error='dont image'");
             }      
         } else {
-            echo "Error al almacenar la fecha: " . $conn->error;
+            echo "Error al almacenar la fecha: " . $mysqli->error;
         }
 
-        $conn->close();
+        // $conn->close();
     } else {
         echo "No se ha proporcionado una fecha seleccionada.";
     }
