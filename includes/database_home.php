@@ -1,5 +1,5 @@
 <?php
-    require_once('./controller/conexion.php');
+    require_once('../controller/conexion.php');
 
     function get_user_acces($email){
         global $mysqli;
@@ -8,6 +8,13 @@
         $result = $mysqli->query($sql);
         return $result;
         // return $result->fetch_assoc();
+    }
+
+    function get_user($id){
+        global $mysqli;
+        $query = "SELECT * FROM encargados where id = '{$id}'";
+        $result = $mysqli->query($query);
+        return $result->fetch_assoc();
     }
 
     function imagen_user($id_user){
