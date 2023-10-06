@@ -69,12 +69,49 @@
     //     return $result->fetch_assoc();    
     //     }
     function eventos_fecha()
-{
+    {
     global $mysqli;
     $query = "SELECT * FROM tb_fechas where tp_status = 1 ORDER BY fecha ASC";
     // $query = "SELECT * FROM tb_fechas ";
     $result = $mysqli->query($query);
     // return $result->fetch_assoc(); 
     return $result;
+    }
+
+// ----------------- CALENDARIO Y CARDS
+
+function getDataCalendar()
+{
+    global $mysqli;
+    // Consultar las fechas seleccionadas desde la base de datos
+    $sql = "SELECT * FROM tb_fechas";
+    $result = $mysqli->query($sql);
+    // $estatus_ok = fetch_assoc()->$result; 
+
+    $selectedDates = array();
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            if ($row['tp_status'] == 1) {
+            $selectedDates[] = $row["fecha"];
+            }    
+        }
+
+    }
+
+    return $selectedDates;
 }
+
+function getCountDates()
+{
+    global $mysqli;
+    // Consultar cantidad de eventos
+    $sql = "SELECT COUNT(fecha) as 'numerototal' FROM tb_fechas WHERE tp_status = 1";
+    $result_fechas = $mysqli->query($sql);
+    $array_fechas_total = $result_fechas->fetch_assoc();
+    $array_fechas = $array_fechas_total['numerototal'];
+    return $array_fechas;
+}
+
+
 ?>

@@ -61,5 +61,27 @@ function eventos_fecha()
     // return $result->fetch_assoc(); 
     return $result;
 }
+// ----------------- CALENDARIO Y CARDS
 
+function getDataCalendar()
+{
+    global $mysqli;
+    // Consultar las fechas seleccionadas desde la base de datos
+    $sql = "SELECT * FROM tb_fechas";
+    $result = $mysqli->query($sql);
+    // $estatus_ok = fetch_assoc()->$result; 
+
+    $selectedDates = array();
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            if ($row['tp_status'] == 1) {
+            $selectedDates[] = $row["fecha"];
+            }    
+        }
+
+    }
+
+    return $selectedDates;
+}
 ?>

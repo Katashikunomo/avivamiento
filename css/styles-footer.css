@@ -1,0 +1,121 @@
+/* Estilos carousel */
+#carouselimgs{
+    box-shadow: 0px 0px 15px #000 !important;
+    margin-top: 50px !important;
+    border-radius: 12px !important;
+}
+
+.carousel-item{
+    /* height: 700px; */
+
+    /* width: 50%; */
+    border-radius: 120px !important;
+    /* display: flex !important;
+    flex-direction: row !important; */
+
+}
+.image-carousel{
+    border-radius: 12px;
+    display: flex;
+    flex-direction: row;
+}
+.image-carousel img{
+    border-radius: 12px;
+    max-width: 800px;
+}
+/* Estilos para iconos fel footer */  
+
+.selected-date {
+    background-color: #FF0000 !important;
+    color: #ffffff;
+}
+
+.face-color:hover{
+  background: linear-gradient(45deg, #1877f2 0%, #1877f2 30%, #3b5998 70%, #3b5998 100%);
+  background-size: 200% 200%;
+  animation: gradientAnimation 2.2s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.insta-color:hover {
+  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4, #2a77d0);
+  background-size: 200% 200%;
+  animation: gradientAnimation 3s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.you-color{
+  transition: all ease-in 1s !important;
+}
+.you-color:hover {
+  background: linear-gradient(45deg, #FF0000, #FF0000, #FFFFFF);
+  background-size: 200% 200%;
+  animation: gradientAnimation 3s ease infinite ;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.tw-color:hover {
+  background: linear-gradient(45deg,#fff,#ffffff, #1da1f2, #1da1f2,#1da1f2,#3b5998 90% );
+  background-size: 200% 200%;
+  animation: gradientAnimation 2.5s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 10% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.sp-color:hover {
+  background: linear-gradient(45deg, #1DB954, #1DB954, #ffffff);
+  background-size: 200% 200%;
+  animation: gradientAnimation 3s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
