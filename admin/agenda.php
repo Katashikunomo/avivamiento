@@ -13,20 +13,22 @@ $nombre = $user['dt_nombre'];
 $correo = $user['dt_email'];
 $imagen = imagen_user($id_user);
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "avivamiento";
+// $servername = "localhost";
+// $username = "root";
+// $password = "";
+// $dbname = "avivamiento";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+// $conn = new mysqli($servername, $username, $password, $dbname);
 
-if ($conn->connect_error) {
-    die("Error de conexión: " . $conn->connect_error);
-}
+// if ($conn->connect_error) {
+//     die("Error de conexión: " . $conn->connect_error);
+// }
 
 // Consultar las fechas seleccionadas desde la base de datos
+require '../controller/conexion.php';
+global $mysqli;
 $sql = "SELECT fecha FROM tb_fechas";
-$result = $conn->query($sql);
+$result = $mysqli->query($sql);
 
 $selectedDates = array();
 
@@ -36,7 +38,7 @@ if ($result->num_rows > 0) {
     }
 }
 
-$conn->close();
+// $conn->close();
 
 
 ?>
