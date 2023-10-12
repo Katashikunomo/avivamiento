@@ -4,8 +4,7 @@ if ($_SESSION['dt_email'] == false) {
     # code...
     header("location: index.php");
 }
-// include("includes/database.php");
-require("../includes/database_home.php");
+require_once("includes/database.php");
 $id_user = $_SESSION['id_users'];
 // $nombre = $_SESSION['dt_nombre'];
 // $correo = $_SESSION['dt_email'];
@@ -14,8 +13,30 @@ $nombre = $user['dt_nombre'];
 $correo = $user['dt_email'];
 $imagen = imagen_user($id_user);
 
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "avivamiento";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Error de conexión: " . $conn->connect_error);
+}
+
+// Consultar las fechas seleccionadas desde la base de datos
+$sql = "SELECT fecha FROM tb_fechas";
+$result = $conn->query($sql);
+
 $selectedDates = array();
-$selectedDates = getDataCalendar();
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $selectedDates[] = $row["fecha"];
+    }
+}
+
+$conn->close();
 
 
 ?>

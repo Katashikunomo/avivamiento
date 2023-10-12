@@ -307,12 +307,57 @@ $array_fechas = getCountDates();
                                                                                 
                     </div>
                   </div>
-                    <!-- Eliminar evento -->
+
                   <div class="container mt-4">
-                    <form action="model/eliminar_evento.php" method="POST" enctype="multipart/form-data">
                       <!-- Cambiarlo por un modal -->
-                      <a name="" id="" class="btn fondo_calendario_a" href="#" role="button">Recibir notificación acerca de este evento</a>
-                    </form>
+                        <!--  Modal trigger button  -->
+                        <button type="button" class="btn fondo_calendario_a" data-bs-toggle="modal" data-bs-target="#modalId<?= $value['id']; ?>">
+                          Recibir notificación acerca de este evento
+                        </button>
+                        
+                        <!-- Modal Body-->
+                        <div class="modal fade"  style="backdrop-filter:blur(10px) !important;" id="modalId<?= $value['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+                          <div class="modal-dialog" role="document" >
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalTitleId"><?= $value['mensaje']; ?></h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                              <div class="modal-body" style="backdrop-filter:blur(10px) !important;">
+                                <div class="container-fluid">
+                                  <h4>Ingresa los siguientes campos para recibir información acerca de este evento</h4>
+                                  <form action="formulario.php" method="POST">
+                                    <div class="mb-3">
+                                      <input type="text" name="idevento" id="idevento" value="<?= $value['id']; ?>" hidden>
+                                      
+                                      <label for="" class="form-label">Nombre <b style="color:red;">*</b></label>
+                                      <input type="text"
+                                        class="form-control" name="nombre" id="nombre" aria-describedby="helpId" placeholder="" required>
+                                    </div>
+                                    <div class="mb-3">
+                                      <label for="" class="form-label">Correo<b style="color:red;">*</b></label>
+                                      <input type="email"
+                                        class="form-control" name="correo" id="correo" aria-describedby="helpId" placeholder="" required>
+                                    </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="checkbox" value="aceptado" name="terminos" id="terminos" required>
+                                      <label class="form-check-label" for="terminos" required>
+                                        <a href="#">Aviso de Privacidad</a>
+                                      </label>
+                                    </div>
+                                    <button type="submit" class="btn fondo_calendario_a">Enviar</button>
+                                    <br>
+                                  </form>
+                                </div>
+                              </div>
+                              <div class="modal-footer" style="backdrop-filter:blur(10px) !important;">
+                                <button type="button" class="btn fondo_calendario_a" data-bs-dismiss="modal">cerrar ventana</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                
+                      <!-- <a name="" id="" class="btn fondo_calendario_a" href="#" role="button">Recibir notificación acerca de este evento</a> -->
                   </div>
                 </div>
               </div>

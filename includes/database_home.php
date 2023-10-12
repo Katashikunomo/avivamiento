@@ -1,5 +1,5 @@
 <?php
-    require_once('../controller/conexion.php');
+    require_once('./controller/conexion.php');
 
     function get_user_acces($email){
         global $mysqli;
@@ -84,6 +84,16 @@
     // return $result->fetch_assoc(); 
     return $result;
     }
+    function eventos_fecha_form($id)
+    {
+    global $mysqli;
+    $query = "SELECT * FROM tb_fechas where tp_status = 1 ORDER BY fecha ASC";
+    // $query = "SELECT * FROM tb_fechas ";
+    $result = $mysqli->query($query);
+    // return $result->fetch_assoc(); 
+    return $result->fetch_assoc();
+    }
+
 
 // ----------------- CALENDARIO Y CARDS
 
