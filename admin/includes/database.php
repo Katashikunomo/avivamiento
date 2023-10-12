@@ -12,7 +12,7 @@
 
     function get_user($id){
         global $mysqli;
-        $query = "SELECT * FROM encargados where id = '$id'";
+        $query = "SELECT * FROM encargados where id = '{$id}'";
         $result = $mysqli->query($query);
         return $result->fetch_assoc();
     }
