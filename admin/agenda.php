@@ -476,7 +476,8 @@ $conn->close();
                                                             </tbody>
                                                         </table>
                                                         <form method="post" action="procesar_fecha.php">
-                                                            <input type="text" id="selected-date-input" name="selected_date" value="" hidden>
+                                                            <!-- <input type="text" id="selected-date-input" name="selected_date" value="" required h > -->
+                                                            <input type="text" id="selected-date-input" name="selected_date" value="" required hidden>
                                                             <!-- <button type="submit" class="btn btn-primary mt-3">Enviar Fecha Seleccionada</button> -->
                                                         </form>
                                                     </div>

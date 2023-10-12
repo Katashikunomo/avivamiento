@@ -87,10 +87,8 @@
     function eventos_fecha_form($id)
     {
     global $mysqli;
-    $query = "SELECT * FROM tb_fechas where tp_status = 1 ORDER BY fecha ASC";
-    // $query = "SELECT * FROM tb_fechas ";
+    $query = "SELECT * FROM tb_fechas where id='$id' ";
     $result = $mysqli->query($query);
-    // return $result->fetch_assoc(); 
     return $result->fetch_assoc();
     }
 
