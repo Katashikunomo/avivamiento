@@ -54,9 +54,9 @@ $imagen_usr = $imagen_banner_array['imagen'];
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admin.php">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                    <!-- <i class="fas fa-laugh-wink"></i> -->
                 </div>
-                <div class="sidebar-brand-text mx-3">AVIVAMIENTO <sup>panel</sup> </div>
+                <div class="sidebar-brand-text mx-3">AVIVAMIENTO <sup>panel ADMIN</sup></div>
             </a>
 
             <!-- Divider -->
@@ -68,14 +68,35 @@ $imagen_usr = $imagen_banner_array['imagen'];
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
-
+            
             <!-- Divider -->
             <hr class="sidebar-divider">
-
+            
             <!-- Heading -->
             <div class="sidebar-heading">
-                Interface
+                Navegación
             </div>
+            <li class="nav-item active">
+                <a class="nav-link" href="banner.php">
+                    <i class="fas fa-image"></i>
+                    <span>Imagen Principal</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+            <li class="nav-item active">
+                <a class="nav-link" href="agenda.php">
+                    <i class="fas fa-calendar"></i>
+                    <span>Agenda y Eventos</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+            <li class="nav-item active">
+                <a class="nav-link" href="proposito.php">
+                    <i class="fas fa-user"></i>
+                    <span>Quienes Somos, proposito y visión</span></a>
+            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

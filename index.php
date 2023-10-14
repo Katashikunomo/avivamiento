@@ -446,7 +446,7 @@ $array_fechas = getCountDates();
       <div class="col-md-5">
         <h5>Información de Contacto</h5>
         <p></p>
-        <p>Email: <a href="mailto:info@avivamiento.mx">info@avivamiento.mx</a></p>             
+        <p>Email: <a href="mailto:info@avivamientointernacional.website">info@avivamientointernacional.website</a></p>             
       </div>
       
       <div class="col-md-3">

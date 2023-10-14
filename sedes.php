@@ -210,70 +210,72 @@
 
 <footer class="fondo_footer centrar" style="width: 100%; border-radius:10px !important;">
             <!-- place footer here -->
-            <div class="container text-center text-light fondo_calendario_card">
-              <h3>Siguenos en Redes sociales</h3>
-              <br>
-              <a class="text-light m-5 " href="https://www.facebook.com/aviinternacional" target="_blank">
-                <i class="fa fa-facebook face-color" style="font-size:35px; margin: 2px; padding:5px; border-radius:3px;"></i>
-              </a>
-              <a class="text-light m-5" href="https://instagram.com/avinternacional_marlontager?igshid=MWZjMTM2ODFkZg==" target="_blank">
-                <i class="fa fa-instagram insta-color" style="font-size:35px; margin: 2px; padding:5px; border-radius:3px;"></i>
-              </a>
-              <a class="text-light m-5 " href="https://www.youtube.com/channel/UCIqlmDB3IXuif3Nf6JoPlZQ" target="_blank">
-                <i class="fa fa-youtube you-color" style="font-size:35px; margin: 2px; padding:5px; border-radius:3px;"></i>
-              </a>
-              <a class="text-light m-5" href="https://twitter.com/avivamientointl?lang=es" target="_blank">
-                <i class="fa fa-twitter tw-color" style="font-size:35px; margin: 2px; padding:5px; border-radius:3px;"></i>
-              </a>
-              <a class="text-light m-5" href="https://open.spotify.com/show/4Oq6L9LjvMzUWgEfkz0kHp" target="_blank">
-                <i class="fa fa-spotify sp-color" style="font-size:35px; margin: 2px; padding:5px; border-radius:3px;"></i>
-              </a>
-            </div>
-            
-            <br>
-            <hr class="border-bottom">
-            
-            <div class="container ">
+  <div class="container text-center text-light fondo_calendario_card">
+    <h3>Siguenos en Redes sociales</h3>
+    <br>
+    <a class="text-light m-5 " href="https://www.facebook.com/aviinternacional" target="_blank">
+      <i class="fa fa-facebook face-color" style="font-size:35px; margin: 2px; padding:5px; border-radius:3px;"></i>
+    </a>
+    <a class="text-light m-5" href="https://instagram.com/avinternacional_marlontager?igshid=MWZjMTM2ODFkZg==" target="_blank">
+      <i class="fa fa-instagram insta-color" style="font-size:35px; margin: 2px; padding:5px; border-radius:3px;"></i>
+    </a>
+    <a class="text-light m-5 " href="https://www.youtube.com/channel/UCIqlmDB3IXuif3Nf6JoPlZQ" target="_blank">
+      <i class="fa fa-youtube you-color" style="font-size:35px; margin: 2px; padding:5px; border-radius:3px;"></i>
+    </a>
+    <a class="text-light m-5" href="https://twitter.com/avivamientointl?lang=es" target="_blank">
+      <i class="fa fa-twitter tw-color" style="font-size:35px; margin: 2px; padding:5px; border-radius:3px;"></i>
+    </a>
+    <a class="text-light m-5" href="https://open.spotify.com/show/4Oq6L9LjvMzUWgEfkz0kHp" target="_blank">
+      <i class="fa fa-spotify sp-color" style="font-size:35px; margin: 2px; padding:5px; border-radius:3px;"></i>
+    </a>
+  </div>
 
-              <div class="row text-light">
-                  <div class="col-md-5">
-                      <h5>Información de Contacto</h5>
-                      <p></p>
-                      <p>Email: <a href="mailto:info@avivamiento.mx">info@avivamiento.mx</a></p>
-                   
-                  </div>
-                  <div class="col-md-3">
-                      <h5>Enlaces Rápidos</h5>
-                      <ul class="list-unstyled">
-                          <li><a href="index.php">Inicio</a></li>
-                          <li><a href="sedes.php">sedes</a></li>
-                          <li><a href="Educación">Educación</a></li>
-                      </ul>
-                  </div>
-                    <div class=" text-primary col-md-4">
-                      <div class="row">
-                              <div class="col-md-12">
-                                  <div class="card ">
-                                      <div class="card-body ">
-                                          <h5 class="card-title">Suscríbete a nuestro boletín</h5>
-                                          <p class="card-text">Recibe las últimas noticias y actualizaciones en tu bandeja de entrada.</p>
-                                          <form>
-                                              <div class="mb-3 container-fluid m-auto fondo_calendario_cards">
-                                                  <label for="email" class="form-label">Correo Electrónico</label>
-                                                  <input type="email" class="form-control" id="email" placeholder="Tu correo electrónico">
-                                              </div>
-                                              <button type="submit" class="btn btn-primary">Suscribirse</button>
-                                          </form>
-                                      </div>
-                                      </div>
-                                  </div>
-                            </div>
-                    </div>              
-               </div>
-            </div>
+  <br>
+  <hr class="border-bottom">
             
-            <hr>
-            <p class="text-center text-light">&copy; 2023 Todos los derechos reservados</p>
+  <div class="container ">
+
+    <div class="row text-light">
+      <div class="col-md-5">
+        <h5>Información de Contacto</h5>
+        <p></p>
+        <p>Email: <a href="mailto:info@avivamientointernacional.website">info@avivamientointernacional.website</a></p>             
+      </div>
+      
+      <div class="col-md-3">
+        <h5>Enlaces Rápidos</h5>
+        <ul class="list-unstyled">
+          <li><i class="fa fa-angle-right"></i> <a href="index.php">Inicio</a></li>
+          <li><i class="fa fa-angle-right"></i> <a href="sedes.php">sedes</a></li>
+          <li><i class="fa fa-angle-right"></i> <a href="Educación">Educación</a></li>
+          <li><i class="fa fa-angle-right"></i> <a href="Educación">Aviso de privasidad</a></li>
+        </ul>
+      </div>
+
+        <div class=" text-primary col-md-4">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card ">
+                <div class="card-body ">
+                  <h5 class="card-title">Suscríbete a nuestro boletín</h5>
+                  <p class="card-text">Recibe las últimas noticias y actualizaciones en tu bandeja de entrada.</p>
+                    <form>
+                      <div class="mb-3 container-fluid m-auto fondo_calendario_cards">
+                        <label for="email" class="form-label">Correo Electrónico</label>
+                        <input type="email" class="form-control" id="email" placeholder="Tu correo electrónico">
+                      </div>
+                      <button type="submit" class="btn btn-primary">Suscribirse</button>
+                    </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>              
+    </div>
+  </div>
+            
+  <hr>
+  <p class="text-center text-light">&copy; 2023 Todos los derechos reservados</p>
 
 </footer>
 
