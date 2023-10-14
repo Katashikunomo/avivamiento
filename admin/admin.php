@@ -33,6 +33,8 @@ $correo = $user['dt_email'];
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+       <!-- Custom styles for this page -->
+       <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
 
@@ -315,8 +317,61 @@ $correo = $user['dt_email'];
                 </nav>
                 <!-- End of Topbar -->
 
+                        
+
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+
+                      <!-- DataTales Example -->
+                      <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Correo</th>
+                                            <th>Evento</th>
+                                            <th>Boletin</th>
+                                        </tr>
+                                    </thead>
+                                    
+                                    <tbody>
+                                        <tr>
+                                            <td>Tiger Nixon</td>
+                                            <td><a href="mailto:fer2023@gmail.com">rtiger@gmail.com</a></td>
+                                            <td>Encuentro</td>
+                                            <td>-NO</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Juan Fernando</td>
+                                            <td><a href="mailto:fer2023@gmail.com">fer2023@gmail.com</a></td>
+                                            <td>Encuentro</td>
+                                            <td>#SI</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sofia Vazqus</td>
+                                            <td><a href="mailto:sofv.qz@gmail.com">sofv.qz@gmail.com</a></td>
+                                            <td>Sanidades y milagros ♥</td>
+                                            <td>#SI</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Silvia Gonzales</td>
+                                            <td><a href="mailto:si.gonza@gmail.com">si.gonza@gmail.com</a></td>
+                                            <td>Sanidades y milagros ♥</td>
+                                            <td>-NO</td>
+                                        </tr>
+                                        
+                                    
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
 
                    <div class="row">
                        <div class="col-lg-6">
@@ -435,6 +490,11 @@ $correo = $user['dt_email'];
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
+        <!-- Page level plugins -->
+        <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+      <!-- Page level custom scripts -->
+      <script src="js/demo/datatables-demo.js"></script>
 
 </body>
 
