@@ -20,264 +20,107 @@ if (isset($_POST)) {
         $terminos = $_POST['terminos'];
         $nombreUsuario = $_POST['nombre'];
         $emailUsuario = $_POST['correo'];
+        $validacionCorreo = valida_correo($emailUsuario,$idEvent);
+        if ($validacionCorreo == false) {
+            # code...
+            header("Location:index.php?existe=registrado");
+        }elseif (valida_correo($emailUsuario,$idEvent)) {
+          registrar_correo($emailUsuario,$nombreUsuario,$idEvent);
 
-        echo("ID: '$idEvent' El usuario es ".$nombreUsuario." El correo es ".$emailUsuario." Acepto aviso de privacidad ".$terminos." fecha: ".$fecha." Evento -> ".$nombreEvento);
+          $mail = new PHPMailer(true);
 
-        $mail = new PHPMailer(true);
+          try {
+              //Server settings
+              $mail->SMTPDebug = 0;                      //Enable verbose debug output
+              $mail->isSMTP();                                            //Send using SMTP
+              $mail->Host       = 'smtp.hostinger.com';                     //Set the SMTP server to send through
+              $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+              $mail->Username   = 'info@avivamientointernacional.website';                     //SMTP username
+              $mail->Password   = 'Avivamiento#2023';                               //SMTP password
+              $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            //Enable implicit TLS encryption
+              $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+              
 
-        try {
-            //Server settings
-            $mail->SMTPDebug = 0;                      //Enable verbose debug output
-            $mail->isSMTP();                                            //Send using SMTP
-            $mail->Host       = 'smtp.hostinger.com';                     //Set the SMTP server to send through
-            $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-            $mail->Username   = 'info@avivamientointernacional.website';                     //SMTP username
-            $mail->Password   = 'Avivamiento#2023';                               //SMTP password
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            //Enable implicit TLS encryption
-            $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-            
+              //Recipients
+              $mail->setFrom('info@avivamientointernacional.website', 'Info Avivamiento');
+              $mail->addAddress($emailUsuario, $nombreUsuario);     //Add a recipient
 
-            //Recipients
-            $mail->setFrom('info@avivamientointernacional.website', 'Info Avivamiento');
-            $mail->addAddress($emailUsuario, $nombreUsuario);     //Add a recipient
+              //Content
+              $mail->isHTML(true);                                  //Set email format to HTML
+              $mail->CharSet = 'UTF-8';
+              $mail->Subject = 'Evento '.$nombreEvento." para el día ".$fecha;
+              // $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+            //   $mail->Body    = '
+            
+            //  ';
+          
+                          // $mail->AltBody = 'Confirmación de postulación Foros de Vinculación 2023';
 
-            //Content
-            $mail->isHTML(true);                                  //Set email format to HTML
-            $mail->CharSet = 'UTF-8';
-            $mail->Subject = 'Evento '.$nombreEvento." para el día ".$fecha;
-            // $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-            $mail->Body    = '
-            <head>
-              <link rel="stylesheet" href="https://avivamientointernacional.website/css/styles-footer.css">
-              <link rel="stylesheet" href="https://avivamientointernacional.website/css/styles.css">
-              <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-              integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-              <!-- Iconos de fontawesome -->
-              <script src="https://kit.fontawesome.com/bc365c36ca.js" crossorigin="anonymous"></script>
-              <style>
-                .header{
-                  background: #051E5E;
-                }
-                /* Estilos carousel */
-            #carouselimgs{
-                box-shadow: 0px 0px 15px #000 !important;
-                margin-top: 50px !important;
-                border-radius: 12px !important;
-            }
-            
-            .carousel-item{
-                /* height: 700px; */
-            
-                /* width: 50%; */
-                border-radius: 120px !important;
-                /* display: flex !important;
-                flex-direction: row !important; */
-            
-            }
-            .image-carousel{
-                border-radius: 12px;
-                display: flex;
-                flex-direction: row;
-            }
-            .image-carousel img{
-                border-radius: 12px;
-                max-width: 800px;
-            }
-            /* Estilos para iconos fel footer */  
-            
-            .selected-date {
-                background-color: #FF0000 !important;
-                color: #ffffff;
-            }
-            
-            .face-color:hover{
-              background: linear-gradient(45deg, #1877f2 0%, #1877f2 30%, #3b5998 70%, #3b5998 100%);
-              background-size: 200% 200%;
-              animation: gradientAnimation 2.2s ease infinite;
-            }
-            
-            @keyframes gradientAnimation {
-              0% {
-                background-position: 0% 50%;
-              }
-              50% {
-                background-position: 100% 50%;
-              }
-              100% {
-                background-position: 0% 50%;
-              }
-            }
-            .insta-color:hover {
-              background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4, #2a77d0);
-              background-size: 200% 200%;
-              animation: gradientAnimation 3s ease infinite;
-            }
-            
-            @keyframes gradientAnimation {
-              0% {
-                background-position: 0% 50%;
-              }
-              50% {
-                background-position: 100% 50%;
-              }
-              100% {
-                background-position: 0% 50%;
-              }
-            }
-            .you-color{
-              transition: all ease-in 1s !important;
-            }
-            .you-color:hover {
-              background: linear-gradient(45deg, #FF0000, #FF0000, #FFFFFF);
-              background-size: 200% 200%;
-              animation: gradientAnimation 3s ease infinite ;
-            }
-            
-            @keyframes gradientAnimation {
-              0% {
-                background-position: 0% 50%;
-              }
-              50% {
-                background-position: 100% 50%;
-              }
-              100% {
-                background-position: 0% 50%;
-              }
-            }
-            .tw-color:hover {
-              background: linear-gradient(45deg,#fff,#ffffff, #1da1f2, #1da1f2,#1da1f2,#3b5998 90% );
-              background-size: 200% 200%;
-              animation: gradientAnimation 2.5s ease infinite;
-            }
-            
-            @keyframes gradientAnimation {
-              0% {
-                background-position: 10% 50%;
-              }
-              50% {
-                background-position: 100% 50%;
-              }
-              100% {
-                background-position: 0% 50%;
-              }
-            }
-            
-            .sp-color:hover {
-              background: linear-gradient(45deg, #1DB954, #1DB954, #ffffff);
-              background-size: 200% 200%;
-              animation: gradientAnimation 3s ease infinite;
-            }
-            
-            @keyframes gradientAnimation {
-              0% {
-                background-position: 0% 50%;
-              }
-              50% {
-                background-position: 100% 50%;
-              }
-              100% {
-                background-position: 0% 50%;
-              }
-            }
-            
-              </style>
-            </head>
-            <body>
-              <!-- <div class="header"> -->
-                <header class="">      
-                  <a class="logo" href="https://avivamientointernacional.website/"><img src="https://avivamientointernacional.website/images/logo.svg" alt=""></a>
-                    <ul class=" nav   fondo_menu justify-content-end"  >
-                      <li class="nav-item  borde_blanco  d-none d-sm-inline-flex">
-                        <!-- <a href="https://avivamientointernacional.website/" class="nav-link ">sitio Web</a> -->
-                      </li>
-                    </ul>
-                  
-                </header>
-              <!-- </div> -->
-              <div class="main" style="min-height: 50vh;">
-                <div class="container mt-5 m-auto">
-                  <h2 class="card mb-3 p-3">Apreciable '.$nombreUsuario.' confirmamos la recepción de su registro para el '.$nombreEvento.' que se llevara a cabo en la siguiente fecha '.$fecha.'</h2>
-                  <div class="card w-50 m-auto shadow" style="min-height: 30vh;">
-                    <div class="card-title text-center">'.$nombreEvento.'</div>
-                    <div class="card-body">
-                      <div  class="container-fluid m-auto mb-3" style="border-radius: 30px;  max-width: 900px; margin:auto;  heigth: 700px; ">
-                        <img class="img-fluid img-thumbnail" src="https://avivamientointernacional.website/admin/img/avivamiento/calendario/'.$imagen.'" alt="Evento" style="width:auto;">
-                      </div>
-                      <div  class="container-fluid m-auto bg-primary text-light" style="border-radius: 30px;  max-width: 900px; margin:auto;  heigth: 700px; ">
-                        Fehca '.$fecha.'
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            
-              <footer class="fondo_footer centrar" style="width: 100%; border-radius:10px !important;">
-                <!-- place footer here -->
-                <div class="container text-center text-light fondo_calendario_card">
-                  <h3>Siguenos en Redes sociales</h3>
-                  <br>
-                  <a class="text-light m-5 " href="https://www.facebook.com/aviinternacional" target="_blank">
-                  <i class="fa fa-facebook face-color" style="font-size:35px; margin: 2px; padding:5px; border-radius:3px;"></i>
-                  </a>
-                  <a class="text-light m-5" href="https://instagram.com/avinternacional_marlontager?igshid=MWZjMTM2ODFkZg==" target="_blank">
-                  <i class="fa fa-instagram insta-color" style="font-size:35px; margin: 2px; padding:5px; border-radius:3px;"></i>
-                  </a>
-                  <a class="text-light m-5 " href="https://www.youtube.com/channel/UCIqlmDB3IXuif3Nf6JoPlZQ" target="_blank">
-                  <i class="fa fa-youtube you-color" style="font-size:35px; margin: 2px; padding:5px; border-radius:3px;"></i>
-                  </a>
-                  <a class="text-light m-5" href="https://twitter.com/avivamientointl?lang=es" target="_blank">
-                  <i class="fa fa-twitter tw-color" style="font-size:35px; margin: 2px; padding:5px; border-radius:3px;"></i>
-                  </a>
-                  <a class="text-light m-5" href="https://open.spotify.com/show/4Oq6L9LjvMzUWgEfkz0kHp" target="_blank">
-                  <i class="fa fa-spotify sp-color" style="font-size:35px; margin: 2px; padding:5px; border-radius:3px;"></i>
-                  </a>
-                </div>
-            
-                <br>
-                <hr class="border-bottom">
-                    
-                <div class="container ">
-                  <div class="row text-light">
-                    <div class="col-md-5">
-                                
-                    </div>
-            
-                    <div class="col-md-3">
-                      <h5>Enlaces Rápidos</h5>
-                      <ul class="list-unstyled">
-                        <li><i class="fa fa-angle-right"></i> <a href="https://avivamientointernacional.website/">Inicio</a></li>
-                        <li><i class="fa fa-angle-right"></i> <a href="https://avivamientointernacional.website/sedes.php">sedes</a></li>
-                        <li><i class="fa fa-angle-right"></i> <a href="https://avivamientointernacional.website/Educación">Educación</a></li>
-                        <li><i class="fa fa-angle-right"></i> <a href="https://avivamientointernacional.website/">Aviso de privasidad</a></li>
-                      </ul>
-                    </div>            
-                  </div>
-                </div>
-                    
-                <hr>
-                <p class="text-center text-light">&copy; 2023 Todos los derechos reservados</p>
-            
-              </footer>
-            
-              <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-            </body>
-           ';
-        
-                        // $mail->AltBody = 'Confirmación de postulación Foros de Vinculación 2023';
+              // $mail->send();
 
-            // $mail->send();
-            if ($mail->send()) {
-                header("Location:index.php?formulario=enviado");
-            }else{
-                echo 'Message error';
-            }
-        } catch (Exception $e) {
-            echo " Mailer Error: {$mail->ErrorInfo}";
+
+              $mail->Body = '  <table class=" table" style="
+              border: 1px solid #000 ;
+              width: 80%;
+              margin: 15px auto;
+              min-height: 100vh;
+              margin: auto;
+              border: 1px solid #000;
+              box-shadow: 0 0 3px #000;
+              border-radius: 5px;">
+                  <thead style="background: #051E5E;">
+                      <tr>
+                          <th style=" width: 100%;
+                          color: #fff;
+                          height: 100px;
+                          text-align: left;
+                          box-shadow: 0px 0px 10px #000;
+                          border-bottom: 10px solid #fff;" ><img src="https://avivamientointernacional.website/images/logo.svg" alt="" width="80px" style="box-shadow: 0px 2px 10px #fff; border-radius: 100%; margin: 5px;"></th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr style="height: 180px; border-bottom: 2px solid #000;">
+                          <td>   
+                              <h2 style="padding: 35px; border-bottom: 10px solid #000; border-radius: 22px;">Apreciable '.$nombreUsuario.' confirmamos la recepción de su registro para el '.$nombreEvento.' que se llevara a cabo en la siguiente fecha '.$fecha.'</h2>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td  style="border-radius: 20px; border: none;
+                          box-shadow: -1px 5px 10px 1px #fff ,-1px 5px 10px 1px #000;
+                          width: 50% !important;">
+                              <h3 style="width: 70%; text-align: center; font-size: 42px; border-radius: 10px 0 100px;  border-bottom: 6px solid #000; margin: 50px auto; margin-top: 35px;">'.$nombreEvento.'</h3>
+                              <h3 style="text-align: center;">
+                                  <img src="https://avivamientointernacional.website/admin/img/avivamiento/calendario/'.$imagen.'" alt="Evento" style=" max-width: 650px; margin: 15px auto; border-radius: 12px; box-shadow: 1px 1px 12px #000;">
+                              </h3>
+                              <h3 style="width: 70%; text-align: center; font-size: 42px; border-radius: 10px 0 100px;  border-bottom: 6px solid #000; margin: 50px auto; margin-top: 35px;">La fecha del evento es el '.$fecha.'</h3>
+                              <h3 style="text-align: center;">
+                                  <a href="https://avivamientointernacional.website/" style="text-decoration: none; border: 2px solid #000; padding:10px 120px; border-radius: 5px; background-color: #051E5E; color: #fff;">ir a sitio</a>
+                              </h3>
+                          </td>                    
+                      </tr>
+                  </tbody>
+                  <tfoot style="height: 150px; background: #051E5E;">
+                      <tr>
+                          <td style="text-align: center; border-top: 10px solid #fff; box-shadow: 1px 1px 10px #000; border-radius: 5px;">
+                              <span style="color: #fff; font-size: 23px; text-align: center;">Siguenos en redes sociales</span>
+                          </td>
+                      </tr>
+                  </tfoot>
+              </table>';
+              if ($mail->send()) {
+                  header("Location:index.php?formulario=enviado");
+              }else{
+                  echo 'Message error';
+              }
+          } catch (Exception $e) {
+              echo " Mailer Error: {$mail->ErrorInfo}";
+          }
+
         }
         ?>
-        <!-- <script>
+        <script>
            window.location="index.php";
-        </script> -->
+        </script>
     
     <?php
     }else{

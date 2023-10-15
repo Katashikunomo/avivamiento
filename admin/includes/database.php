@@ -52,36 +52,43 @@
     $result = $mysqli->query($query);
     return $result->fetch_assoc();    
     }
-// Base de datos fecha eventos
-function eventos_fecha()
-{
-    global $mysqli;
-    $query = "SELECT * FROM tb_fechas";
-    $result = $mysqli->query($query);
-    // return $result->fetch_assoc(); 
-    return $result;
-}
-// ----------------- CALENDARIO Y CARDS
+    // Base de datos fecha eventos
+    function eventos_fecha()
+    {
+        global $mysqli;
+        $query = "SELECT * FROM tb_fechas";
+        $result = $mysqli->query($query);
+        // return $result->fetch_assoc(); 
+        return $result;
+    }
+    // ----------------- CALENDARIO Y CARDS
 
-function getDataCalendar()
-{
-    global $mysqli;
-    // Consultar las fechas seleccionadas desde la base de datos
-    $sql = "SELECT * FROM tb_fechas";
-    $result = $mysqli->query($sql);
-    // $estatus_ok = fetch_assoc()->$result; 
+    function getDataCalendar()
+    {
+        global $mysqli;
+        // Consultar las fechas seleccionadas desde la base de datos
+        $sql = "SELECT * FROM tb_fechas";
+        $result = $mysqli->query($sql);
+        // $estatus_ok = fetch_assoc()->$result; 
 
-    $selectedDates = array();
+        $selectedDates = array();
 
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            if ($row['tp_status'] == 1) {
-            $selectedDates[] = $row["fecha"];
-            }    
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                if ($row['tp_status'] == 1) {
+                $selectedDates[] = $row["fecha"];
+                }    
+            }
+
         }
 
+        return $selectedDates;
     }
+    // Registro correos
+    // Obtener Registro correos
+    function obtener_correos(){
+        global $mysqli;
 
-    return $selectedDates;
-}
+        $sql ="SELECT * FROM registro_correos ";
+    }
 ?>

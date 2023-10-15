@@ -128,5 +128,26 @@ function getCountDates()
     return $array_fechas;
 }
 
+// Registrar usuario
+    function registrar_correo($emailUsuario,$nombreUsuario,$idEvent){
+        global $mysqli;
+        $sql = "INSERT INTO registro_correos values(null,'$emailUsuario',UPPER('$nombreUsuario'),'0',NOW(),'$idEvent')";
+        $mysqli->query($sql);
+    }
+
+    function valida_correo($emailUsuario,$idEvent){
+        global $mysqli;
+        $sql = "SELECT * FROM registro_correos WHERE dt_correo_eventos = '$emailUsuario' AND id_fechas = '$idEvent'";
+        $result = $mysqli->query($sql);
+        $array = $result->fetch_assoc();
+
+        if (($emailUsuario == $array['dt_correo_eventos']) && ($idEvent == $array['id_fechas'])) {
+            return false;
+        }else{
+            return true;
+        }
+        return false;
+    }
+
 
 ?>
