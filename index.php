@@ -164,7 +164,7 @@ $array_fechas = getCountDates();
           <div class="col-sm-12 col-md-4 centro">
             <div class=" text-center">
               <div class="card-body">
-                <h3 class="card-title"><?=$versiculo_text;?></h3>
+                <h3 class="card-title mt-5"><?=$versiculo_text;?></h3>
                 <!-- <h3 class="card-title">En el principio creó Dios los cielos y la tierra.</h3> -->
                 <p class="card-text"><?=$versiculo_book;?> <?=$versiculo_chapter;?>:<?=$versiculo_verse;?> </p>
               </div>  
@@ -185,6 +185,7 @@ $array_fechas = getCountDates();
     <div class="container pt-5">
       <h2 class="mt-2 text-light" >Una comunidad unida, en busca de mostrar 
         el camino la verdad y la vida a las futuras generaciónes.</h2>
+        <hr style="color:#fff;">
       <div class="row  " style="aling-items:center; justify-content:center;">
           <div class="cards_comunidad" style="    background-image: url(assets/carousel/comunidad.jpg); background-size: cover; background-position: center; background-repeat: no-repeat;">
             <!-- <img src="" alt="" width="auto"> -->
