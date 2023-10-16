@@ -181,9 +181,9 @@ $array_fechas = getCountDates();
     </div>
   </section>
 
-  <div style="margin-top: 120px; min-height: 80vh; background:linear-gradient( #ACB6D9,#fff); box-shadow: 0 2px 4px grey; text-align: center;" >
+  <div style="margin-top: 120px; min-height: 80vh; background:linear-gradient( #051E5E,#fff); box-shadow: 0 2px 4px grey; text-align: center;" >
     <div class="container pt-5">
-      <h2 class="mt-2">Una comunidad unida, en busca de mostrar 
+      <h2 class="mt-2 text-light" >Una comunidad unida, en busca de mostrar 
         el camino la verdad y la vida a las futuras generaciónes.</h2>
       <div class="row  " style="aling-items:center; justify-content:center;">
           <div class="cards_comunidad" style="    background-image: url(assets/carousel/comunidad.jpg); background-size: cover; background-position: center; background-repeat: no-repeat;">
