@@ -181,7 +181,7 @@ $array_fechas = getCountDates();
     </div>
   </section>
 
-  <div style="margin-top: 120px; min-height: 80vh; background:linear-gradient( #051E5E,#fff); box-shadow: 0 2px 4px grey; text-align: center;" >
+  <div style="margin-top: 120px; min-height: 80vh; background:#051E5E; /*background:linear-gradient( #051E5E,#fff);*/ box-shadow: 0 2px 4px grey; text-align: center;" >
     <div class="container pt-5">
       <h2 class="mt-2 text-light" >Una comunidad unida, en busca de mostrar 
         el camino la verdad y la vida a las futuras generaciónes.</h2>
@@ -189,19 +189,20 @@ $array_fechas = getCountDates();
       <div class="row  " style="aling-items:center; justify-content:center;">
           <div class="cards_comunidad" style="    background-image: url(assets/carousel/comunidad.jpg); background-size: cover; background-position: center; background-repeat: no-repeat;">
             <!-- <img src="" alt="" width="auto"> -->
-            <h2 style="backdrop-filter: blur(10px); border-radius:10px; box-shadow: 0 1px 10px #000; color:#fff; margin-top:-30px;">Coinonia</h2>
+            <h2 style="backdrop-filter: blur(10px); border-radius:10px; box-shadow: 0 1px 10px #fff; color:#fff; margin-top:-30px;">Coinonia</h2>
           </div>
           <div class="cards_comunidad" style="    background-image: url(assets/carousel/sanidad.jpg); background-size: cover; background-position: center; background-repeat: no-repeat;">
             <!-- <img src="" alt="" width="auto"> -->
-            <h2 style="backdrop-filter: blur(10px); border-radius:10px;box-shadow: 0 1px 10px #000; color:#fff; margin-top:-30px;">Sanidades</h2>
+            <h2 style="backdrop-filter: blur(10px); border-radius:10px;box-shadow: 0 1px 10px #fff; color:#fff; margin-top:-30px;">Sanidades</h2>
           </div>
           <div class="cards_comunidad" style="    background-image: url(assets/carousel/milagro.jpg); background-size: cover; background-position: center; background-repeat: no-repeat;">
-          <h2 style="backdrop-filter: blur(10px); border-radius:10px; box-shadow: 0 1px 10px #000; color:#fff; margin-top:-30px;">Milagros</h2>
+          <h2 style="backdrop-filter: blur(10px); border-radius:10px; box-shadow: 0 1px 10px #fff; color:#fff; margin-top:-30px;">Milagros</h2>
           </div>
           <div class="cards_comunidad" style="    background-image: url(assets/carousel/avivamientointernacional.jpg); background-size: cover; background-position: center; background-repeat: no-repeat;">
-            <h2 style="backdrop-filter: blur(10px); border-radius:10px; box-shadow: 0 1px 10px #000; color:#fff; margin-top:-30px;">Avivamiento</h2>
+            <h2 style="backdrop-filter: blur(10px); border-radius:10px; box-shadow: 0 1px 10px #fff; color:#fff; margin-top:-30px;">Avivamiento</h2>
           </div>
       </div>
+      <hr style="color:#fff;">
     </div>
 </div>
   <main class="container w-100 ">
