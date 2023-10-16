@@ -53,12 +53,33 @@ $array_fechas = getCountDates();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.css">
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
   <style>
-           .mi-clase-boton-confirmar {
-  background-color: #007bff !important;
-  border-radius: 10px !important;
-  color: #FFFFFF !important;
-  box-shadow: 1px 0px 8px #000 !important;
-}
+    .mi-clase-boton-confirmar {
+      background-color: #007bff !important;
+      border-radius: 10px !important;
+      color: #FFFFFF !important;
+      box-shadow: 1px 0px 8px #000 !important;
+    }
+    .cards_comunidad{
+      border: 1px solid #000 !important; 
+      max-width: 240px !important; 
+      height:240px !important; 
+      margin:15px !important;
+      border-radius: 10px;
+      background: #051E5E;
+      margin-top: 80px !important;
+      box-shadow: 0 0 4px #000;
+    }
+
+    .cards_comunidad img{
+      margin: 10px auto;
+      max-width: auto; 
+      height:220px !important; 
+    }
+    
+    .cards_comunidad:hover{
+      box-shadow: 0 5px 50px #000 ;
+    }
+
   </style>
 </head>
 
@@ -124,42 +145,65 @@ $array_fechas = getCountDates();
     
   <div class="contenedor2">
   </div>
-    
-  <main class="container w-100 ">
-    </br></br></br>
+  
+  <section class="mt-5">
     <div class="row container fondo centrar">
-      <!--Card que contiene la Imagen y Frase-->
-      <div class=" row centrar ">
-        <!-- Imagen-->
-        <div class=" col-sm-12 col-md-8 ">
-          <div class="card border">
-            <div class="">
-              <h3 class="card-title text-white"></h3>
-              <img src="./admin/img/avivamiento/banner/<?= $imagen_banner ?>" alt="" srcset="" width="100%" style="border-radius:10px;">
-            </div>
-          </div>
-        </div>
-        <!-- Fin Imagen-->
-        <!-- Frase-->
-        <div class="col-sm-12 col-md-4 centro">
-          <div class=" text-center">
-            <div class="card-body">
-              <h3 class="card-title"><?=$versiculo_text;?></h3>
-              <!-- <h3 class="card-title">En el principio creó Dios los cielos y la tierra.</h3> -->
-              <p class="card-text"><?=$versiculo_book;?> <?=$versiculo_chapter;?>:<?=$versiculo_verse;?> </p>
-            </div>  
-            <br><br><br>  
-            <div class="card-body">
-              <div class="bg-primary text-white p-3 rotate-15 d-inline-block my-4" style="transform: rotate(-1deg); position: absolute; border-radius:0px 90px 0px 90px; margin-left:15px; margin-top:50px !important; padding:6px !important;  "><a href="#calendario" style="color:#fff;"><?php echo $array_fechas;?> proximas fechas</a></div>
-                <a name="" id="" class="boton fondo_cards text-white " style="padding-bottom:30px !important; padding-right:35px !important;" href="#calendario" role="button"> <img src="images/calendar.svg" alt="" srcset="" width="10%"><i>-</i> Calendario</a>
-                <br><br><br>
+        <!--Card que contiene la Imagen y Frase-->
+        <div class=" row centrar ">
+          <!-- Imagen-->
+          <div class=" col-sm-12 col-md-8">
+            <div class="card border">
+              <div class="">
+                <h3 class="card-title text-white"></h3>
+                <img class="parallax" src="./admin/img/avivamiento/banner/<?= $imagen_banner ?>" alt="" srcset="" width="100%" style="border-radius:10px;">
               </div>
             </div>
+          </div>
+          <!-- Fin Imagen-->
+          <!-- Frase-->
+          <div class="col-sm-12 col-md-4 centro">
+            <div class=" text-center">
+              <div class="card-body">
+                <h3 class="card-title"><?=$versiculo_text;?></h3>
+                <!-- <h3 class="card-title">En el principio creó Dios los cielos y la tierra.</h3> -->
+                <p class="card-text"><?=$versiculo_book;?> <?=$versiculo_chapter;?>:<?=$versiculo_verse;?> </p>
+              </div>  
+              <br><br><br>  
+              <div class="card-body">
+                <div class="bg-primary text-white p-3 rotate-15 d-inline-block my-4" style="transform: rotate(-1deg); position: absolute; border-radius:0px 90px 0px 90px; margin-left:15px; margin-top:50px !important; padding:6px !important;  "><a href="#calendario" style="color:#fff;"><?php echo $array_fechas;?> proximas fechas</a></div>
+                  <a name="" id="" class="boton fondo_cards text-white " style="padding-bottom:30px !important; padding-right:35px !important;" href="#calendario" role="button"> <img src="images/calendar.svg" alt="" srcset="" width="10%"><i>-</i> Calendario</a>
+                  <br><br><br>
+                </div>
+              </div>
+          </div>
+          <!--Fin Frase-->
         </div>
-        <!--Fin Frase-->
+    </div>
+  </section>
+
+  <div style="margin-top: 120px; min-height: 80vh; background:linear-gradient( #ACB6D9,#fff); box-shadow: 0 2px 4px grey; text-align: center;" >
+    <div class="container pt-5">
+      <h2 class="mt-2">Una comunidad unida, en busca de mostrar 
+        el camino la verdad y la vida a las futuras generaciónes.</h2>
+      <div class="row  " style="aling-items:center; justify-content:center;">
+          <div class="cards_comunidad" style="    background-image: url(assets/carousel/comunidad.jpg); background-size: cover; background-position: center; background-repeat: no-repeat;">
+            <!-- <img src="" alt="" width="auto"> -->
+            <h2 style="backdrop-filter: blur(10px); border-radius:10px; box-shadow: 0 1px 10px #000; color:#fff; margin-top:-30px;">Coinonia</h2>
+          </div>
+          <div class="cards_comunidad" style="    background-image: url(assets/carousel/sanidad.jpg); background-size: cover; background-position: center; background-repeat: no-repeat;">
+            <!-- <img src="" alt="" width="auto"> -->
+            <h2 style="backdrop-filter: blur(10px); border-radius:10px;box-shadow: 0 1px 10px #000; color:#fff; margin-top:-30px;">Sanidades</h2>
+          </div>
+          <div class="cards_comunidad" style="    background-image: url(assets/carousel/milagro.jpg); background-size: cover; background-position: center; background-repeat: no-repeat;">
+          <h2 style="backdrop-filter: blur(10px); border-radius:10px; box-shadow: 0 1px 10px #000; color:#fff; margin-top:-30px;">Milagros</h2>
+          </div>
+          <div class="cards_comunidad" style="    background-image: url(assets/carousel/avivamientointernacional.jpg); background-size: cover; background-position: center; background-repeat: no-repeat;">
+            <h2 style="backdrop-filter: blur(10px); border-radius:10px; box-shadow: 0 1px 10px #000; color:#fff; margin-top:-30px;">Avivamiento</h2>
+          </div>
       </div>
     </div>
-
+</div>
+  <main class="container w-100 ">
     <!--Quienes somos, Proposito, Visión-->
     <!-- Nav tabs -->
     <a name="ancla" id="ancla"></a>

@@ -299,5 +299,12 @@ filter: blur(3px);
 #scrollButton.show {
     display: block;
     z-index: 900;
-  }
-  
+    
+}
+/* Cards comunidad */
+.cards_comunidad{
+    border: 1px solid #000 !important; 
+    max-width: 270px !important; 
+    height:270px !important; 
+    margin:10px !important;
+}
