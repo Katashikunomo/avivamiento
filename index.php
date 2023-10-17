@@ -82,7 +82,7 @@ $array_fechas = getCountDates();
 
     .cards_comunidad-texto{
       font-size: 35px;
-      font-weight:100;
+      font-weight:200;
       backdrop-filter: blur(10px); 
       border-radius:10px; 
       box-shadow: 0 1px 10px #fff; 
@@ -190,7 +190,7 @@ $array_fechas = getCountDates();
     </div>
   </section>
 
-  <div style="margin-top: 120px; min-height: 80vh; background:#051E5E; /*background:linear-gradient( #051E5E,#fff);*/ box-shadow: 0 2px 4px grey; text-align: center;" >
+  <div style="margin-top: 120px; min-height: 80vh; /*background:#051E5E;*/ background:linear-gradient( #051E5E,#fff); box-shadow: 0 2px 4px grey; text-align: center;" >
     <div class="container pt-5">
       <h2 class="mt-2 text-light cards_comunidad-texto" >Una comunidad unida, en busca de mostrar 
         el camino la verdad y la vida a las futuras generaciónes.</h2>
