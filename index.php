@@ -81,8 +81,8 @@ $array_fechas = getCountDates();
     }
 
     .cards_comunidad-texto{
-      font-size: 35px;
-      font-weight:200;
+      font-size: 28px;
+      font-weight:400;
       backdrop-filter: blur(10px); 
       border-radius:10px; 
       box-shadow: 0 1px 10px #fff; 
@@ -190,7 +190,7 @@ $array_fechas = getCountDates();
     </div>
   </section>
 
-  <div style="margin-top: 120px; min-height: 80vh; /*background:#051E5E;*/ background:linear-gradient( #051E5E,#fff); box-shadow: 0 2px 4px grey; text-align: center;" >
+  <div  style="margin-top: 120px; min-height: 80vh; /*background:#051E5E;*/ background:linear-gradient( #051E5E,#fff); box-shadow: 0 2px 4px grey; text-align: center;" class="parallax" >
     <div class="container pt-5">
       <h2 class="mt-2 text-light cards_comunidad-texto" style="font-weight:bold; border-bottom: 2px solid #fff;" >Una comunidad unida, en busca de mostrar 
         el camino la verdad y la vida a las futuras generaciónes.</h2>
@@ -198,7 +198,7 @@ $array_fechas = getCountDates();
       <div class="row  " style="aling-items:center; justify-content:center;">
           <div class="cards_comunidad" style="    background-image: url(assets/carousel/comunidad.jpg); background-size: cover; background-position: center; background-repeat: no-repeat;">
             <!-- <img src="" alt="" width="auto"> -->
-            <p class="cards_comunidad-texto">Coinonia</p>
+            <p class="cards_comunidad-texto">Koinonía</p>
           </div>
           <div class="cards_comunidad" style="    background-image: url(assets/carousel/sanidad.jpg); background-size: cover; background-position: center; background-repeat: no-repeat;">
             <!-- <img src="" alt="" width="auto"> -->
