@@ -194,7 +194,7 @@ $array_fechas = getCountDates();
   <div  style="margin-top: 120px; min-height: 50vh; /*background:#051E5E;*/ background:linear-gradient( #051E5E,#fff); box-shadow: 0 2px 4px grey; text-align: center;" class="parallax" >
     <div class="container pt-5">
       <h2 class="mt-2 text-light" style=" border-bottom: 2px solid #fff;" >Una comunidad unida, en busca de mostrar 
-        el camino la verdad y la vida a las futuras generaciónes.</h2>
+        el camino la verdad y la vida.</h2>
         <!-- <hr style="color:#fff;"> -->
       <div class="row  " style="aling-items:center; justify-content:center;">
           <div class="cards_comunidad" style="    background-image: url(assets/carousel/comunidad.jpg); background-size: cover; background-position: center; background-repeat: no-repeat;">
