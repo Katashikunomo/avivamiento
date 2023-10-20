@@ -52,6 +52,7 @@ $array_fechas = getCountDates();
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.css">
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    
   <style>
     .mi-clase-boton-confirmar {
       background-color: #007bff !important;
@@ -95,7 +96,7 @@ $array_fechas = getCountDates();
 <body>
 
 
-  <header class="">      
+  <header id="test">      
     <a class="logo" href="#"><img src="images/logo.svg" alt=""></a>
       <ul class=" nav   fondo_menu justify-content-end"  >
         <li class="nav-item  borde_blanco  d-none d-sm-inline-flex">
@@ -190,9 +191,9 @@ $array_fechas = getCountDates();
     </div>
   </section>
 
-  <div  style="margin-top: 120px; min-height: 80vh; /*background:#051E5E;*/ background:linear-gradient( #051E5E,#fff); box-shadow: 0 2px 4px grey; text-align: center;" class="parallax" >
+  <div  style="margin-top: 120px; min-height: 50vh; /*background:#051E5E;*/ background:linear-gradient( #051E5E,#fff); box-shadow: 0 2px 4px grey; text-align: center;" class="parallax" >
     <div class="container pt-5">
-      <h2 class="mt-2 text-light cards_comunidad-texto" style="font-weight:bold; border-bottom: 2px solid #fff;" >Una comunidad unida, en busca de mostrar 
+      <h2 class="mt-2 text-light" style=" border-bottom: 2px solid #fff;" >Una comunidad unida, en busca de mostrar 
         el camino la verdad y la vida a las futuras generaciónes.</h2>
         <!-- <hr style="color:#fff;"> -->
       <div class="row  " style="aling-items:center; justify-content:center;">
@@ -605,12 +606,12 @@ $array_fechas = getCountDates();
 <!-- Icons fontawesome -->
 <!-- <script src="https://kit.fontawesome.com/bc365c36ca.js" crossorigin="anonymous"></script> -->
 
-      <!-- Agenda -->
-      <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-      <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
-      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <!-- Agenda -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
    
-      <script>
+  <script>
               $(document).ready(function() {
                   var selectedDates = <?php echo json_encode($selectedDates); ?>;
                   var currentDate = new Date();
@@ -668,10 +669,11 @@ $array_fechas = getCountDates();
                       $("#calendar-table tbody").append(row);
                   }
               });
-      </script>
+  </script>
 
-        <!-- Iconos de fontawesome -->
-        <script src="https://kit.fontawesome.com/bc365c36ca.js" crossorigin="anonymous"></script>
+  <!-- Iconos de fontawesome -->
+  <script src="https://kit.fontawesome.com/bc365c36ca.js" crossorigin="anonymous"></script>
+ 
 </body>
 
 </html>
