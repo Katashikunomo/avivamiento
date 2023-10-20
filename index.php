@@ -90,73 +90,78 @@ $array_fechas = getCountDates();
       color:#fff; 
       margin-top:-30px;
     }
+
   </style>
 </head>
 
 <body>
 
 
-  <header id="test">      
-    <a class="logo" href="#"><img src="images/logo.svg" alt=""></a>
-      <ul class=" nav   fondo_menu justify-content-end"  >
-        <li class="nav-item  borde_blanco  d-none d-sm-inline-flex">
-          <a href="#tab5Id" class="nav-link activo">Inicio</a>
-        </li>
-        <li class="nav-item  borde_blanco  d-lg-none d-md-inline-flex" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-          <a href="#tab5Id" class="nav-link ">Menu</a>
-        </li>
-        <!-- La seccion de conocenos aun esta en desarrollo -->
-                            <!-- <li class="nav-item  borde_blanco d-none d-lg-inline-flex">
-                                <a href="#tab5Id" class="nav-link " >Conocenos</a>
-                            </li> -->
-        <li class="nav-item  borde_blanco d-none d-lg-inline-flex">
-          <a class="nav-link " href="sedes.php" >Sedes</a>
-        </li>
-        <li class="nav-item  borde_blanco d-none d-lg-inline-flex">
-          <a href="#tab5Id" class="nav-link " >Educación</a>
-        </li>
-        <li class="nav-item  borde_blanco d-none d-lg-inline-flex">
-          <a href="#tab5Id" class="nav-link " >Contacto</a>
-        </li>
-      </ul>
+  <header >
+    <div  id="test" style="transition: all  0.5s !important;">
 
-      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-        <div class="offcanvas-header ">
-          <h5 id="offcanvasRightLabel ">Avivamiento Internacional</h5>
-          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          
+      <a class="logo" href="#"><img src="images/logo.svg" alt=""></a>
+        <ul  class=" nav   fondo_menu justify-content-end"  >
+          <li class="nav-item  borde_blanco  d-none d-sm-inline-flex">
+            <a href="#tab5Id" class="nav-link activo">Inicio</a>
+          </li>
+          <li class="nav-item  borde_blanco  d-lg-none d-md-inline-flex" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+            <a href="#tab5Id" class="nav-link ">Menu</a>
+          </li>
+          <!-- La seccion de conocenos aun esta en desarrollo -->
+                              <!-- <li class="nav-item  borde_blanco d-none d-lg-inline-flex">
+                                  <a href="#tab5Id" class="nav-link " >Conocenos</a>
+                              </li> -->
+          <li class="nav-item  borde_blanco d-none d-lg-inline-flex">
+            <a class="nav-link " href="sedes.php" >Sedes</a>
+          </li>
+          <li class="nav-item  borde_blanco d-none d-lg-inline-flex">
+            <a href="#tab5Id" class="nav-link " >Educación</a>
+          </li>
+          <li class="nav-item  borde_blanco d-none d-lg-inline-flex">
+            <a href="#tab5Id" class="nav-link " >Contacto</a>
+          </li>
+        </ul>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+          <div class="offcanvas-header ">
+            <h5 id="offcanvasRightLabel ">Avivamiento Internacional</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body fondo_menu">
+            <ul class="nav fonmdo_menu inline_block w-50 centrar">
+              <li class="nav-item  borde_blanco  ">
+                <a href="#tab5Id" class="nav-link activo">Inicio</a>
+              </li>
+                                  <!-- <li class="nav-item  borde_blanco ">
+                                      <a href="#tab5Id" class="nav-link " >Conocenos</a>
+                                  </li> -->
+              <li class="nav-item  ">
+                <a  class="nav-link " href="sedes.php">Sedes</a>
+              </li>
+              <li class="nav-item  ">
+                <a href="#tab5Id" class="nav-link " >Educación</a>
+              </li>
+              <li class="nav-item  ">
+                <a href="#tab5Id" class="nav-link " >Contacto</a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="offcanvas-body fondo_menu">
-          <ul class="nav fonmdo_menu inline_block w-50 centrar">
-            <li class="nav-item  borde_blanco  ">
-              <a href="#tab5Id" class="nav-link activo">Inicio</a>
-            </li>
-                                <!-- <li class="nav-item  borde_blanco ">
-                                    <a href="#tab5Id" class="nav-link " >Conocenos</a>
-                                </li> -->
-            <li class="nav-item  ">
-              <a  class="nav-link " href="sedes.php">Sedes</a>
-            </li>
-            <li class="nav-item  ">
-              <a href="#tab5Id" class="nav-link " >Educación</a>
-            </li>
-            <li class="nav-item  ">
-              <a href="#tab5Id" class="nav-link " >Contacto</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    
+    </div>
   </header>
     
     
   <div class="contenedor">
+    
   </div>
     
     
   <div class="contenedor2">
   </div>
   
-  <section class="mt-5">
+  <section class="mt-5" style="margin-top:150px !important;">
     <div class="row container fondo centrar">
         <!--Card que contiene la Imagen y Frase-->
         <div class=" row centrar ">
@@ -673,7 +678,7 @@ $array_fechas = getCountDates();
 
   <!-- Iconos de fontawesome -->
   <script src="https://kit.fontawesome.com/bc365c36ca.js" crossorigin="anonymous"></script>
- 
+  <script src="js/nav-scroll.js"></script>
 </body>
 
 </html>

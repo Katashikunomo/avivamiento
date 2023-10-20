@@ -115,12 +115,13 @@
     </style>
 <!-- Icons fontawesome -->
 <script src="https://kit.fontawesome.com/bc365c36ca.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
 
 
-    <header class="">
+    <header id="test">
             
                     <a class="logo" href="#"><img src="images/logo.svg" alt=""></a>
                     <ul class=" nav   fondo_menu justify-content-end"  >
@@ -295,7 +296,7 @@
 <!-- Icons fontawesome -->
 <script src="https://kit.fontawesome.com/bc365c36ca.js" crossorigin="anonymous"></script>
 
-
+<script src="js/nav-scroll.js"></script>
 </body>
 
 </html>
