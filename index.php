@@ -98,7 +98,7 @@ $array_fechas = getCountDates();
 
 
   <header >
-    <div  id="test" style="transition: all  0.5s !important;">
+    <div   style="transition: all  0.5s !important; position:fixed; top:0; width:100%; z-index:100;">
 
           
       <a class="logo" href="#"><img src="images/logo.svg" alt=""></a>
