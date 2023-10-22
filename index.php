@@ -161,7 +161,7 @@ $array_fechas = getCountDates();
   <div class="contenedor2">
   </div>
   
-  <section class="mt-5" style="margin-top:150px !important;">
+  <section class="mt-5" style="margin-top:130px !important;">
     <div class="row container fondo centrar">
         <!--Card que contiene la Imagen y Frase-->
         <div class=" row centrar ">
