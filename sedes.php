@@ -131,14 +131,14 @@
         <li class="nav-item  borde_blanco  d-lg-none d-md-inline-flex" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
           <a href="#tab5Id" class="nav-link ">Menu</a>
         </li>
-                            <!-- <li class="nav-item  borde_blanco d-none d-lg-inline-flex">
-                                <a href="#tab5Id" class="nav-link " >Conocenos</a>
-                            </li> -->
         <li class="nav-item  borde_blanco d-none d-lg-inline-flex">
-          <a href="#tab5Id" class="nav-link activo" >Sedes</a>
+            <a href="#tab5Id" class="nav-link " >Ministerio</a>
         </li>
         <li class="nav-item  borde_blanco d-none d-lg-inline-flex">
-          <a href="#tab5Id" class="nav-link " >Educación</a>
+            <a href="educacion.html" class="nav-link " >Educación</a>
+        </li>
+        <li class="nav-item  borde_blanco d-none d-lg-inline-flex">
+          <a href="#tab5Id" class="nav-link activo" >Sedes</a>
         </li>
         <li class="nav-item  borde_blanco d-none d-lg-inline-flex">
           <a href="#tab5Id" class="nav-link " >Contacto</a>
@@ -146,30 +146,34 @@
       </ul>
 
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-        <div class="offcanvas-header ">
-          <h5 id="offcanvasRightLabel ">Avivamiento Internacional</h5>
-          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          <div class="offcanvas-header ">
+            <h5 id="offcanvasRightLabel ">Avivamiento Internacional</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body fondo_menu">
+            <ul class="nav fonmdo_menu inline_block w-50 centrar">
+              <li class="nav-item  borde_blanco  ">
+                <a href="index.php" class="nav-link ">Inicio</a>
+              </li>
+                                  <!-- <li class="nav-item  borde_blanco ">
+                                      <a href="#tab5Id" class="nav-link " >Conocenos</a>
+                                  </li> -->
+                                  <li class="nav-item  ">
+                                    <a href="#tab5Id" class="nav-link " >Ministerio</a>
+                                  </li>
+                                  <li class="nav-item  ">
+                                    <a href="educacion.html" class="nav-link " >Educación</a>
+                                  </li>
+              <li class="nav-item  ">
+                <a  class="nav-link activo" href="sedes.php">Sedes</a>
+              </li>
+              <li class="nav-item  ">
+                <a href="#tab5Id" class="nav-link " >Contacto</a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="offcanvas-body fondo_menu">
-          <ul class="nav fonmdo_menu inline_block w-50 centrar">
-                              <li class="nav-item  borde_blanco  ">
-                                  <a class="nav-link" href="index.php">Inicio</a>
-                              </li>
-                              <!-- <li class="nav-item  borde_blanco ">
-                                  <a href="#tab5Id" class="nav-link " >Conocenos</a>
-                              </li> -->
-                              <li class="nav-item  ">
-                                  <a href="#tab5Id" class="nav-link activo" >Sedes</a>
-                              </li>
-                              <li class="nav-item  ">
-                                  <a href="#tab5Id" class="nav-link " >Educación</a>
-                              </li>
-                              <li class="nav-item  ">
-                                  <a href="#tab5Id" class="nav-link " >Contacto</a>
-                              </li>
-          </ul>
-        </div>
-      </div>
+    </div>
       </div>
     </header>
     <div class="contenedor">
