@@ -89,6 +89,8 @@
     function obtener_correos(){
         global $mysqli;
 
-        $sql ="SELECT * FROM registro_correos ";
+        $sql ="SELECT * FROM registro_correos left join tb_fechas on (registro_correos.id_fechas = tb_fechas.id) ";
+        $result = $mysqli->query($sql);
+        return $result;
     }
 ?>

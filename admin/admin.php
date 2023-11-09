@@ -11,6 +11,7 @@ $imagen = imagen_user($id_user);
 $user = get_user($id_user);
 $nombre = $user['dt_nombre'];
 $correo = $user['dt_email'];
+$registros = obtener_correos();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -287,6 +288,7 @@ $correo = $user['dt_email'];
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
+                            
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
@@ -294,38 +296,40 @@ $correo = $user['dt_email'];
                                             <th>Correo</th>
                                             <th>Evento</th>
                                             <th>Boletin</th>
+                                            <th>Fecha de registro</th>
                                         </tr>
                                     </thead>
                                     
                                     <tbody>
+                                    <?php
+                                            foreach($registros as $res ){
+                                        ?>
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td><a href="mailto:fer2023@gmail.com">rtiger@gmail.com</a></td>
-                                            <td>Encuentro</td>
-                                            <td>-NO</td>
+                                            <td><?php echo $res['dt_nombre']; ?></td>
+                                            <td><a href="<?php echo $res['dt_correo_eventos']; ?>"><?php echo $res['dt_correo_eventos']; ?></a></td>
+                                            <td><?php echo $res['mensaje']; ?></td>
+                                            <td>
+                                            <?php 
+                                             if ($res['status_boletin'] == 0) {
+                                                 echo '-NO'; 
+                                             }else{
+                                                echo '#SI';
+                                             }
+                                             ?>
+                                            </td>
+                                            <td>
+                                                <?php
+                                                echo $res['fecha_registro'];
+                                                ?>
+                                            </td>
                                         </tr>
-                                        <tr>
-                                            <td>Juan Fernando</td>
-                                            <td><a href="mailto:fer2023@gmail.com">fer2023@gmail.com</a></td>
-                                            <td>Encuentro</td>
-                                            <td>#SI</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Sofia Vazqus</td>
-                                            <td><a href="mailto:sofv.qz@gmail.com">sofv.qz@gmail.com</a></td>
-                                            <td>Sanidades y milagros ♥</td>
-                                            <td>#SI</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Silvia Gonzales</td>
-                                            <td><a href="mailto:si.gonza@gmail.com">si.gonza@gmail.com</a></td>
-                                            <td>Sanidades y milagros ♥</td>
-                                            <td>-NO</td>
-                                        </tr>
-                                        
-                                    
+                                       
+                                        <?php
+                                            }
+                                        ?>
                                     </tbody>
                                 </table>
+                               
                             </div>
                         </div>
                     </div>
@@ -334,7 +338,7 @@ $correo = $user['dt_email'];
                    <div class="row">
                        <div class="col-lg-6">
                                     <!-- Imagen Principal -->
-                            <div class="card shadow mb-4">
+                            <!-- <div class="card shadow mb-4">
                                         <div class="card-header py-3">
                                             <h6 class="m-0 font-weight-bold text-primary">Imagen Principal</h6>
                                         </div>
@@ -344,9 +348,9 @@ $correo = $user['dt_email'];
                                         </h5>
                                         <a name="" id="" class="btn btn-primary" href="banner.php" role="button">Modificar</a>  
                                         </div>
-                            </div>
+                            </div> -->
                             <!-- Quienes Somos -->
-                            <div class="card shadow mb-4">
+                            <!-- <div class="card shadow mb-4">
                                         <div class="card-header py-3">
                                             <h6 class="m-0 font-weight-bold text-primary">Quienes Somos, Proposito y Visión</h6>
                                         </div>
@@ -356,11 +360,11 @@ $correo = $user['dt_email'];
                                         </h5>
                                         <a name="" id="" class="btn btn-primary" href="proposito.php" role="button">Modificar</a>  
                                         </div>
-                            </div>
+                            </div> -->
                        </div>
                        <div class="col-lg-6">
                            <!-- Eventos -->
-                           <div class="card shadow mb-4">
+                           <!-- <div class="card shadow mb-4">
                                         <div class="card-header py-3">
                                             <h6 class="m-0 font-weight-bold text-primary">Agenda y eventos</h6>
                                         </div>
@@ -370,9 +374,9 @@ $correo = $user['dt_email'];
                                             </h5>    
                                             <a name="" id="" class="btn btn-primary" href="agenda.php" role="button">Modificar</a>  
                                         </div>
-                            </div>
+                            </div> -->
                             <!-- Sedes -->
-                            <div class="card shadow mb-4">
+                            <!-- <div class="card shadow mb-4">
                                         <div class="card-header py-3">
                                             <h6 class="m-0 font-weight-bold text-primary">Basic Card Example</h6>
                                         </div>
@@ -381,7 +385,7 @@ $correo = $user['dt_email'];
                                             utility classes. By using utility classes, the style of the card component can be
                                             easily modified with no need for any custom CSS!
                                         </div>
-                            </div>
+                            </div> -->
                        </div>
                    </div>
 
