@@ -12,11 +12,13 @@
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
     <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/styles-card.css" >
     <link rel="stylesheet" href="css/styles.css" >
     <!-- Scrol BTN -->
     <script src="js/scrol-btn.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <style>
+        
         .selected-date {
             background-color: #FF0000 !important;
             color: #ffffff;
@@ -112,9 +114,10 @@
           }
         }
 
+        
     </style>
-    <!-- Icons fontawesome -->
-    <script src="https://kit.fontawesome.com/bc365c36ca.js" crossorigin="anonymous"></script>
+<!-- Icons fontawesome -->
+<script src="https://kit.fontawesome.com/bc365c36ca.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -135,110 +138,152 @@
             <a href="#tab5Id" class="nav-link " >Ministerio</a>
         </li>
         <li class="nav-item  borde_blanco d-none d-lg-inline-flex">
-            <a href="#tab5Id" class="nav-link activo" >Educación</a>
+            <a href="educacion.html" class="nav-link " >Educación</a>
         </li>
         <li class="nav-item  borde_blanco d-none d-lg-inline-flex">
-          <a href="sedes.php" class="nav-link " >Sedes</a>
+          <a href="#tab5Id" class="nav-link" >Sedes</a>
         </li>
         <li class="nav-item  borde_blanco d-none d-lg-inline-flex">
-          <a href="contacto.php" class="nav-link " >Contacto</a>
+          <a href="#tab5Id" class="nav-link activo" >Contacto</a>
         </li>
       </ul>
 
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-        <div class="offcanvas-header ">
-          <h5 id="offcanvasRightLabel ">Avivamiento Internacional</h5>
-          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          <div class="offcanvas-header ">
+            <h5 id="offcanvasRightLabel ">Avivamiento Internacional</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body fondo_menu">
+            <ul class="nav fonmdo_menu inline_block w-50 centrar">
+              <li class="nav-item  borde_blanco  ">
+                <a href="index.php" class="nav-link ">Inicio</a>
+              </li>
+                                  <!-- <li class="nav-item  borde_blanco ">
+                                      <a href="#tab5Id" class="nav-link " >Conocenos</a>
+                                  </li> -->
+                                  <li class="nav-item  ">
+                                    <a href="#tab5Id" class="nav-link " >Ministerio</a>
+                                  </li>
+                                  <li class="nav-item  ">
+                                    <a href="educacion.html" class="nav-link " >Educación</a>
+                                  </li>
+              <li class="nav-item  ">
+                <a  class="nav-link " href="sedes.php">Sedes</a>
+              </li>
+              <li class="nav-item  ">
+                <a href="#tab5Id" class="nav-link activo" >Contacto</a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="offcanvas-body fondo_menu">
-          <ul class="nav fonmdo_menu inline_block w-50 centrar">
-                              <li class="nav-item  borde_blanco  ">
-                                  <a class="nav-link" href="index.php">Inicio</a>
-                              </li>
-                              <li class="nav-item  borde_blanco ">
-                                  <a href="#tab5Id" class="nav-link " >Ministerio</a>
-                              </li>
-                              <li class="nav-item  ">
-                                  <a href="#tab5Id" class="nav-link activo" >Educación</a>
-                              </li>
-                              <li class="nav-item  ">
-                                  <a href="sedes.php" class="nav-link " >Sedes</a>
-                              </li>
-                              <li class="nav-item  ">
-                                  <a href="#tab5Id" class="nav-link " >Contacto</a>
-                              </li>
-          </ul>
-        </div>
-      </div>
+    </div>
       </div>
     </header>
-    <div class="contenedor" >
+    <div class="contenedor">
     </div>
     <div class="contenedor2">
     </div>
-    <div  style=" text-align: center; min-height: 5vh; background-image: url(images/educacion/educacioncristiana.jpeg); background-position: center;  background-size:cover; box-shadow: 0 1px 4px #000;">
-        <h2 style=" padding: 15vh;  color: #000; font-size: 30px; font-weight: bold; color: #fff; text-shadow: 0 0 10px grey;">SEMBRANDO LAS SEMILLAS A LAS PROXIMAS GENERACIONES</h2>
-    </div>
-
-<!-- <div style="display: flex; justify-content: center; margin-top: 40px;">
-    <h2 class="fondo_calendario" style="max-width: 700px !important; min-height: 60px; font-size: 30px;">Harvest Christian School Interlomas</h2>
-</div> -->
-
-<main class="container w-100 " style="margin-top:30px !important;">
-    <div style="display: flex; justify-content: center; margin-top: 40px;">
-      <h2 class="fondo_calendario" style="max-width: 700px !important; min-height: 60px; font-size: 30px;">Harvest Christian School Interlomas</h2>
-    </div>
-    <div class="row container-fluid fondo centrar">
-        <div class="container col-md-6 " >
-            <img src="images/educacion/harvestcristianschoolinterlomas.jpeg" width="100%" alt="" style="margin:  5px auto; border-radius: 4px; box-shadow: 0 0 5px grey;">
-        </div>
-
-        <div class="container-fluid col-md-6" style="backdrop-filter: blur(10px); box-shadow: 0 0 5px grey; border-radius: 6px;">
-           
-            <h3 style="border-bottom:8px solid #212529;">Siembra, Riega y Cosecha</h3>    
-            <p>
-              En Harvest Christian School Interlomas el espiritu de Dios guiara en la formación y desarrollo a tus hijos.<br>
-                Ademas de estar avalados por ACE a nivel nacional e internacional, se cuenta con un número de registro ante ACE.
-                <ul>
-                    <li> Avalados por ACE <i class="fa fa-check text-success" ></i></li>
-                    <li> Una institución con alto nivel de ingles. <i class="fa fa-check text-success" ></i></li>
-                    <li> Docentes capacitadas. <i class="fa fa-check text-success"></i></li>
-                    <li> Las mejores instalaciónes. <i class="fa fa-check text-success"></i></li>
-                </ul>
-
-                <!-- <a name="" id="" class="btn fondo_calendario_a" style="box-shadow: 0 5px 5px grey;" href="#" role="button">Visitar Portal</a> -->
-                <br>
-                
-            </p>
-        </div>
-    </div>
     
-    <hr style="border-bottom:4px solid #212529; margin-top: 100px;">
-
-    <div style="display: flex; justify-content: center; margin-top: 40px;">
-      <h2 class="fondo_calendario" style="max-width: 700px !important; min-height: 60px; font-size: 30px;">Células</h2>
-    </div>
-    <div class="row container-fluid fondo centrar">
-        <div class="container col-md-6 " style="backdrop-filter: blur(10px); box-shadow: 0 0 5px grey; border-radius: 6px;">
-            <h3 style="border-bottom:8px solid #212529;">Alimenta tu alma, fortalece tu espíritu y domina tu cuerpo</h3>    
-            <p class="text-left">
-                Por que como dice la palabra: <i>" No se duerman; oren para que puedan resistir la prueba que se acerca. Ustedes están dispuestos a hacer lo bueno, pero no pueden hacerlo con sus propias fuerzas.» " <br> <b>Mateo 26:41 - TLA</b></i>
-            </p>
-            <p>
-              No permitamos que el nada nos aparte de la presencia de Dios, poder buscar de el a través de las Células en casas de estudio a través de la palabra, así como Jesús enseñaba a sus alumnos, nosotros aun seguimos siendo alumnos, nunca dejamos de aprender, siempre hay algo nuevo que Dios nos quiere enseñar.  
-            </p>
-        </div>
-
-        <div class="container-fluid col-md-6">
-          <img src="images/educacion/Celula-.jpg" width="100%" alt="" style="margin:  5px auto; border-radius: 4px; box-shadow: 0 0 5px grey;">
-        </div>
-    </div>
+<main class="container w-100 " style="margin-top:130px !important;">
+<section class="ftco-section">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-md-6 text-center mb-5">
+<h2 class="heading-section fondo_calendario">Contactanos</h2>
+</div>
+</div>
+<div class="row justify-content-center">
+<div class="col-lg-10 col-md-12">
+<div class="wrapper">
+<div class="row no-gutters">
+<div class="col-md-7 d-flex align-items-stretch">
+<div class="contact-wrap w-100 p-md-5 p-4">
+<h3 class="mb-4"></h3>
+<div id="form-message-warning" class="mb-4"></div>
+<div id="form-message-success" class="mb-4">
+Your message was sent, thank you!
+</div>
+<form method="POST" id="contactForm" name="contactForm">
+<div class="row">
+<div class="col-md-6">
+<div class="form-group">
+<input type="text" class="form-control" name="name" id="name" placeholder="Nombre">
+</div>
+</div>
+<div class="col-md-6">
+<div class="form-group">
+<input type="email" class="form-control" name="email" id="email" placeholder="Email">
+</div>
+</div>
+<div class="col-md-12">
+<div class="form-group">
+<input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto">
+</div>
+</div>
+<div class="col-md-12">
+<div class="form-group">
+<textarea name="message" class="form-control" id="message" cols="30" rows="7" placeholder="Mnesaje"></textarea>
+</div>
+</div>
+<div class="col-md-12">
+<div class="form-group">
+<input type="submit" value="Enviar Mensaje" class="btn fondo_cards text-white">
+<div class="submitting"></div>
+</div>
+</div>
+</div>
+</form>
+</div>
+</div>
+<div class="col-md-5 d-flex align-items-stretch">
+<div class="info-wrap  fondo_calendario w-100 p-lg-5 p-4">
+<h3 class="mb-4 mt-md-4">Contacto</h3>
+<div class="dbox w-100 d-flex align-items-start">
+<div class="icon d-flex align-items-center justify-content-center">
+<span class="fa fa-map-marker"></span>
+</div>
+<div class="text pl-3">
+<p><span>Dirección:</span> Av. Jesús del Monte 269, Interlomas, Jesus del Monte, 52764 Jesús del Monte, Méx.</p>
+</div>
+</div>
+<div class="dbox w-100 d-flex align-items-center">
+<div class="icon d-flex align-items-center justify-content-center">
+<span class="fa fa-phone"></span>
+</div>
+<div class="text pl-3">
+<p><span>Telefono:</span> <a href="tel:+52 55 1693 3324">55 1693 3324</a></p>
+</div>
+</div>
+<div class="dbox w-100 d-flex align-items-center">
+<div class="icon d-flex align-items-center justify-content-center">
+<span class="fa fa-paper-plane"></span>
+</div>
+<div class="text pl-3">
+<p><span>Email:</span> <a href="mailto:info@avivamientointernacional.website"><span >info@avivamientointernacional.website</span></a></p>
+</div>
+</div>
+<div class="dbox w-100 d-flex align-items-center">
+<div class="icon d-flex align-items-center justify-content-center">
+<span class="fa fa-globe"></span>
+</div>
+<div class="text pl-3">
+<!-- <p><span>Website</span> <a href="#">yoursite.com</a></p> -->
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
 </main>
 
-<footer class="fondo_footer centrar" style="width: 100%; border-radius:10px !important;">
+<footer class="fondo_footer centrar" style="width: 100%; border-radius:10px !important; color:#fff !important;">
             <!-- place footer here -->
-  <div class="container text-center text-light fondo_calendario_card">
-    <h3>Siguenos en Redes sociales</h3>
+  <div class="container text-center text-white fondo_calendario_card">
+    <h3  class="text-white">Siguenos en Redes sociales</h3>
     <br>
     <a class="text-light m-5 " href="https://www.facebook.com/aviinternacional" target="_blank">
       <i class="fa fa-facebook face-color" style="font-size:35px; margin: 2px; padding:5px; border-radius:3px;"></i>
@@ -259,18 +304,20 @@
 
   <br>
   <hr class="border-bottom">
-            
+  
+  
+
   <div class="container ">
 
     <div class="row text-light">
-      <div class="col-md-5">
-        <h5>Información de Contacto</h5>
+      <div class="col-md-5 text-white" >
+        <h5 class="text-white">Información de Contacto</h5>
         <p></p>
-        <p>Email: <a style="font-size:14px;" href="mailto:info@avivamientointernacional.website">info@avivamientointernacional.website</a></p>             
+        <p class="text-white">Email: <a style="font-size:14px;" href="mailto:info@avivamientointernacional.website">info@avivamientointernacional.website</a></p>             
       </div>
       
       <div class="col-md-3">
-        <h5>Enlaces Rápidos</h5>
+        <h5 class="text-white">Enlaces Rápidos</h5>
         <ul class="list-unstyled">
           <li><i class="fa fa-angle-right"></i> <a href="index.php">Inicio</a></li>
           <li><i class="fa fa-angle-right"></i> <a href="sedes.php">sedes</a></li>

@@ -141,7 +141,7 @@
           <a href="#tab5Id" class="nav-link activo" >Sedes</a>
         </li>
         <li class="nav-item  borde_blanco d-none d-lg-inline-flex">
-          <a href="#tab5Id" class="nav-link " >Contacto</a>
+          <a href="contacto.php" class="nav-link " >Contacto</a>
         </li>
       </ul>
 
@@ -168,7 +168,7 @@
                 <a  class="nav-link activo" href="sedes.php">Sedes</a>
               </li>
               <li class="nav-item  ">
-                <a href="#tab5Id" class="nav-link " >Contacto</a>
+                <a href="contacto.php" class="nav-link " >Contacto</a>
               </li>
             </ul>
           </div>

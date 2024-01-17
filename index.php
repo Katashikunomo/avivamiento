@@ -117,7 +117,7 @@ $array_fechas = getCountDates();
                 <a href="sedes.php" class="nav-link " >Sedes</a>
               </li>
               <li class="nav-item  borde_blanco d-none d-lg-inline-flex">
-                <a href="#tab5Id" class="nav-link " >Contacto</a>
+                <a href="contacto.php" class="nav-link " >Contacto</a>
               </li>
             </ul>
       
@@ -144,7 +144,7 @@ $array_fechas = getCountDates();
                       <a  class="nav-link " href="sedes.php">Sedes</a>
                     </li>
                     <li class="nav-item  ">
-                      <a href="#tab5Id" class="nav-link " >Contacto</a>
+                      <a href="contacto.php" class="nav-link " >Contacto</a>
                     </li>
                   </ul>
                 </div>
@@ -164,7 +164,7 @@ $array_fechas = getCountDates();
   
   <div style=" background:#ececf4; position:relative; height:100vh;" >
     <div style="position:absolute !important; top:0; left:0; z-index:; height:100%; overflow:hidden;">
-      <video src="images/fondoBG.mp4" autoplay="true"  muted="true" loop="true" style="position:relative; top:0%; right:-10%; object-fit:cover; width:100%; height:100%; transform: translate(-10%, 0%);"></video>
+      <video src="images/fondoBG.mp4" autoplay="true"  muted="true" loop="true" style="position:relative; top:0%; right:-10%; object-fit:cover; width:100%; height:100%; transform: translate(-10%, 0%); "></video>
     </div>
   
   <div class="fondo_banner" style="height:100vh !important; background-image: /*url(images/educacion/ban.svg);*/ background-position:cover; background-position: center; ">
