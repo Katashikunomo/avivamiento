@@ -56,7 +56,8 @@
     function eventos_fecha()
     {
         global $mysqli;
-        $query = "SELECT * FROM tb_fechas";
+        $query = "SELECT *,tb_fechas.id as id_ev FROM tb_fechas 
+        LEFT JOIN encargados ON (id_encargado = encargados.id)";
         $result = $mysqli->query($query);
         // return $result->fetch_assoc(); 
         return $result;
