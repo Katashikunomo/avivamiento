@@ -49,6 +49,13 @@
             </li>
 
             <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block" style="border:2px solid #ccc4; width:120% !important;   ">
+            
+            <li class="nav-item ">
+                <a class="nav-link" href="../adminHarvest/admin.php">
+                    <i class="fas fa-user"></i>
+                    <span>Harvest Cristian School</span></a>
+            </li>
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
