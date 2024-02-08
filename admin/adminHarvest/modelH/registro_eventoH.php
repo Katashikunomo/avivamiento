@@ -1,5 +1,5 @@
 <?php
-    include("../../controller/conexion.php");
+    include("../../../controller/conexion.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["selected_date"]) && !empty($_POST["selected_date"])) {
         $selectedDate = $_POST["selected_date"];
