@@ -78,7 +78,7 @@
                                                                 <!-- Las celdas del calendario se generan dinámicamente en el script JavaScript -->
                                                             </tbody>
                                                         </table>
-                                                        <form method="post" action="procesar_fecha.php">
+                                                        <form method="post" action="procesar_fechaH.php">
                                                             <!-- <input type="text" id="selected-date-input" name="selected_date" value="" required h > -->
                                                             <input type="text" id="selected-date-input" name="selected_date" value="" required hidden>
                                                             <!-- <button type="submit" class="btn btn-primary mt-3">Enviar Fecha Seleccionada</button> -->
