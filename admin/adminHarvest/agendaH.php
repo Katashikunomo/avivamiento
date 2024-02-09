@@ -107,6 +107,15 @@
                                                         <?php endfor; ?>
                                                     </select>
                                                 </div>
+                                                <div class="mb-3">
+                                                <label for="sede">Selecciona una sede:</label>
+                                                    <select name="sede" id="sede" style="margin-right: 10px; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+                                                        <option value="">Elegir sede</option>
+                                                        <option value="1">Harvest Interlomas</option>
+                                                        <option value="2">Harvest Anahuac</option>
+                                                    </select>
+                                                </div>
+
                                                 <input type="number" class="form-control" name="id_encargado" id="id_encargado" aria-describedby="emailHelpId" value="<?=$id_user;?>" hidden>
                                                 <input type="file" id="new_img" name="new_img" class="img-fluid img-thumbnail rounded  m-auto" required>
                                                 <?php
@@ -150,6 +159,22 @@
                                                                 <div  class="container-fluid m-auto" style="border-radius: 30px;  max-width: 900px; margin:auto;  heigth: 700px; ">
                                                                 <label class="font-weight-bold text-primary">Descripcion</label>
                                                                 <br>
+                                                                    <p>
+                                                                        <small><b>Sede:</b> <a href="<?= isset( $value['dt_lugar']) ?  $value['dt_lugar'] : 'Sin sede'; ?>" target="_blank">
+                                                                        <?php
+                                                                        if ( $value['dt_lugar'] == 'https://maps.app.goo.gl/ntY5LoFCE8MKQM9T6') {
+                                                                            echo "Sede Interlomas";
+                                                                        }elseif ( $value['dt_lugar'] == "https://maps.app.goo.gl/MArg7V4LZsCbwsDD9") {
+                                                                            echo "Sede Anáhuac";
+                                                                        }else{
+                                                                            echo "Sin registro";
+                                                                        }
+                                                                        
+                                                                        ?>
+                                                                            
+                                                                        </a></small>
+                                                                    </p>
+                                                                        
                                                                     <textarea class="text-center"  cols="auto" rows="4" disabled>
                                                                     <?php echo $value['dt_mensaje'];?>
                                                                     </textarea>

@@ -20,6 +20,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $bandera = true;
         // if ($conn->query($sql) === TRUE) {
         if ($bandera === TRUE) {
+            if(isset($_POST['sede'])) {
+                $sede_seleccionada = $_POST['sede'];
+                if($sede_seleccionada == "1") {
+                    $sede = "https://maps.app.goo.gl/ntY5LoFCE8MKQM9T6";
+                } elseif($sede_seleccionada == "2") {
+                    $sede = "https://maps.app.goo.gl/MArg7V4LZsCbwsDD9";
+                } else {
+                    echo "Por favor, selecciona una sede válida.";
+                }
+            }
             $encargado = $_POST['id_encargado'];
             $estatus = $_POST['activar'];
             // $fecha = $_POST["selected_date"];
@@ -48,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     // Si el fichero es valido se realiza el insert en la base de datos con el nombre de la imagen
                     // global $mysqli;
                     // $bandera = true;
-                        $query = "INSERT INTO tb_eventos_h(fecha,id_encargado,dt_titulo,dt_mensaje,tp_status,nom_imagen,dt_hora) VALUES('$selectedDate','$encargado','$titulo','$mesg','$estatus','$imagen','$horario')";
+                        $query = "INSERT INTO tb_eventos_h(fecha,id_encargado,dt_titulo,dt_mensaje,tp_status,nom_imagen,dt_hora,dt_lugar) VALUES('$selectedDate','$encargado','$titulo','$mesg','$estatus','$imagen','$horario','$sede')";
                         $res = $mysqli->query($query);
                         header("Location:../agendaH.php");
                 } 
