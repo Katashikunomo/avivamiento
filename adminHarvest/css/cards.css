@@ -1,9 +1,0 @@
-  /* Estilos cards Agenda Admin */
-  .hovercards-agenda--admin{
-    transition: all ease-out 500ms;
-  }
-
-  .hovercards-agenda--admin:hover {
-    /* margin-bottom: 105px !important; */
-    box-shadow: 0 0 15px #000 !important;
-  }

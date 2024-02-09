@@ -6,15 +6,15 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <!-- <i class="fas fa-laugh-wink"></i> -->
                 </div>
-                <div class="sidebar-brand-text ml-5" style="margin-left:120px !important">AVIVAMIENTO <sup>panel ADMIN</sup></div>
+                <div class="sidebar-brand-text ml-5" style="margin-left:120px !important"> sm HARVEST CHRISTIAN SCHOOL <sup>panel ADMIN</sup></div>
             </a>
 
             <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+            <hr class="sidebar-divider my-3">
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="admin.php">
+                <a class="nav-link" href="adminH.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -26,35 +26,23 @@
             <div class="sidebar-heading">
                 Navegación
             </div>
-            <li class="nav-item active">
-                <a class="nav-link" href="banner.php">
-                    <i class="fas fa-image"></i>
-                    <span>Imagen Principal</span></a>
-            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
             <li class="nav-item active">
-                <a class="nav-link" href="agenda.php">
+                <a class="nav-link" href="agendaH.php">
                     <i class="fas fa-calendar"></i>
                     <span>Agenda y Eventos</span></a>
             </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-            <li class="nav-item active">
-                <a class="nav-link" href="proposito.php">
-                    <i class="fas fa-user"></i>
-                    <span>Quienes Somos, proposito y visión</span></a>
-            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block" style="border:2px solid #ccc4; width:120% !important;   ">
             
             <li class="nav-item ">
-                <a class="nav-link" href="./adminHarvest/adminH.php">
+                <a class="nav-link" href="../admin.php">
                     <i class="fas fa-user"></i>
-                    <span>Harvest Cristian School</span></a>
+                    <span>Avivamiento Internacional</span></a>
             </li>
             <hr class="sidebar-divider d-none d-md-block">
 
