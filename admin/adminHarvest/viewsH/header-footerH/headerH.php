@@ -1,9 +1,9 @@
 <?php
 session_start();
 if ($_SESSION['dt_email'] == false) {
-    header("location: index.php");
+    header("location: ../index.php");
 }
-include './includes/functions.php';
+include './includesH/functionsH.php';
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +37,7 @@ include './includes/functions.php';
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <?php include 'sidebar.php'; ?>
+        <?php include 'sidebarH.php'; ?>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -46,4 +46,4 @@ include './includes/functions.php';
             <!-- Main Content -->
             <div id="content">
                 <!-- Navbar -->
-                <?php include 'navbar.php'; ?>
+                <?php include 'navbarH.php'; ?>

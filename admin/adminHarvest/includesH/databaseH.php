@@ -57,7 +57,9 @@
     {
         global $mysqli;
         $query = "SELECT *,tb_eventos_h.id as id_ev FROM tb_eventos_h 
-        LEFT JOIN encargados ON (id_encargado = encargados.id)";
+        LEFT JOIN encargados ON (id_encargado = encargados.id) 
+        ORDER BY id_ev DESC
+        ";
         $result = $mysqli->query($query);
         // return $result->fetch_assoc(); 
         return $result;

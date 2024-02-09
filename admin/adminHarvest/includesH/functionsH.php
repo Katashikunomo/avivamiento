@@ -1,5 +1,5 @@
 <?php
-require_once("database.php");
+require_once("databaseH.php");
 // FUNCIONES ADMIN
 $id_user = $_SESSION['id_users'];
 $imagen = imagen_user($id_user);

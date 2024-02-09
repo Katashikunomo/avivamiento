@@ -1,4 +1,4 @@
-<?php include 'views/header-footer/header.php'; ?>   
+<?php include 'viewsH/header-footerH/headerH.php'; ?>   
 <style>
         .selected-date {
             background-color: #007bff;
@@ -39,7 +39,7 @@
                                         </div>
                                     </div>
                                     <div class="card-body">
-                                        <form action="model/registro_evento.php" method="post" enctype="multipart/form-data">
+                                        <form action="modelH/registro_eventoH.php" method="post" enctype="multipart/form-data">
                                             <div class="mb-3">
                                               <!-- <label for="" class="form-label">id</label> -->
                                               <input type="number" class="form-control" name="id" id="id" aria-describedby="emailHelpId" value="<?=$id_user;?>" hidden>
@@ -172,7 +172,7 @@
                                                                         <label class="form-check-label" for="">
                                                                         Inactivo
                                                                         </label>
-                                                                        <form action="model/activar_evento.php" method="POST">
+                                                                        <form action="modelH/activar_eventoH.php" method="POST">
                                                                         <input type="number" class="form-control" name="id" id="id" aria-describedby="emailHelpId" value="<?=$value['id_ev'];?>" hidden>
                                                                             <div class="mb-3">
                                                                                 <label for="" class="form-label">Activar</label>
@@ -188,7 +188,7 @@
                                                                 </div>
                                                             <!-- Eliminar evento -->
                                                             <div class="container mt-4">
-                                                                <form action="model/eliminar_evento.php" method="POST" enctype="multipart/form-data">
+                                                                <form action="modelH/eliminar_eventoH.php" method="POST" enctype="multipart/form-data">
                                                                     <input type="number" class="form-control" name="id" id="id" aria-describedby="emailHelpId" value="<?=$value['id_ev'];?>" hidden>
                                                                     <?php if ($value['tp_status'] == 1) {
                                                                         ?>
@@ -227,4 +227,4 @@
                 </div>
                 <!-- /.container-fluid -->
 
-                <?php include 'views/header-footer/footer.php';
+                <?php include 'viewsH/header-footerH/footerH.php';

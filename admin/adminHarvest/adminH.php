@@ -1,4 +1,4 @@
-<?php include 'views/header-footer/header.php'; ?>   
+<?php include 'viewsH/header-footerH/headerH.php'; ?>   
                      
 <!-- Begin Page Content -->
 <div class="container-fluid">
@@ -49,4 +49,4 @@
 </div>
 <!-- End of Main Content -->
 
-<?php include 'views/header-footer/footer.php'; ?>
+<?php include 'viewsH/header-footerH/footerH.php'; ?>
