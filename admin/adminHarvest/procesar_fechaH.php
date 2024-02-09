@@ -1,5 +1,5 @@
 <?php
-require '../../controller/conexion.php';
+require '../controller/conexions.php';
 global $mysqli;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             die("Error de conexión: " . $mysqli->connect_error);
         }
 
-        $sql = "INSERT INTO tb_fechas (fecha) VALUES ('$selectedDate')";
+        $sql = "INSERT INTO tb_eventos_h (fecha) VALUES ('$selectedDate')";
 
         if ($mysqli->query($sql) === TRUE) {
             echo "Fecha seleccionada almacenada correctamente.";

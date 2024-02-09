@@ -23,7 +23,7 @@ $imagen_usr = $imagen_banner_array['imagen'];
 
 // FUNCIONES AGENDA
 
-// require '../controller/conexion.php';
+// Obtener las fechas y mostrarlas en el calendario avivamiento
 global $mysqli;
 $sql = "SELECT fecha FROM tb_fechas";
 $result = $mysqli->query($sql);
@@ -36,31 +36,16 @@ if ($result->num_rows > 0) {
     }
 }
 
+// Obtener las fechas y mostrarlas en el calendario harvest
 
-// require '../controller/conexion.php';
-// global $mysqli;
-// $sql2 = "SELECT fecha FROM tb_eventos_h";
-// $result = $mysqli->query($sql2);
+$sql = "SELECT fecha FROM tb_eventos_h";
+$result = $mysqli->query($sql);
 
-// $selectedDates2 = array();
+$selectedDates_Harvest = array();
 
-// if ($result->num_rows > 0) {
-//     while ($row = $result->fetch_assoc()) {
-//         $selectedDates2[] = $row["fecha"];
-//     }
-// }
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $selectedDates_Harvest[] = $row["fecha"];
+    }
+}
 
-    // FUNCIONES AGENDA HARVES
-    // require '../controller/conexion.php';
-// global $mysqli;
-// $sql = "SELECT fecha FROM tb_eventos_h";
-// $result = $mysqli->query($sql);
-
-// $selectedDates = array();
-
-// if ($result->num_rows > 0) {
-//     while ($row = $result->fetch_assoc()) {
-//         $selectedDates[] = $row["fecha"];
-//     }
-// }
-// }

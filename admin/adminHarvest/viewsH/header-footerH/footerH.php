@@ -68,9 +68,10 @@
         $('#dataTable').DataTable();
     });
 </script>
+
 <script>
     $(document).ready(function() {
-        var selectedDates = <?php echo json_encode($selectedDates); ?>;
+        var selectedDates_h = <?php echo json_encode($selectedDates_Harvest); ?>;
         var currentDate = new Date();
 
         updateCalendar(currentDate);
@@ -102,7 +103,7 @@
                 }
 
                 var cellDate = currentDay.toISOString().slice(0, 10);
-                var cellClass = selectedDates.includes(cellDate) ? "selected-date" : "";
+                var cellClass = selectedDates_h.includes(cellDate) ? "selected-date" : "";
 
                 var cell = $("<td>")
                     .addClass(cellClass)
