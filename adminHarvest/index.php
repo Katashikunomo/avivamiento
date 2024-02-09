@@ -75,7 +75,7 @@
         //    $mail->send();
 
         //    header("Refresh:2; URL:admin.php");
-           header("location:admin.php");
+           header("location:adminH.php");
         }else {
             header('location: index.php?error=empty-password-invalid');
         }
@@ -93,7 +93,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>LOGIN - AVIVAMIENTO</title>
+    <title>LOGIN - Harvest</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
