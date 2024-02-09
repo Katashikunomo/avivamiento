@@ -1,5 +1,8 @@
 <?php
-    require_once('../controller/conexion.php');
+include '../controller/conexion.php';
+// $absolute_path = __DIR__ . "../controller/conexion.php";
+// include $absolute_path;
+    
 
     function get_user_acces($email){
         global $mysqli;
@@ -63,6 +66,19 @@
         return $result;
     }
     // ----------------- CALENDARIO Y CARDS
+
+    // base harvest
+    function eventos_fecha_harvest()
+    {
+        global $mysqli;
+        $query = "SELECT *,tb_eventos_h.id as id_ev FROM tb_eventos_h 
+        LEFT JOIN encargados ON (id_encargado = encargados.id) 
+        ORDER BY id_ev DESC
+        ";
+        $result = $mysqli->query($query);
+        // return $result->fetch_assoc(); 
+        return $result;
+    }
 
     function getDataCalendar()
     {

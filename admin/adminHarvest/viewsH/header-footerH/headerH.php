@@ -3,7 +3,8 @@ session_start();
 if ($_SESSION['dt_email'] == false) {
     header("location: ../index.php");
 }
-include './includesH/functionsH.php';
+// include './includesH/functionsH.php';
+include '../includes/functions.php';
 ?>
 
 <!DOCTYPE html>
