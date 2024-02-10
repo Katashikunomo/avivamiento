@@ -1,5 +1,5 @@
 <?php
-    require_once('../../controller/conexion.php');
+    require_once('../../../controller/conexion.php');
 
     if ($_POST) {
         $activa = $_POST['activar'];
