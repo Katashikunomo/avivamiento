@@ -91,7 +91,16 @@ $array_fechas = getCountDates();
       margin-top:-30px;
     }
 
-  </style>
+    </style>
+    <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GLH9NJ7QJ3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GLH9NJ7QJ3');
+  </script>
 </head>
 
 <body>
