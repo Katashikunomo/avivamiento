@@ -11,6 +11,7 @@ $user = get_user($id_user);
 $nombre = $user['dt_nombre'];
 $correo = $user['dt_email'];
 $registros = obtener_correos();
+$registrosHarvest = obtener_correos_Harvest();
 ////////////////////////////////
 
 // FUNCIONES BANNER
