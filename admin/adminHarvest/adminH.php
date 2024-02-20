@@ -77,7 +77,12 @@
                                                     </div>
                                                     
                                                 </div>
-                                                <?php }?>
+                                                <?php }else{ ?>
+                                                    <div class="mb-3">
+                                                        <label for="" class="form-label">Mensaje</label>
+                                                        <textarea class="form-control" name="" id="" rows="4" cols="4"><?php echo$res['dt_mensaje']; ?></textarea>
+                                                    </div>
+                                                <?php } ?>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
