@@ -114,7 +114,7 @@ include '../controller/conexion.php';
     function obtener_correos_Harvest(){
         global $mysqli;
 
-        $sql ="SELECT * FROM registro_correos_h ORDER BY id ASC ";
+        $sql ="SELECT * FROM registro_correos_h ORDER BY id DESC ";
         $result = $mysqli->query($sql);
         return $result;
     }
