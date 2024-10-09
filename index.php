@@ -172,11 +172,11 @@ $array_fechas = getCountDates();
   </div>
   
   <div style=" background:#ececf4; position:relative; height:100vh;" >
-    <div style="position:absolute !important; top:0; left:0; z-index:; height:100%; overflow:hidden;">
+    <div style="position:absolute !important; top:0; left:0; height:100%; overflow:hidden;">
       <video src="images/fondoBG.mp4" autoplay="true"  muted="true" loop="true" style="position:relative; top:0%; right:-10%; object-fit:cover; width:100%; height:100%; transform: translate(-10%, 0%); "></video>
     </div>
   
-  <div class="fondo_banner" style="height:100vh !important; background-image: /*url(images/educacion/ban.svg);*/ background-position:cover; background-position: center; ">
+  <div class="fondo_banner" style="height:100vh !important; background-position:cover; background-position: center; ">
   
   <div class="row container fondo centrar pt-5" style="padding-top: 120px !important; z-index:100 !important;">
         <!--Card que contiene la Imagen y Frase-->

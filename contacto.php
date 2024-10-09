@@ -259,7 +259,7 @@ Your message was sent, thank you!
 <span class="fa fa-paper-plane"></span>
 </div>
 <div class="text pl-3">
-<p><span>Email:</span> <a href="mailto:info@avivamientointernacional.website"><span >info@avivamientointernacional.website</span></a></p>
+<p><span>Email:</span> <a style="font-size: 12px;" href="mailto:info@avivamientointernacional.website"><span >info@avivamientointernacional.website</span></a></p>
 </div>
 </div>
 <div class="dbox w-100 d-flex align-items-center">
